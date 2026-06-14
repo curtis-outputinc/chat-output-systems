@@ -43,9 +43,10 @@ export default function SiteFooter() {
             />
           </Link>
           <p
+            className="text-white"
             style={{
               fontSize: '15px',
-              color: 'rgba(255,255,255,0.4)',
+              opacity: 0.75,
               lineHeight: 1.75,
               marginTop: '16px',
               maxWidth: '300px',
@@ -71,7 +72,7 @@ export default function SiteFooter() {
         <div>
           <h4
             style={{
-              fontSize: '10px',
+              fontSize: '13px',
               fontWeight: 700,
               letterSpacing: '3px',
               textTransform: 'uppercase',
@@ -89,10 +90,10 @@ export default function SiteFooter() {
               <li key={href}>
                 <Link
                   href={href}
+                  className="text-white transition-opacity duration-200"
                   style={{
-                    fontSize: '14px',
-                    color: 'rgba(255,255,255,0.5)',
-                    transition: 'color 0.2s',
+                    fontSize: '16px',
+                    opacity: 0.8,
                   }}
                 >
                   {label}
@@ -106,7 +107,7 @@ export default function SiteFooter() {
         <div>
           <h4
             style={{
-              fontSize: '10px',
+              fontSize: '13px',
               fontWeight: 700,
               letterSpacing: '3px',
               textTransform: 'uppercase',
@@ -123,9 +124,10 @@ export default function SiteFooter() {
             <li>
               <Link
                 href="/privacy-policy"
+                className="text-white"
                 style={{
-                  fontSize: '14px',
-                  color: 'rgba(255,255,255,0.5)',
+                  fontSize: '16px',
+                  opacity: 0.8,
                 }}
               >
                 Privacy Policy
@@ -135,7 +137,7 @@ export default function SiteFooter() {
 
           <h4
             style={{
-              fontSize: '10px',
+              fontSize: '13px',
               fontWeight: 700,
               letterSpacing: '3px',
               textTransform: 'uppercase',
@@ -152,9 +154,10 @@ export default function SiteFooter() {
             <li>
               <a
                 href="mailto:connect@output.systems"
+                className="text-white"
                 style={{
-                  fontSize: '14px',
-                  color: 'rgba(255,255,255,0.5)',
+                  fontSize: '16px',
+                  opacity: 0.8,
                 }}
               >
                 connect@output.systems
@@ -163,18 +166,20 @@ export default function SiteFooter() {
             <li>
               <a
                 href="tel:6476223799"
+                className="text-white"
                 style={{
-                  fontSize: '14px',
-                  color: 'rgba(255,255,255,0.5)',
+                  fontSize: '16px',
+                  opacity: 0.8,
                 }}
               >
                 647 622 3799
               </a>
             </li>
             <li
+              className="text-white"
               style={{
-                color: 'rgba(255,255,255,0.4)',
-                fontSize: '13px',
+                opacity: 0.75,
+                fontSize: '15px',
                 lineHeight: 1.5,
               }}
             >
@@ -193,11 +198,17 @@ export default function SiteFooter() {
           paddingTop: '28px',
         }}
       >
-        <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.25)' }}>
+        <p
+          className="text-white"
+          style={{ fontSize: '15px', opacity: 0.75, lineHeight: 1.6 }}
+        >
           © {year} Output Systems / Output Inc. All rights reserved. Toronto,
           Ontario, Canada.
         </p>
-        <p style={{ color: 'rgba(255,255,255,0.15)', fontSize: '12px' }}>
+        <p
+          className="text-white"
+          style={{ fontSize: '13px', opacity: 0.5 }}
+        >
           chat.output.systems
         </p>
       </div>

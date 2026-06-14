@@ -1,659 +1,448 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import StickyBookButton from './components/StickyBookButton';
+import FadeIn from './components/FadeIn';
+import AnimatedBarGraph from './components/AnimatedBarGraph';
+import AnimatedDashboard from './components/AnimatedDashboard';
+import IntegrationsMarquee from './components/IntegrationsMarquee';
+import AnimatedStatCounter from './components/AnimatedStatCounter';
 import AnimatedNodesBackground from './components/AnimatedNodesBackground';
-
-const TEAL = '#07e4c6';
 
 export const metadata: Metadata = {
   title: 'Intelligent Website Chat Systems — Output Systems',
   description:
-    'AI-powered intelligent chat systems that answer your customers and feed your business valuable data insights.',
+    'Output Systems builds Intelligent Chat Systems for customer-facing websites, internal staff knowledge bases, and lead capture.',
 };
 
-const PILLARS = [
-  {
-    icon: '↑',
-    title: 'Increase Your',
-    accent: 'Profits',
-    body:
-      'Customers convert when their needs are met quickly. Understanding what your visitors are asking is the ultimate data for increasing profits.',
-  },
-  {
-    icon: '↓',
-    title: 'Decrease Your',
-    accent: 'Costs',
-    body:
-      'No training, no turnover, 24/7 support, no staff overhead. Support your clients while collecting data on how to better serve them.',
-  },
-  {
-    icon: '✓',
-    title: 'Efficiently',
-    accent: 'Save Time',
-    body:
-      'Every hour your team spends answering the same questions is an hour they cannot spend closing new business.',
-  },
-];
+const TEAL = '#07e4c6';
 
-const FEATURES = [
-  'Captures leads automatically',
-  'Qualifies prospects instantly',
-  'Alerts your team in real time',
-  'Answers customers around the clock',
-  'Books appointments without staff',
-  'Trains on your business content',
-  'Updates knowledge base monthly',
-  'Delivers monthly performance insights',
-  'Scales without adding headcount',
-  'Fully managed from day one',
-];
+function SectionHeading({ children }: { children: ReactNode }) {
+  return (
+    <h2
+      className="font-extrabold tracking-tight leading-[1.08] mb-10 mx-auto"
+      style={{
+        fontSize: 'clamp(36px, 5vw, 64px)',
+        letterSpacing: '-1.8px',
+        maxWidth: '900px',
+      }}
+    >
+      {children}
+    </h2>
+  );
+}
 
 const PROCESS_STEPS = [
   {
     num: '01',
-    label: 'Step One',
-    title: 'Free Discovery Call',
+    title: 'Discovery Call',
     body:
-      'We learn about your business and identify the right system for your situation.',
+      'A free discovery call to learn about your business and identify which Intelligent Chat System is the right fit.',
   },
   {
     num: '02',
-    label: 'Step Two',
-    title: 'Design and Demo',
+    title: 'Design & Demo',
     body:
-      'We build a working demo trained on your actual services, policies, and brand.',
+      'We design every part of your chat system and walk you through a working demo trained on your actual services and brand.',
   },
   {
     num: '03',
-    label: 'Step Three',
-    title: 'Deployment and Launch',
+    title: 'Test & Deploy',
     body:
-      'We run full testing and deploy the system to your website within 2 to 4 weeks.',
+      'We validate the system against real customer questions, then deploy with a lightweight embed code. No website rebuild.',
   },
   {
     num: '04',
-    label: 'Step Four',
-    title: 'Monthly Management',
+    title: 'Manage & Support',
     body:
-      'We review, update, and report every month. You never manage any of it yourself.',
+      'We monitor, update, and improve your system every month so it evolves as your business does.',
   },
 ];
 
-const SYSTEMS = [
+const OUTCOMES = [
   {
-    href: '/intelligent-chat-systems/standard',
-    label: 'Standard',
-    title: 'Standard Intelligent Website Chat System',
+    title: 'Increased Profit',
     body:
-      'Answers questions, captures leads, and guides visitors 24/7. Starting at $2,399 setup.',
+      'More leads captured around the clock. Faster follow-up. Fewer opportunities slipping through the cracks. Every system is designed to recover revenue that is quietly walking away after hours.',
   },
   {
-    href: '/intelligent-chat-systems/service',
-    label: 'Service Business',
-    title: 'Customer Chat System for Service Businesses',
+    title: 'Decreased Expenses',
     body:
-      'Qualifies leads, books appointments, and alerts your team when a serious prospect arrives.',
+      'Less time spent on repetitive customer questions, manual intake, and after-hours coverage. Less spend on staff to handle work the system handles by default.',
   },
   {
-    href: '/intelligent-chat-systems/retail',
-    label: 'Retail and E-Commerce',
-    title: 'Customer Chat System for Retail and E-Commerce',
+    title: 'Higher Efficiency',
     body:
-      'Product help, order questions, cart recovery, and return data all automated.',
-  },
-  {
-    href: '/intelligent-chat-systems/internal',
-    label: 'Internal',
-    title: 'Internal Chat System for Your Team',
-    body:
-      'Instant access to SOPs, policies, and company knowledge for every team member.',
+      'Your team gets time back. Work that requires human judgment gets human attention. Routine customer conversations run on their own, around the clock.',
   },
 ];
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <AnimatedNodesBackground />
+
       <SiteNav active="/" />
 
-      {/* HERO */}
-      <section
-        style={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '120px 24px 80px',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background:
-              'radial-gradient(ellipse at 15% 60%, rgba(7,228,198,0.06) 0%, transparent 55%)',
-            pointerEvents: 'none',
-          }}
-        />
-        <div className="max-w-6xl mx-auto w-full" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ maxWidth: '820px' }}>
+      <main className="text-white pb-40" style={{ position: 'relative', zIndex: 1 }}>
+        {/* HERO */}
+        <section
+          className="px-6 sm:px-10 text-center flex flex-col items-center justify-center"
+          style={{ minHeight: '100vh', paddingTop: '96px', paddingBottom: '40px' }}
+        >
+          <FadeIn>
             <h1
+              className="font-black tracking-tight leading-[1.04] mx-auto mb-8"
               style={{
-                fontSize: 'clamp(44px, 6.5vw, 80px)',
-                fontWeight: 900,
-                lineHeight: 1.04,
-                letterSpacing: '-2.5px',
-                color: '#fff',
-                marginBottom: '28px',
-                maxWidth: '820px',
+                fontSize: 'clamp(43px, 6.7vw, 86px)',
+                letterSpacing: '-3px',
+                maxWidth: '1100px',
               }}
             >
-              Intelligent Website Chat that's way more than{' '}
-              <em style={{ fontStyle: 'normal', color: TEAL }}>
-                just answering questions.
-              </em>
+              Intelligent Website Chat that&apos;s way more than{' '}
+              <span style={{ color: TEAL }}>just answering questions.</span>
             </h1>
             <p
+              className="mx-auto"
               style={{
-                fontSize: '20px',
-                color: 'rgba(255,255,255,0.8)',
-                maxWidth: '680px',
-                lineHeight: 1.8,
-                marginBottom: '36px',
+                fontSize: '25px',
+                lineHeight: 1.7,
+                maxWidth: '900px',
+                color: '#ffffff',
+                opacity: 0.92,
+                textWrap: 'balance',
               }}
             >
-              Welcome to your intelligent chat system that not only interacts with
-              your customers but also feeds your business the valuable data
-              insights from customer interactions online.
+              An intelligent chat system that not only interacts with your
+              customers, but also feeds your business the valuable data behind
+              every conversation.
             </p>
-            <div className="os-dfy-badge">
-              <span>100% Done For You Design, Setup, and Monthly Management Included</span>
-            </div>
-          </div>
-        </div>
-      </section>
+          </FadeIn>
+        </section>
 
-      <div className="os-rule" />
-
-      {/* STAT BAND */}
-      <section style={{ padding: '72px 24px', textAlign: 'center', position: 'relative' }}>
-        <p
+        <div
           style={{
-            fontSize: '13px',
-            fontWeight: 700,
-            letterSpacing: '3px',
-            textTransform: 'uppercase',
-            color: TEAL,
-            marginBottom: '32px',
+            height: '1px',
+            background:
+              'linear-gradient(90deg, rgba(7,228,198,0.6) 0%, transparent 70%)',
+          }}
+        />
+
+        {/* STAT COUNTER 1 */}
+        <section
+          className="px-6 sm:px-10 py-40"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+            borderBottom: '1px solid rgba(7,228,198,0.1)',
           }}
         >
-          Why Intelligent Website Chat
-        </p>
-        <div
-          className="grid gap-[2px] max-w-5xl mx-auto"
-          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}
-        >
-          {[
-            { stat: '78%', body: 'of online consumers convert with the business that responds first' },
-            { stat: '67%', body: 'of e-commerce browsing and conversions happen outside business hours' },
-            { stat: '24/7', body: 'your customers are online around the clock. Your support should be too' },
-          ].map(({ stat, body }) => (
-            <div
-              key={stat}
-              style={{
-                background: '#0a0a0a',
-                border: '1px solid rgba(7,228,198,0.08)',
-                padding: '48px 32px',
-                textAlign: 'center',
-              }}
-            >
-              <div
+          <FadeIn>
+            <AnimatedStatCounter
+              headline="of online consumers convert with the business that responds first."
+              citation="(Dashly, 2025)"
+            />
+          </FadeIn>
+        </section>
+
+        {/* BAR GRAPH SECTION */}
+        <section className="px-6 sm:px-10 py-36">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1fr] gap-16 items-center">
+            <FadeIn>
+              <SectionHeading>
+                Built for <span style={{ color: TEAL }}>more</span>{' '}
+                <span style={{ color: TEAL }}>output.</span>
+              </SectionHeading>
+              <p
                 style={{
-                  fontSize: '64px',
-                  fontWeight: 900,
-                  color: TEAL,
-                  letterSpacing: '-3px',
-                  lineHeight: 1,
-                  marginBottom: '12px',
+                  fontSize: '19px',
+                  lineHeight: 1.8,
+                  color: '#ffffff',
+                  opacity: 0.95,
                 }}
               >
-                {stat}
-              </div>
-              <div style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
-                {body}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* INTEGRATION STRIP */}
-      <section
-        style={{
-          padding: '40px 0',
-          background: '#050505',
-          borderTop: '1px solid rgba(7,228,198,0.06)',
-          borderBottom: '1px solid rgba(7,228,198,0.06)',
-          overflow: 'hidden',
-        }}
-      >
-        <p
-          style={{
-            textAlign: 'center',
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '3px',
-            textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.35)',
-            marginBottom: '28px',
-          }}
-        >
-          Systems Designed to Integrate with Yours
-        </p>
-        <div className="text-center" style={{ color: 'rgba(255,255,255,0.35)', fontSize: '14px' }}>
-          Microsoft · Google · HubSpot · Slack · Stripe · Notion · Claude AI · Calendly
-        </div>
-      </section>
-
-      {/* THREE PILLARS */}
-      <section style={{ padding: '88px 24px', background: '#0d1f1a' }}>
-        <p
-          style={{
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '3px',
-            textTransform: 'uppercase',
-            color: TEAL,
-            marginBottom: '48px',
-            textAlign: 'center',
-          }}
-        >
-          What Every System Delivers
-        </p>
-        <div
-          className="grid gap-[2px] max-w-6xl mx-auto"
-          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}
-        >
-          {PILLARS.map(({ icon, title, accent, body }) => (
-            <div
-              key={accent}
-              style={{
-                background: '#000',
-                border: '1px solid rgba(7,228,198,0.1)',
-                padding: '48px 36px',
-              }}
-            >
-              <div style={{ fontSize: '40px', marginBottom: '20px' }}>{icon}</div>
-              <div
-                style={{
-                  fontSize: '20px',
-                  fontWeight: 900,
-                  color: '#fff',
-                  marginBottom: '12px',
-                }}
-              >
-                {title} <span style={{ color: TEAL }}>{accent}</span>
-              </div>
-              <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>
-                {body}
+                Every Intelligent Chat System we build is designed to produce
+                more captured leads, more conversions, more answered questions,
+                more reduced expenses, and more time back for your team.
               </p>
-            </div>
-          ))}
-        </div>
-      </section>
+            </FadeIn>
 
-      {/* FEATURE LIST */}
-      <section style={{ padding: '88px 24px', position: 'relative' }}>
-        <div
-          className="grid gap-12 max-w-6xl mx-auto items-center"
-          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}
-        >
-          <div>
-            <p
-              style={{
-                fontSize: '11px',
-                fontWeight: 700,
-                letterSpacing: '3px',
-                textTransform: 'uppercase',
-                color: TEAL,
-                marginBottom: '16px',
-              }}
-            >
-              What Our Systems Do
-            </p>
-            <h2
-              style={{
-                fontSize: 'clamp(32px, 4vw, 56px)',
-                fontWeight: 900,
-                letterSpacing: '-1.5px',
-                lineHeight: 1.05,
-                marginBottom: '32px',
-              }}
-            >
-              Intelligent Website Chat Systems designed to engage your website
-              visitors without scaling your team or expenses.
-            </h2>
+            <FadeIn delay={160}>
+              <div
+                style={{
+                  background: '#0a0f0d',
+                  border: '1px solid rgba(7,228,198,0.18)',
+                  borderRadius: '8px',
+                  padding: '24px',
+                }}
+              >
+                <AnimatedBarGraph />
+              </div>
+            </FadeIn>
           </div>
-          <ul className="list-none flex flex-col" style={{ gap: '14px', padding: 0, margin: 0 }}>
-            {FEATURES.map((f) => (
-              <li
-                key={f}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '14px',
-                  fontSize: '18px',
-                  color: 'rgba(255,255,255,0.8)',
-                }}
-              >
-                <span style={{ color: TEAL, fontWeight: 700 }}>✓</span> {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+        </section>
 
-      {/* 4-STEP PROCESS PREVIEW */}
-      <section style={{ padding: '88px 24px', background: '#0d1f1a' }}>
-        <p
+        {/* DASHBOARD SECTION */}
+        <section
+          className="px-6 sm:px-10 py-36"
           style={{
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '3px',
-            textTransform: 'uppercase',
-            color: TEAL,
-            marginBottom: '16px',
-            textAlign: 'center',
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+            borderBottom: '1px solid rgba(7,228,198,0.1)',
           }}
         >
-          How It Works
-        </p>
-        <h2
-          style={{
-            fontSize: 'clamp(32px, 4vw, 56px)',
-            fontWeight: 900,
-            letterSpacing: '-1.5px',
-            lineHeight: 1.05,
-            textAlign: 'center',
-            marginBottom: '60px',
-          }}
-        >
-          4 Steps to a <span style={{ color: TEAL }}>Fully Running System</span>
-        </h2>
-        <div
-          className="grid gap-[2px] max-w-6xl mx-auto"
-          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}
-        >
-          {PROCESS_STEPS.map(({ num, label, title, body }) => (
-            <div
-              key={num}
-              style={{
-                background: '#000',
-                border: '1px solid rgba(7,228,198,0.08)',
-                padding: '40px 32px',
-              }}
-            >
+          <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1fr] gap-16 items-center">
+            <FadeIn>
               <div
                 style={{
-                  fontSize: '64px',
-                  fontWeight: 900,
-                  color: 'rgba(7,228,198,0.18)',
-                  lineHeight: 1,
-                  letterSpacing: '-3px',
-                  marginBottom: '20px',
+                  background: '#0a0f0d',
+                  border: '1px solid rgba(7,228,198,0.18)',
+                  borderRadius: '8px',
+                  padding: '24px',
                 }}
               >
-                {num}
+                <AnimatedDashboard />
               </div>
-              <div
+            </FadeIn>
+
+            <FadeIn delay={160}>
+              <SectionHeading>
+                Customized{' '}
+                <span style={{ color: TEAL }}>insight dashboards.</span>
+              </SectionHeading>
+              <p
                 style={{
-                  fontSize: '11px',
-                  fontWeight: 700,
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  color: TEAL,
-                  marginBottom: '10px',
+                  fontSize: '19px',
+                  lineHeight: 1.8,
+                  color: '#ffffff',
+                  opacity: 0.95,
                 }}
               >
-                {label}
-              </div>
-              <div style={{ fontSize: '19px', fontWeight: 800, marginBottom: '12px' }}>
-                {title}
-              </div>
-              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>
-                {body}
+                Every conversation produces data, and that data gets surfaced
+                back to your business in a clear dashboard. See what your
+                customers are asking, where they drop off, and what to improve
+                next.
               </p>
-            </div>
-          ))}
-        </div>
-        <div className="text-center" style={{ marginTop: '48px' }}>
-          <Link
-            href="/process"
-            style={{
-              display: 'inline-block',
-              fontSize: '13px',
-              fontWeight: 700,
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              color: TEAL,
-              border: '1px solid rgba(7,228,198,0.3)',
-              padding: '14px 32px',
-            }}
-          >
-            See the Full Process →
-          </Link>
-        </div>
-      </section>
+            </FadeIn>
+          </div>
+        </section>
 
-      {/* SYSTEMS GRID */}
-      <section style={{ padding: '88px 24px', position: 'relative' }}>
-        <div className="max-w-6xl mx-auto">
-          <p
-            style={{
-              fontSize: '11px',
-              fontWeight: 700,
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              color: TEAL,
-              marginBottom: '16px',
-            }}
-          >
-            What We Build
-          </p>
-          <h2
-            style={{
-              fontSize: 'clamp(32px, 4vw, 56px)',
-              fontWeight: 900,
-              letterSpacing: '-1.5px',
-              lineHeight: 1.05,
-              marginBottom: '60px',
-            }}
-          >
-            Find the Right System
-            <br />
-            <span style={{ color: TEAL }}>for Your Business</span>
-          </h2>
-          <div
-            className="grid gap-[2px]"
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}
-          >
-            {SYSTEMS.map(({ href, label, title, body }) => (
-              <Link
-                key={href}
-                href={href}
-                style={{
-                  background: '#0a0a0a',
-                  border: '1px solid rgba(7,228,198,0.08)',
-                  padding: '48px 40px',
-                  display: 'block',
-                  transition: 'border-color 0.2s',
-                }}
-              >
-                <div
+        {/* 4-STEP PROCESS */}
+        <section className="px-6 sm:px-10 py-36">
+          <div className="max-w-6xl mx-auto">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <SectionHeading>
+                  4 easy steps to a{' '}
+                  <span style={{ color: TEAL }}>fully running system.</span>
+                </SectionHeading>
+              </div>
+            </FadeIn>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {PROCESS_STEPS.map((step, i) => (
+                <FadeIn key={step.num} delay={100 + i * 90}>
+                  <div
+                    className="h-full text-left"
+                    style={{
+                      background: '#0a0f0d',
+                      border: '1px solid rgba(7,228,198,0.22)',
+                      borderRadius: '8px',
+                      padding: '36px 28px',
+                      position: 'relative',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: '2px',
+                        background: TEAL,
+                      }}
+                    />
+                    <div
+                      className="font-black mb-4"
+                      style={{
+                        fontSize: '40px',
+                        letterSpacing: '-1.5px',
+                        color: TEAL,
+                        lineHeight: 1,
+                      }}
+                    >
+                      {step.num}
+                    </div>
+                    <h3
+                      className="font-extrabold mb-3 tracking-tight"
+                      style={{
+                        fontSize: '22px',
+                        letterSpacing: '-0.6px',
+                        color: '#ffffff',
+                      }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '16px',
+                        lineHeight: 1.7,
+                        color: '#ffffff',
+                        opacity: 0.88,
+                      }}
+                    >
+                      {step.body}
+                    </p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+
+            <FadeIn delay={500}>
+              <div className="text-center mt-12">
+                <a
+                  href="/process"
+                  className="inline-block font-semibold"
                   style={{
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    letterSpacing: '2px',
-                    textTransform: 'uppercase',
                     color: TEAL,
-                    marginBottom: '12px',
+                    fontSize: '17px',
+                    borderBottom: `1px solid ${TEAL}`,
+                    paddingBottom: '2px',
+                    textDecoration: 'none',
                   }}
                 >
-                  {label}
-                </div>
-                <div
-                  style={{
-                    fontSize: '22px',
-                    fontWeight: 900,
-                    color: '#fff',
-                    marginBottom: '12px',
-                    letterSpacing: '-0.5px',
-                  }}
-                >
-                  {title}
-                </div>
-                <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>
-                  {body}
-                </p>
-                <div
-                  style={{
-                    marginTop: '20px',
-                    fontSize: '13px',
-                    fontWeight: 700,
-                    letterSpacing: '1.5px',
-                    textTransform: 'uppercase',
-                    color: TEAL,
-                  }}
-                >
-                  Learn More →
-                </div>
-              </Link>
-            ))}
+                  See the full process →
+                </a>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* STAT COUNTER 2 */}
+        <section
+          className="px-6 sm:px-10 py-40"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+            borderBottom: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <FadeIn>
+            <AnimatedStatCounter
+              startValue={0.1}
+              target={3.0}
+              decimals={1}
+              suffix="x"
+              durationMs={2640}
+              preHeadline="Businesses using AI chat systems see"
+              headline="better conversion into sales than businesses using traditional website forms."
+              citation="(Dashly, 2025)"
+            />
+          </FadeIn>
+        </section>
+
+        {/* OUTCOMES */}
+        <section
+          className="px-6 sm:px-10 py-36"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-10 lg:gap-14">
+              {OUTCOMES.map((card, i) => (
+                <FadeIn key={card.title} delay={120 + i * 100}>
+                  <div
+                    className="h-full text-center flex flex-col items-center justify-center"
+                    style={{
+                      background: '#000',
+                      border: '1px solid rgba(7,228,198,0.22)',
+                      borderRadius: '6px',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      paddingLeft: '28px',
+                      paddingRight: '28px',
+                      paddingTop: '64px',
+                      paddingBottom: '72px',
+                    }}
+                  >
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: '3px',
+                        background: TEAL,
+                      }}
+                    />
+                    <h3
+                      className="font-extrabold tracking-tight leading-[1.05] mb-8"
+                      style={{
+                        fontSize: 'clamp(32px, 3.6vw, 46px)',
+                        letterSpacing: '-1.4px',
+                        color: '#ffffff',
+                      }}
+                    >
+                      {card.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '19px',
+                        lineHeight: 1.75,
+                        color: '#ffffff',
+                        opacity: 0.92,
+                      }}
+                    >
+                      {card.body}
+                    </p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* INTEGRATIONS */}
+        <section className="px-0 py-32">
+          <div className="px-6 sm:px-10 text-center mb-12">
+            <FadeIn>
+              <SectionHeading>
+                <span style={{ color: TEAL }}>Seamlessly integrates</span> with
+                all your favorite apps.
+              </SectionHeading>
+            </FadeIn>
           </div>
 
-          <div className="text-center" style={{ marginTop: '32px' }}>
-            <Link
-              href="/intelligent-chat-systems/custom"
-              style={{
-                display: 'inline-block',
-                background: '#0d1f1a',
-                border: '1px solid rgba(7,228,198,0.2)',
-                padding: '48px 40px',
-                width: '100%',
-                maxWidth: '600px',
-                textAlign: 'left',
-                transition: 'border-color 0.2s',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: '11px',
-                  fontWeight: 700,
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  color: TEAL,
-                  marginBottom: '12px',
-                }}
-              >
-                Fully Custom
-              </div>
-              <div
-                style={{
-                  fontSize: '22px',
-                  fontWeight: 900,
-                  color: '#fff',
-                  marginBottom: '12px',
-                  letterSpacing: '-0.5px',
-                }}
-              >
-                Custom Chat System Built for Your Organization
-              </div>
-              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>
-                If your requirements go beyond a standard package, we build it from
-                scratch around your exact needs.
-              </p>
-              <div
-                style={{
-                  marginTop: '20px',
-                  fontSize: '13px',
-                  fontWeight: 700,
-                  letterSpacing: '1.5px',
-                  textTransform: 'uppercase',
-                  color: TEAL,
-                }}
-              >
-                Learn More →
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
+          <FadeIn delay={120}>
+            <IntegrationsMarquee />
+          </FadeIn>
+        </section>
 
-      {/* BOTTOM CTA */}
-      <section style={{ padding: '88px 24px', background: '#0d1f1a', textAlign: 'center' }}>
-        <p
+        {/* CLOSING CTA */}
+        <section
+          className="px-6 sm:px-10 py-32 text-center"
           style={{
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '3px',
-            textTransform: 'uppercase',
-            color: TEAL,
-            marginBottom: '24px',
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
           }}
         >
-          Ready to Start
-        </p>
-        <h2
-          style={{
-            fontSize: 'clamp(32px, 4vw, 56px)',
-            fontWeight: 900,
-            letterSpacing: '-1.5px',
-            lineHeight: 1.05,
-            marginBottom: '20px',
-          }}
-        >
-          Start with a free discovery call.
-        </h2>
-        <p
-          style={{
-            fontSize: '19px',
-            color: 'rgba(255,255,255,0.65)',
-            maxWidth: '520px',
-            margin: '0 auto 40px',
-            lineHeight: 1.8,
-          }}
-        >
-          We will learn about your business, show you what the system looks like,
-          and tell you exactly what it would produce for your customers and your
-          team.
-        </p>
-        <Link
-          href="/contact"
-          style={{
-            display: 'inline-block',
-            background: '#05b89e',
-            color: '#fff',
-            fontSize: '14px',
-            fontWeight: 700,
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            padding: '18px 48px',
-            borderRadius: '4px',
-            textDecoration: 'none',
-          }}
-        >
-          BOOK A FREE DISCOVERY CALL
-        </Link>
-      </section>
+          <FadeIn>
+            <SectionHeading>
+              Ready to see what&apos;s possible for{' '}
+              <span style={{ color: TEAL }}>your business?</span>
+            </SectionHeading>
+          </FadeIn>
+        </section>
+      </main>
 
-      <SiteFooter />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <SiteFooter />
+      </div>
       <StickyBookButton />
       <Script src="/embed.js" strategy="afterInteractive" />
     </>

@@ -62,10 +62,11 @@ export default function SiteNav({ active }: { active?: string }) {
               >
                 <button
                   type="button"
-                  className="font-medium uppercase tracking-[1px] transition-colors duration-200 bg-transparent border-none cursor-pointer"
+                  className="font-medium transition-opacity duration-200 bg-transparent border-none cursor-pointer text-white"
                   style={{
-                    fontSize: '16px',
-                    color: chatSystemsActive ? TEAL : 'rgba(255,255,255,0.7)',
+                    fontSize: '17px',
+                    opacity: chatSystemsActive ? 1 : 0.8,
+                    color: chatSystemsActive ? TEAL : undefined,
                     whiteSpace: 'nowrap',
                     padding: 0,
                   }}
@@ -94,16 +95,16 @@ export default function SiteNav({ active }: { active?: string }) {
                           key={item.href}
                           href={item.href}
                           role="menuitem"
-                          className="block transition-colors duration-200"
+                          className="block transition-opacity duration-200 text-white"
                           style={{
-                            padding: '12px 24px',
-                            fontSize: '13px',
+                            padding: '14px 24px',
+                            fontSize: '15px',
                             fontWeight: 500,
-                            letterSpacing: '0.5px',
-                            color: isActive ? TEAL : 'rgba(255,255,255,0.7)',
+                            opacity: isActive ? 1 : 0.8,
+                            color: isActive ? TEAL : undefined,
                             borderBottom:
                               idx < CHAT_SYSTEMS_LINKS.length - 1
-                                ? '1px solid rgba(255,255,255,0.04)'
+                                ? '1px solid rgba(255,255,255,0.06)'
                                 : 'none',
                             textDecoration: 'none',
                           }}
@@ -122,10 +123,11 @@ export default function SiteNav({ active }: { active?: string }) {
             <li key={href}>
               <Link
                 href={href}
-                className="font-medium uppercase tracking-[1px] transition-colors duration-200"
+                className="font-medium transition-opacity duration-200 text-white"
                 style={{
-                  fontSize: '16px',
-                  color: isActive ? TEAL : 'rgba(255,255,255,0.7)',
+                  fontSize: '17px',
+                  opacity: isActive ? 1 : 0.8,
+                  color: isActive ? TEAL : undefined,
                   whiteSpace: 'nowrap',
                 }}
               >

@@ -109,7 +109,7 @@ export default function MobileMenu({ active }: { active?: string }) {
                 onClick={() => setOpen(false)}
                 style={{
                   display: 'block',
-                  fontSize: '18px',
+                  fontSize: '20px',
                   fontWeight: 600,
                   color: active === '/' ? TEAL : '#ffffff',
                   textDecoration: 'none',
@@ -121,7 +121,7 @@ export default function MobileMenu({ active }: { active?: string }) {
 
             <li
               style={{
-                fontSize: '11px',
+                fontSize: '13px',
                 fontWeight: 700,
                 letterSpacing: '3px',
                 textTransform: 'uppercase',
@@ -140,8 +140,10 @@ export default function MobileMenu({ active }: { active?: string }) {
                     onClick={() => setOpen(false)}
                     style={{
                       display: 'block',
-                      fontSize: '15px',
-                      color: isActive ? TEAL : 'rgba(255,255,255,0.75)',
+                      fontSize: '17px',
+                      fontWeight: 500,
+                      color: '#ffffff',
+                      opacity: isActive ? 1 : 0.88,
                       textDecoration: 'none',
                       lineHeight: 1.45,
                     }}
@@ -161,7 +163,7 @@ export default function MobileMenu({ active }: { active?: string }) {
                     onClick={() => setOpen(false)}
                     style={{
                       display: 'block',
-                      fontSize: '18px',
+                      fontSize: '20px',
                       fontWeight: 600,
                       color: isActive ? TEAL : '#ffffff',
                       textDecoration: 'none',
