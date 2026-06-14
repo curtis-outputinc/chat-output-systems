@@ -102,8 +102,8 @@ export default function HomePage() {
                 maxWidth: '1100px',
               }}
             >
-              <span style={{ color: TEAL }}>Intelligent Website Chat</span>{' '}
-              that&apos;s way more than just answering questions
+              <span style={{ color: TEAL }}>Intelligent Website Chat Systems</span>{' '}
+              that are way more than chat bots
               <span style={{ color: TEAL }}>.</span>
             </h1>
             {/* Desktop subhead — inline in hero */}
