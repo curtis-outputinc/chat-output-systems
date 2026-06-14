@@ -102,9 +102,9 @@ export default function HomePage() {
                 maxWidth: '1100px',
               }}
             >
+              Our{' '}
               <span style={{ color: TEAL }}>Intelligent Website Chat Systems</span>{' '}
-              that are way more than chat bots
-              <span style={{ color: TEAL }}>.</span>
+              are way more than just chatbots.
             </h1>
             {/* Desktop subhead — inline in hero */}
             <p
@@ -117,9 +117,9 @@ export default function HomePage() {
                 textWrap: 'balance',
               }}
             >
-              An intelligent chat system that not only interacts with your
-              customers, but also feeds your business the valuable data behind
-              every conversation.
+              Welcome to your new intelligent chat system that not only
+              interacts with your customers, but also feeds your business the
+              valuable insights behind customer conversations.
             </p>
           </FadeIn>
         </section>
@@ -137,9 +137,9 @@ export default function HomePage() {
                 textWrap: 'balance',
               }}
             >
-              An intelligent chat system that not only interacts with your
-              customers, but also feeds your business the valuable data behind
-              every conversation.
+              Welcome to your new intelligent chat system that not only
+              interacts with your customers, but also feeds your business the
+              valuable insights behind customer conversations.
             </p>
           </FadeIn>
         </section>
