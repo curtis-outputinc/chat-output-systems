@@ -33,7 +33,7 @@ interface ChatRequest {
 }
 
 const FALLBACK_MESSAGE =
-  "I'm having trouble right now. Want to book a call directly? https://cal.com/output-systems";
+  "I'm having trouble right now. You can book a call directly here: https://cal.com/output-systems";
 
 const CALCOM_URL = 'https://cal.com/output-systems';
 

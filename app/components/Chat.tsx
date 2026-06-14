@@ -71,33 +71,36 @@ const DEFAULT_CALCOM_URL = '/contact';
 // list). Stops at whitespace and common trailing punctuation so a URL at the
 // end of a sentence doesn't grab the period or comma.
 const LINK_URL_REGEX =
-  /(?:https?:\/\/ai\.output\.systems(?:\/[^\s)>,.;!?]*)?|\/(?:services|process|about|data-privacy|contact|privacy-policy)\b)/g;
+  /(?:https?:\/\/(?:chat\.output\.systems|cal\.com\/output-systems)(?:\/[^\s)>,.;!?]*)?|\/(?:intelligent-chat-systems\/[a-z-]+|process|about|compliance|contact|privacy-policy)\b)/g;
 
-// Friendly labels for ai.output.systems paths. Falls through to showing the
-// URL itself when the path is not in this map. The chatbot is instructed (in
-// lib/system-prompt.ts) to only emit URLs from this list.
-const AI_OUTPUT_LABELS: Record<string, string> = {
-  '': 'ai.output.systems',
+// Friendly labels for paths the chatbot is allowed to emit (matches the
+// "approved paths" list in lib/system-prompt.ts).
+const PATH_LABELS: Record<string, string> = {
+  '': 'chat.output.systems',
   '/': 'Home',
-  '/services': 'Services',
   '/process': 'Our Process',
   '/about': 'About Us',
-  '/data-privacy': 'Data Privacy',
+  '/compliance': 'Privacy and Data',
   '/contact': 'Contact Us',
   '/privacy-policy': 'Privacy Policy',
+  '/intelligent-chat-systems/standard': 'Standard Intelligent Website Chat System',
+  '/intelligent-chat-systems/service': 'Service Business Chat System',
+  '/intelligent-chat-systems/retail': 'Retail and E-Commerce Chat System',
+  '/intelligent-chat-systems/internal': 'Internal Chat System',
+  '/intelligent-chat-systems/custom': 'Custom Chat System',
 };
 
 function labelForUrl(url: string): string {
-  if (url.includes('cal.com')) return 'Book A Call';
-  // Relative path (e.g., "/services") — look it up directly.
+  if (url.includes('cal.com')) return 'book here';
+  // Relative path (e.g., "/process") — look it up directly.
   if (url.startsWith('/')) {
-    return AI_OUTPUT_LABELS[url] ?? url;
+    return PATH_LABELS[url] ?? url;
   }
-  // Absolute ai.output.systems URL.
+  // Absolute chat.output.systems URL.
   try {
     const u = new URL(url);
     const path = u.pathname.replace(/\/$/, '');
-    return AI_OUTPUT_LABELS[path] ?? url;
+    return PATH_LABELS[path] ?? url;
   } catch {
     return url;
   }
