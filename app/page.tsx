@@ -87,7 +87,8 @@ export default function HomePage() {
       <SiteNav active="/" />
 
       <main className="text-white pb-40" style={{ position: 'relative', zIndex: 1 }}>
-        {/* HERO */}
+        {/* HERO — h1 only on mobile (fills viewport, centered). Desktop also
+            inlines the subhead. Mobile subhead lives in its own section below. */}
         <section
           className="px-6 sm:px-10 text-center flex flex-col items-center justify-center"
           style={{ minHeight: '100vh', paddingTop: '96px', paddingBottom: '40px' }}
@@ -101,15 +102,37 @@ export default function HomePage() {
                 maxWidth: '1100px',
               }}
             >
-              Intelligent Website Chat that&apos;s way more than{' '}
-              <span style={{ color: TEAL }}>just answering questions.</span>
+              <span style={{ color: TEAL }}>Intelligent Website Chat</span>{' '}
+              that&apos;s way more than just answering questions
+              <span style={{ color: TEAL }}>.</span>
             </h1>
+            {/* Desktop subhead — inline in hero */}
             <p
-              className="mx-auto"
+              className="mx-auto hidden md:block"
               style={{
                 fontSize: '25px',
                 lineHeight: 1.7,
                 maxWidth: '900px',
+                color: '#ffffff',
+                textWrap: 'balance',
+              }}
+            >
+              An intelligent chat system that not only interacts with your
+              customers, but also feeds your business the valuable data behind
+              every conversation.
+            </p>
+          </FadeIn>
+        </section>
+
+        {/* Mobile-only subhead — appears as user scrolls past the hero */}
+        <section className="md:hidden px-6 text-center" style={{ paddingTop: '40px', paddingBottom: '64px' }}>
+          <FadeIn>
+            <p
+              className="mx-auto"
+              style={{
+                fontSize: '24px',
+                lineHeight: 1.5,
+                maxWidth: '600px',
                 color: '#ffffff',
                 textWrap: 'balance',
               }}

@@ -41,10 +41,10 @@ export default function SiteNav({ active }: { active?: string }) {
         <Image
           src="/logo.png"
           alt="Output Systems"
-          width={220}
-          height={56}
+          width={330}
+          height={84}
           priority
-          className="h-10 w-auto"
+          className="h-10 md:h-[60px] w-auto"
         />
       </Link>
 
