@@ -169,25 +169,14 @@ export default function HomePage() {
           </FadeIn>
         </section>
 
-        {/* BAR GRAPH SECTION */}
+        {/* BAR GRAPH SECTION — single column: heading → graph → paragraph */}
         <section className="px-6 sm:px-10 py-36">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1fr] gap-16 items-center">
+          <div className="max-w-3xl mx-auto text-center">
             <FadeIn>
               <SectionHeading>
                 Built for <span style={{ color: TEAL }}>more</span>{' '}
                 <span style={{ color: TEAL }}>output.</span>
               </SectionHeading>
-              <p
-                style={{
-                  fontSize: '19px',
-                  lineHeight: 1.8,
-                  color: '#ffffff',
-                }}
-              >
-                Every Intelligent Chat System we build is designed to produce
-                more captured leads, more conversions, more answered questions,
-                more reduced expenses, and more time back for your team.
-              </p>
             </FadeIn>
 
             <FadeIn delay={160}>
@@ -197,15 +186,31 @@ export default function HomePage() {
                   border: '1px solid rgba(7,228,198,0.18)',
                   borderRadius: '8px',
                   padding: '24px',
+                  margin: '40px 0',
                 }}
               >
                 <AnimatedBarGraph />
               </div>
             </FadeIn>
+
+            <FadeIn delay={300}>
+              <p
+                style={{
+                  fontSize: '19px',
+                  lineHeight: 1.8,
+                  color: '#ffffff',
+                  textWrap: 'balance',
+                }}
+              >
+                Every Intelligent Chat System we build is designed to produce
+                more captured leads, more conversions, more answered questions,
+                more reduced expenses, and more time back for your team.
+              </p>
+            </FadeIn>
           </div>
         </section>
 
-        {/* DASHBOARD SECTION */}
+        {/* DASHBOARD SECTION — single column: heading → dashboard → paragraph */}
         <section
           className="px-6 sm:px-10 py-36"
           style={{
@@ -214,30 +219,35 @@ export default function HomePage() {
             borderBottom: '1px solid rgba(7,228,198,0.1)',
           }}
         >
-          <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_1fr] gap-16 items-center">
+          <div className="max-w-3xl mx-auto text-center">
             <FadeIn>
+              <SectionHeading>
+                Customized{' '}
+                <span style={{ color: TEAL }}>insight dashboards.</span>
+              </SectionHeading>
+            </FadeIn>
+
+            <FadeIn delay={160}>
               <div
                 style={{
                   background: '#0a0f0d',
                   border: '1px solid rgba(7,228,198,0.18)',
                   borderRadius: '8px',
                   padding: '24px',
+                  margin: '40px 0',
                 }}
               >
                 <AnimatedDashboard />
               </div>
             </FadeIn>
 
-            <FadeIn delay={160}>
-              <SectionHeading>
-                Customized{' '}
-                <span style={{ color: TEAL }}>insight dashboards.</span>
-              </SectionHeading>
+            <FadeIn delay={300}>
               <p
                 style={{
                   fontSize: '19px',
                   lineHeight: 1.8,
                   color: '#ffffff',
+                  textWrap: 'balance',
                 }}
               >
                 Every conversation produces data, and that data gets surfaced
@@ -342,7 +352,7 @@ export default function HomePage() {
 
         {/* STAT COUNTER 2 */}
         <section
-          className="px-6 sm:px-10 py-40"
+          className="px-6 sm:px-10 py-20"
           style={{
             background: '#0d1f1a',
             borderTop: '1px solid rgba(7,228,198,0.1)',
