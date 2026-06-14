@@ -692,7 +692,7 @@ export default function Chat({
           )}
           <div className={`mb-6 px-4 py-3 border rounded-lg ${t.consentCard}`}>
             <p className={`text-sm md:text-base leading-relaxed ${t.consentText}`}>
-              By chatting with us, you consent to Output Systems collecting and using your messages to respond to your inquiry and follow up if you book a call. Your data is handled in accordance with PIPEDA. See our Privacy Policy below for details.
+              By chatting with us, you consent to Output Systems collecting and using your messages to respond to your inquiry and follow up if you book a call. Your data is handled in accordance with the governing laws of Canada, the USA, and Europe (GDPR, CASL, PIPEDA, PII, CCPA). See our Privacy Policy below for details.
             </p>
           </div>
         </div>
