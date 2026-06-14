@@ -4,6 +4,7 @@ import Script from 'next/script';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import StickyBookButton from './components/StickyBookButton';
+import AnimatedNodesBackground from './components/AnimatedNodesBackground';
 
 const TEAL = '#07e4c6';
 
@@ -115,6 +116,7 @@ const SYSTEMS = [
 export default function Home() {
   return (
     <>
+      <AnimatedNodesBackground />
       <SiteNav active="/" />
 
       {/* HERO */}
@@ -126,7 +128,6 @@ export default function Home() {
           padding: '120px 24px 80px',
           position: 'relative',
           overflow: 'hidden',
-          background: '#000',
         }}
       >
         <div
@@ -143,7 +144,6 @@ export default function Home() {
         />
         <div className="max-w-6xl mx-auto w-full" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '820px' }}>
-            <div className="os-hero-tag">Powered by AI</div>
             <h1
               style={{
                 fontSize: 'clamp(44px, 6.5vw, 80px)',
@@ -155,14 +155,14 @@ export default function Home() {
                 maxWidth: '820px',
               }}
             >
-              Intelligent Website Chat that does more than{' '}
+              Intelligent Website Chat that's way more than{' '}
               <em style={{ fontStyle: 'normal', color: TEAL }}>
-                just answer questions.
+                just answering questions.
               </em>
             </h1>
             <p
               style={{
-                fontSize: '19px',
+                fontSize: '20px',
                 color: 'rgba(255,255,255,0.8)',
                 maxWidth: '680px',
                 lineHeight: 1.8,
@@ -183,7 +183,7 @@ export default function Home() {
       <div className="os-rule" />
 
       {/* STAT BAND */}
-      <section style={{ padding: '72px 24px', background: '#000', textAlign: 'center' }}>
+      <section style={{ padding: '72px 24px', textAlign: 'center', position: 'relative' }}>
         <p
           style={{
             fontSize: '13px',
@@ -226,7 +226,7 @@ export default function Home() {
               >
                 {stat}
               </div>
-              <div style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+              <div style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
                 {body}
               </div>
             </div>
@@ -301,7 +301,7 @@ export default function Home() {
               >
                 {title} <span style={{ color: TEAL }}>{accent}</span>
               </div>
-              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>
+              <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>
                 {body}
               </p>
             </div>
@@ -310,7 +310,7 @@ export default function Home() {
       </section>
 
       {/* FEATURE LIST */}
-      <section style={{ padding: '88px 24px', background: '#000' }}>
+      <section style={{ padding: '88px 24px', position: 'relative' }}>
         <div
           className="grid gap-12 max-w-6xl mx-auto items-center"
           style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}
@@ -349,7 +349,7 @@ export default function Home() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '14px',
-                  fontSize: '17px',
+                  fontSize: '18px',
                   color: 'rgba(255,255,255,0.8)',
                 }}
               >
@@ -424,10 +424,10 @@ export default function Home() {
               >
                 {label}
               </div>
-              <div style={{ fontSize: '18px', fontWeight: 800, marginBottom: '12px' }}>
+              <div style={{ fontSize: '19px', fontWeight: 800, marginBottom: '12px' }}>
                 {title}
               </div>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>
+              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>
                 {body}
               </p>
             </div>
@@ -453,7 +453,7 @@ export default function Home() {
       </section>
 
       {/* SYSTEMS GRID */}
-      <section style={{ padding: '88px 24px', background: '#000' }}>
+      <section style={{ padding: '88px 24px', position: 'relative' }}>
         <div className="max-w-6xl mx-auto">
           <p
             style={{
@@ -519,7 +519,7 @@ export default function Home() {
                 >
                   {title}
                 </div>
-                <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>
+                <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>
                   {body}
                 </p>
                 <div
@@ -623,7 +623,7 @@ export default function Home() {
         </h2>
         <p
           style={{
-            fontSize: '18px',
+            fontSize: '19px',
             color: 'rgba(255,255,255,0.65)',
             maxWidth: '520px',
             margin: '0 auto 40px',

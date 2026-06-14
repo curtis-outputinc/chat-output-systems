@@ -64,7 +64,7 @@ export default function SiteNav({ active }: { active?: string }) {
                   type="button"
                   className="font-medium uppercase tracking-[1px] transition-colors duration-200 bg-transparent border-none cursor-pointer"
                   style={{
-                    fontSize: '14px',
+                    fontSize: '16px',
                     color: chatSystemsActive ? TEAL : 'rgba(255,255,255,0.7)',
                     whiteSpace: 'nowrap',
                     padding: 0,
@@ -124,7 +124,7 @@ export default function SiteNav({ active }: { active?: string }) {
                 href={href}
                 className="font-medium uppercase tracking-[1px] transition-colors duration-200"
                 style={{
-                  fontSize: '14px',
+                  fontSize: '16px',
                   color: isActive ? TEAL : 'rgba(255,255,255,0.7)',
                   whiteSpace: 'nowrap',
                 }}

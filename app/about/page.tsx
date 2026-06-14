@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import SiteNav from '../components/SiteNav';
+import AnimatedNodesBackground from '../components/AnimatedNodesBackground';
 import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
 
@@ -57,6 +58,7 @@ function bulletDot(): React.CSSProperties {
 export default function AboutPage() {
   return (
     <>
+      <AnimatedNodesBackground />
       <SiteNav active="/about" />
 
       <div className="os-hero">

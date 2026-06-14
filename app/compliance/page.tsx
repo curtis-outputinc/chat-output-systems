@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import SiteNav from '../components/SiteNav';
+import AnimatedNodesBackground from '../components/AnimatedNodesBackground';
 import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
 
@@ -39,6 +40,7 @@ const FRAMEWORKS = [
 export default function CompliancePage() {
   return (
     <>
+      <AnimatedNodesBackground />
       <SiteNav active="/compliance" />
 
       <div className="os-hero">

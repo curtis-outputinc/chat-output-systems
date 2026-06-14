@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
+import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
 
@@ -77,6 +78,7 @@ const INCLUDES = [
 export default function StandardPage() {
   return (
     <>
+      <AnimatedNodesBackground />
       <SiteNav active="/intelligent-chat-systems/standard" />
 
       <div className="os-hero">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import SiteNav from '../components/SiteNav';
+import AnimatedNodesBackground from '../components/AnimatedNodesBackground';
 import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
 
@@ -83,6 +84,7 @@ const STEPS = [
 export default function ProcessPage() {
   return (
     <>
+      <AnimatedNodesBackground />
       <SiteNav active="/process" />
 
       <div className="os-hero">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import SiteNav from '../components/SiteNav';
+import AnimatedNodesBackground from '../components/AnimatedNodesBackground';
 import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
 import ContactForm from './ContactForm';
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <AnimatedNodesBackground />
       <SiteNav active="/contact" />
 
       <div className="os-hero">
