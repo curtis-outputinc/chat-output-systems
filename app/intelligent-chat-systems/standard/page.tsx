@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
+import PricingSection from '../../components/PricingSection';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
@@ -282,6 +283,46 @@ export default function StandardPage() {
         </section>
 
         {/* rule */}
+        <PricingSection
+          label="Standard Intelligent Website Chat System"
+          leftHeading={
+            <>
+              Professional.
+              <br />
+              <em style={{ fontStyle: 'normal', color: '#07e4c6' }}>Managed.</em>
+              <br />
+              Done for you.
+            </>
+          }
+          leftCopy={[
+            'The Standard Intelligent Website Chat System is not a DIY subscription you configure yourself. We build it around your business, test it, launch it, and manage it every month so it stays accurate and performing as your business evolves.',
+            'Building a system is one thing. Maintaining it so it continues to work as your business changes is another. We do both.',
+          ]}
+          pricingNote="Pricing may vary based on content volume and complexity. All details confirmed during the discovery call."
+          pricing={{
+            type: 'fixed',
+            setupPrice: '2,399',
+            setupLabel: 'One Time Setup Fee',
+            monthlyPrice: '499',
+            monthlyLabel: 'Monthly System Management',
+          }}
+          includesLabel="Every System Includes"
+          includes={[
+            'Discovery call and website content scrape',
+            'Knowledge base built from your content',
+            'Tone and brand alignment',
+            'Guardrail configuration',
+            'Customer information capture setup',
+            'Testing, revisions, and launch support',
+            'Website embed assistance',
+            'Conversation log review and summary (monthly)',
+            'Knowledge base updates (monthly)',
+            'API and security updates (monthly)',
+            'Uptime monitoring and error handling',
+            'Monthly performance report',
+          ]}
+        />
+
         <div
           style={{
             height: '1px',

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
+import PricingSection from '../../components/PricingSection';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
@@ -281,6 +282,43 @@ export default function CustomPage() {
             ))}
           </div>
         </section>
+
+        <PricingSection
+          label="Custom Chat System"
+          leftHeading={
+            <>
+              No template.
+              <br />
+              <em style={{ fontStyle: 'normal', color: '#07e4c6' }}>
+                No standard scope.
+              </em>
+            </>
+          }
+          leftCopy={[
+            'Every custom system is scoped individually. Healthcare, legal, finance, multi-location, multi-department — when the standard packages do not fit, we build from the ground up around exactly what your organization needs.',
+            'You get a clear quote after we have walked through your business in detail. Until then, there is no honest way to put a number on it.',
+          ]}
+          pricing={{
+            type: 'custom',
+            subText:
+              'Every custom system is scoped individually. Book a discovery call and we will design the right system for your organization and give you a clear quote.',
+          }}
+          includesLabel="Every Custom System Includes"
+          includes={[
+            'Full discovery and design process',
+            'Built from scratch around your specific needs',
+            'Custom knowledge base and conversation flows',
+            'Custom integrations with your existing tools',
+            'Industry-specific guardrails and compliance configuration',
+            'Custom Insights Dashboard',
+            'Full testing before launch',
+            'Monthly conversation log review',
+            'Monthly knowledge base updates',
+            'API, security, and compliance updates',
+            'Monthly performance report',
+            'Dedicated client support',
+          ]}
+        />
 
         <div
           style={{

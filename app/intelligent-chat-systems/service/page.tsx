@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
+import PricingSection from '../../components/PricingSection';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
@@ -280,6 +281,42 @@ export default function ServicePage() {
             ))}
           </div>
         </section>
+
+        <PricingSection
+          label="Customer Chat System — Service Business"
+          leftHeading={
+            <>
+              Scoped to your business.
+              <br />
+              <em style={{ fontStyle: 'normal', color: '#07e4c6' }}>
+                Priced after we know it.
+              </em>
+            </>
+          }
+          leftCopy={[
+            'Every service business runs differently. Pricing reflects the size of your knowledge base, the qualifying questions you need answered, the integrations we connect, and the level of after-launch support your team needs.',
+            'You get a clear quote on the discovery call. No hidden fees. No surprise add-ons.',
+          ]}
+          pricing={{
+            type: 'custom',
+            subText:
+              'Pricing is based on the size and scope of your system. Book a free discovery call and we will put together a clear quote for your specific business.',
+          }}
+          includesLabel="Every System Includes"
+          includes={[
+            'Full done-for-you design and build',
+            'Custom knowledge base built from your content',
+            'Lead capture and qualification setup',
+            'Appointment booking and intake flows',
+            'Top Prospect Recognition and urgency alerts',
+            'Insights Dashboard',
+            'Monthly conversation log review',
+            'Monthly knowledge base updates',
+            'API, security, and compliance updates',
+            'Monthly performance report',
+            'Dedicated client support',
+          ]}
+        />
 
         <div
           style={{

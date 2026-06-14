@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
+import PricingSection from '../../components/PricingSection';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
@@ -282,6 +283,41 @@ export default function InternalPage() {
             ))}
           </div>
         </section>
+
+        <PricingSection
+          label="Internal Chat System"
+          leftHeading={
+            <>
+              Sized to your team.
+              <br />
+              <em style={{ fontStyle: 'normal', color: '#07e4c6' }}>
+                Scoped to your knowledge base.
+              </em>
+            </>
+          }
+          leftCopy={[
+            'Pricing depends on the size of your documented knowledge, the role-based access rules you need, and the integrations to existing systems where your SOPs and policies live today.',
+            'You get a clear quote after the discovery call. No hidden tiers or per-seat surcharges.',
+          ]}
+          pricing={{
+            type: 'custom',
+            subText:
+              'Pricing is based on the size and scope of your system. Book a free discovery call and we will put together a clear quote for your specific business.',
+          }}
+          includesLabel="Every System Includes"
+          includes={[
+            'Full done-for-you design and build',
+            'Custom knowledge base built from your documents',
+            'Role-based access configuration',
+            'Onboarding and training content setup',
+            'Insights Dashboard',
+            'Monthly conversation log review',
+            'Monthly knowledge base updates',
+            'API, security, and compliance updates',
+            'Monthly performance report',
+            'Dedicated client support',
+          ]}
+        />
 
         <div
           style={{

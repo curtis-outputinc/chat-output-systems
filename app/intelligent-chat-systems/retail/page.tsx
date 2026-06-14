@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
+import PricingSection from '../../components/PricingSection';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
@@ -282,6 +283,39 @@ export default function RetailPage() {
             ))}
           </div>
         </section>
+
+        <PricingSection
+          label="Customer Chat System — Retail and E-Commerce"
+          leftHeading={
+            <>
+              Built for your catalog.
+              <br />
+              <em style={{ fontStyle: 'normal', color: '#07e4c6' }}>
+                Priced for your scale.
+              </em>
+            </>
+          }
+          leftCopy={[
+            'Pricing depends on the size of your product catalog, the platforms we integrate with, the level of order and return automation you need, and the volume of conversations the system will handle through peak season.',
+            'You get a clear quote after the discovery call. No surprises later.',
+          ]}
+          pricing={{
+            type: 'custom',
+            subText:
+              'Pricing is based on the size and scope of your system. Book a free discovery call and we will put together a clear quote for your specific business.',
+          }}
+          includesLabel="Every System Includes"
+          includes={[
+            'Full done-for-you design and build',
+            'Custom knowledge base built from your content',
+            'Insights Dashboard',
+            'Monthly conversation log review',
+            'Monthly knowledge base updates',
+            'API, security, and compliance updates',
+            'Monthly performance report',
+            'Dedicated client support',
+          ]}
+        />
 
         <div
           style={{
