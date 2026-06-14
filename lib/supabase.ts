@@ -23,7 +23,6 @@ export function getSupabaseService(): SupabaseClient {
   return serviceClient;
 }
 
-/** Slug for the `tenants` row that represents this brand in Supabase. Insert
- *  a row with `slug = 'ai-output'` into the new ai-output-systems Supabase
- *  project before the chatbot can log conversations and leads. */
-export const OUTPUT_TENANT_SLUG = 'ai-output';
+/** Slug for the `tenants` row that represents this brand in Supabase.
+ *  Seeded by the initial migration as `slug = 'output'`. */
+export const OUTPUT_TENANT_SLUG = 'output';
