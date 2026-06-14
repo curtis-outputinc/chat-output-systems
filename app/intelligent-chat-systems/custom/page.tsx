@@ -1,119 +1,114 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
-import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
+import FadeIn from '../../components/FadeIn';
+import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
+import SpinningGears from '../../components/SpinningGears';
+import ChatSystemIcon, { type IconVariant } from '../../components/ChatSystemIcons';
 
 export const metadata: Metadata = {
-  title: 'Custom Chat System',
+  title: 'Custom Chat System — chat.output.systems',
   description:
     'A fully custom AI chat system built from the ground up around your specific organization, industry, and requirements.',
 };
 
-type FeatureRow = {
-  bulletsHeading: string;
-  bullets: string[];
-  valueHeading: string;
-  valueParagraph: string;
-};
+const TEAL = '#07e4c6';
 
-const FEATURES: FeatureRow[] = [
+interface Tile {
+  name: string;
+  blurb: string;
+  variant: IconVariant;
+}
+
+const TILES: Tile[] = [
   {
-    bulletsHeading: 'Built From Scratch Around Your Business',
-    bullets: [
-      'No templates, no pre-built flows, no generic configurations',
-      'Designed entirely around your specific customers, staff, and business goals',
-      'Conversation flows written to match your exact service or product model',
-      'Any combination of customer-facing and staff-facing capabilities',
-      'Supports multiple departments, locations, or business units if needed',
-      'Built to handle the specific complexity of your industry and operations',
-      "Automatically responds in your customers' or staff members' own language",
-    ],
-    valueHeading:
-      'Standard systems are built for the average business. Your business is not average.',
-    valueParagraph:
-      'Every standard system we offer is built for a specific type of business. But some organizations have requirements that go beyond those categories. A nonprofit that handles sensitive community referrals, a healthcare organization that needs careful guardrails, a hospitality business with complex booking needs. These organizations need a system designed specifically for them, not adjusted from a template.',
+    name: 'Industry-Specific Guardrails and Compliance',
+    blurb:
+      'Guardrails designed around your industry’s specific rules — healthcare escalation, legal disclaimers, finance compliance, government and nonprofit sensitivities. The system protects your organization while staying genuinely useful, with privacy and compliance reviewed monthly.',
+    variant: 'shield',
   },
   {
-    bulletsHeading: 'Custom Integrations With Your Existing Tools',
-    bullets: [
-      'Connects to your existing software, CRM, booking tools, or databases',
-      'Pulls and pushes data between the system and your other platforms',
-      'Custom workflows triggered by specific conversation outcomes',
-      'Integrates with internal systems your team already uses every day',
-      'Supports multi-system deployment across your website and internal tools',
-      'Custom data collection, routing, and reporting built to your specifications',
-    ],
-    valueHeading:
-      'Your system should work with the tools you already have, not around them.',
-    valueParagraph:
-      'Most standard systems connect to common tools through standard integrations. Custom systems go further. If your business runs on specific software, uses a proprietary database, or needs the system to trigger actions in other platforms based on what customers say, we build those connections from the ground up.',
+    name: 'Custom Integrations With Your Existing Tools',
+    blurb:
+      'Connects to your CRM, booking tools, databases, or proprietary software. Pulls and pushes data both ways, triggers custom workflows from conversation outcomes, and supports multi-system deployment across customer-facing and internal channels.',
+    variant: 'briefcase',
   },
   {
-    bulletsHeading: 'Industry-Specific Guardrails and Compliance',
-    bullets: [
-      "Guardrails designed around your industry's specific rules and sensitivities",
-      'Healthcare: careful limits on medical information and clear escalation to professionals',
-      'Legal: no legal advice given, appropriate disclaimers, fast handoff to licensed staff',
-      'Finance: no financial advice given, regulated content handled with care',
-      'Government and nonprofit: sensitive community information handled responsibly',
-      'Custom escalation rules for situations that require human judgment',
-      'Privacy and compliance configuration reviewed and updated every month',
-    ],
-    valueHeading:
-      'Some industries have specific rules about what a system can and cannot say. We build around those rules from the start.',
-    valueParagraph:
-      'A system deployed in a healthcare setting needs to handle patient questions very differently from a system on a retail website. A legal services organization needs strict limits on what the system can advise on. We design the guardrails for these situations specifically, not generically, so the system protects your organization while still being genuinely useful.',
+    name: 'Who This System Is Built For',
+    blurb:
+      'Nonprofits with sensitive referral flows, healthcare providers with patient communication needs, government-adjacent organizations, hospitality with multi-location bookings, real estate with intake and document flows — any business whose requirements fall outside a standard configuration.',
+    variant: 'lightbulb',
   },
   {
-    bulletsHeading: 'Who This System Is Built For',
-    bullets: [
-      'Nonprofit organizations that need sensitive community referral and support flows',
-      'Healthcare providers that need careful patient communication guardrails',
-      'Government-adjacent organizations with specific compliance and access requirements',
-      'Hospitality businesses with complex booking and multi-location needs',
-      'Real estate organizations with specific intake, qualification, and document flows',
-      'Any business with requirements that fall outside a standard system configuration',
-      'Organizations that need both customer-facing and internal systems working together',
-    ],
-    valueHeading:
-      'If your business has a challenge that does not fit a standard package, that is exactly what this system is for.',
-    valueParagraph:
-      'The organizations that benefit most from a custom build are the ones where a standard system would require too many compromises. They need flows that do not exist in a template, integrations that are not on a standard list, guardrails that are specific to their industry, or a combination of capabilities that no single standard system provides.',
-  },
-  {
-    bulletsHeading: 'Monthly Management Included',
-    bullets: [
-      'Conversation logs reviewed monthly to catch anything inaccurate or off-brand',
-      'Knowledge base updated monthly as your organization changes',
-      'API, security, and privacy compliance updates applied every month',
-      'Unanswered questions tracked and used to expand the knowledge base',
-      'Monthly performance report delivered to your team',
-      'Dedicated support for questions, changes, and expansions at any time',
-    ],
-    valueHeading:
-      'A custom system requires the same ongoing care as any other system we build.',
-    valueParagraph:
-      'Custom does not mean build once and leave. Your organization changes over time. New programs, new staff, new policies, new compliance requirements. Monthly management keeps your system aligned with those changes so it stays accurate, secure, and useful long after launch.',
+    name: 'Monthly Management Included',
+    blurb:
+      'Custom does not mean build once and leave. Conversation logs reviewed monthly, knowledge base updated as your organization changes, security and compliance patches applied, unanswered questions tracked, and a monthly performance report delivered to your team.',
+    variant: 'calendar',
   },
 ];
 
-const INCLUDES = [
-  'Full discovery and design process',
-  'Built from scratch around your specific needs',
-  'Custom knowledge base and conversation flows',
-  'Custom integrations with your existing tools',
-  'Industry-specific guardrails and compliance configuration',
-  'Custom Insights Dashboard',
-  'Full testing before launch',
-  'Monthly conversation log review',
-  'Monthly knowledge base updates',
-  'API, security, and compliance updates',
-  'Monthly performance report',
-  'Dedicated client support',
-];
+function Eyebrow({
+  children,
+  size = 'sm',
+}: {
+  children: ReactNode;
+  size?: 'sm' | 'lg';
+}) {
+  const fs = size === 'lg' ? '14px' : '11px';
+  const ls = size === 'lg' ? '3.5px' : '3px';
+  const pad = size === 'lg' ? '8px 22px' : '6px 18px';
+  return (
+    <div
+      className="inline-block font-semibold uppercase"
+      style={{
+        fontSize: fs,
+        letterSpacing: ls,
+        color: TEAL,
+        border: '1px solid rgba(7,228,198,0.28)',
+        padding: pad,
+        borderRadius: '2px',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function SystemTile({ tile, reverse }: { tile: Tile; reverse: boolean }) {
+  return (
+    <div
+      className="grid md:grid-cols-2 gap-10 md:gap-16 items-center px-8 md:px-14 py-14 md:py-20 mb-4"
+      style={{
+        background: '#0a0f0d',
+        border: '1px solid rgba(7,228,198,0.18)',
+        borderRadius: '6px',
+      }}
+    >
+      <div
+        className={`flex justify-center ${reverse ? 'md:order-2' : 'md:order-1'}`}
+      >
+        <ChatSystemIcon variant={tile.variant} size={220} />
+      </div>
+      <div className={reverse ? 'md:order-1' : 'md:order-2'}>
+        <h3
+          className="text-2xl md:text-[32px] font-extrabold tracking-tight mb-4 leading-[1.15]"
+          style={{ color: '#ffffff' }}
+        >
+          {tile.name}
+        </h3>
+        <p
+          className="text-lg md:text-xl leading-[1.65]"
+          style={{ color: '#ffffff' }}
+        >
+          {tile.blurb}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function CustomPage() {
   return (
@@ -121,105 +116,221 @@ export default function CustomPage() {
       <AnimatedNodesBackground />
       <SiteNav active="/intelligent-chat-systems/custom" />
 
-      <div className="os-hero">
-        <div className="os-hero-tag">Custom Chat System</div>
-        <h1>
-          Your business was custom built.{' '}
-          <em>Your chat system should be too.</em>
-        </h1>
-        <p className="os-hero-intro">
-          The Custom Chat System is for organizations that need something built
-          specifically for them. If your requirements go beyond what a standard
-          package covers, this is where we start. We design the entire system
-          from the ground up around your specific customers, your staff, your
-          workflows, and the outcomes your business needs to achieve. Everything
-          is done for you from the first discovery call through to ongoing
-          monthly management.
-        </p>
-        <div className="os-dfy-badge">
-          <span>100% Done For You — Design, Setup, and Monthly Management Included</span>
-        </div>
-      </div>
+      <main
+        className="text-white pb-40"
+        style={{ position: 'relative', zIndex: 1 }}
+      >
+        {/* HERO */}
+        <section className="px-6 sm:px-10 pt-36 pb-20 text-center">
+          <FadeIn>
+            <h1
+              className="font-black tracking-tight leading-[1.05] mb-6 mx-auto"
+              style={{
+                fontSize: 'clamp(36px, 5.8vw, 76px)',
+                letterSpacing: '-2.5px',
+                maxWidth: '1000px',
+                color: '#ffffff',
+              }}
+            >
+              Your business was custom built.{' '}
+              <span style={{ color: TEAL }}>
+                Your chat system should be too.
+              </span>
+            </h1>
+            <p
+              className="mx-auto mb-4"
+              style={{
+                fontSize: '19px',
+                lineHeight: 1.75,
+                maxWidth: '700px',
+                color: '#ffffff',
+              }}
+            >
+              For organizations that need something built specifically for them.
+              We design the entire system from the ground up around your
+              customers, your staff, your workflows, and the outcomes your
+              business needs to achieve.
+            </p>
+            <p
+              className="mx-auto"
+              style={{
+                fontSize: '16px',
+                lineHeight: 1.7,
+                maxWidth: '700px',
+                color: '#ffffff',
+              }}
+            >
+              100% done for you. Discovery through to ongoing monthly management.
+            </p>
+          </FadeIn>
+        </section>
 
-      <div className="os-rule" />
+        <div
+          style={{
+            height: '1px',
+            background:
+              'linear-gradient(90deg, rgba(7,228,198,0.6) 0%, transparent 70%)',
+          }}
+        />
 
-      <div className="os-features">
-        <p className="os-section-label">What's Included</p>
-        {FEATURES.map((f) => (
-          <div className="os-feature-row" key={f.bulletsHeading}>
-            <div className="os-feature-bullets">
-              <h3>{f.bulletsHeading}</h3>
-              <ul className="os-bullet-list">
-                {f.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="os-feature-value">
-              <h3>{f.valueHeading}</h3>
-              <p>{f.valueParagraph}</p>
-            </div>
+        {/* TILES */}
+        <section
+          className="px-6 sm:px-10 py-24"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <div className="max-w-6xl mx-auto">
+            <FadeIn>
+              <div className="text-center mb-14">
+                <h2
+                  className="font-extrabold tracking-tight mx-auto mb-5"
+                  style={{
+                    fontSize: 'clamp(28px, 3.8vw, 48px)',
+                    letterSpacing: '-1.4px',
+                    color: '#ffffff',
+                  }}
+                >
+                  Designed for your organization.{' '}
+                  <span style={{ color: TEAL }}>Built from scratch.</span>
+                </h2>
+                <p
+                  className="mx-auto"
+                  style={{
+                    fontSize: '18px',
+                    lineHeight: 1.75,
+                    maxWidth: '620px',
+                    color: '#ffffff',
+                  }}
+                >
+                  Standard systems are built for the average business. The
+                  Custom Chat System is built around your specific operations,
+                  customers, and compliance requirements.
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* FEATURED — gears representing fully custom build */}
+            <FadeIn delay={80}>
+              <div
+                className="relative overflow-hidden px-8 md:px-14 py-12 md:py-16 mb-8"
+                style={{
+                  background: '#000000',
+                  border: '1px solid rgba(7,228,198,0.34)',
+                  borderRadius: '6px',
+                }}
+              >
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '3px',
+                    background: TEAL,
+                  }}
+                />
+                <div className="grid md:grid-cols-[1fr_240px] gap-10 items-center">
+                  <div>
+                    <h3
+                      className="font-extrabold tracking-tight leading-[1.15] mb-5"
+                      style={{
+                        fontSize: 'clamp(24px, 3vw, 38px)',
+                        letterSpacing: '-1px',
+                        color: '#ffffff',
+                      }}
+                    >
+                      Built From Scratch Around Your Business.
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '19px',
+                        lineHeight: 1.75,
+                        maxWidth: '680px',
+                        color: '#ffffff',
+                      }}
+                    >
+                      No templates, no pre-built flows, no generic
+                      configurations. Designed entirely around your customers,
+                      staff, and business goals. Conversation flows written to
+                      match your exact service or product model — and the system
+                      can span multiple departments, locations, or business
+                      units when it needs to.
+                    </p>
+                  </div>
+                  <div className="flex justify-center md:justify-end">
+                    <div
+                      style={{
+                        width: '100%',
+                        maxWidth: '240px',
+                        aspectRatio: '1 / 1',
+                      }}
+                    >
+                      <SpinningGears ariaLabel="Three teal gears rotating, representing a fully custom-built system" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {TILES.map((tile, i) => (
+              <FadeIn key={tile.name} delay={100 + i * 60}>
+                <SystemTile tile={tile} reverse={i % 2 === 1} />
+              </FadeIn>
+            ))}
           </div>
-        ))}
-      </div>
+        </section>
 
-      <div className="os-rule" />
+        <div
+          style={{
+            height: '1px',
+            background:
+              'linear-gradient(90deg, rgba(7,228,198,0.6) 0%, transparent 70%)',
+          }}
+        />
 
-      <div className="os-pricing">
-        <div className="os-pricing-inner">
-          <div className="os-pricing-left">
-            <h2>
-              Built specifically for you.
-              <br />
-              <em>Managed every month.</em>
+        {/* BOTTOM CTA */}
+        <section
+          className="px-6 sm:px-10 py-24 text-center"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <FadeIn>
+            <Eyebrow size="lg">Get Started</Eyebrow>
+            <h2
+              className="font-extrabold tracking-tight leading-[1.1] mt-6 mb-5 mx-auto"
+              style={{
+                fontSize: 'clamp(28px, 3.8vw, 48px)',
+                letterSpacing: '-1.4px',
+                maxWidth: '780px',
+                color: '#ffffff',
+              }}
+            >
+              Ready to build a system designed around your organization?
             </h2>
-            <p>
-              Custom systems are scoped individually because no two organizations
-              have the same requirements. The discovery process is where we learn
-              what you need, what your customers or staff need, and what success
-              looks like for your organization.
+            <p
+              className="mx-auto"
+              style={{
+                fontSize: '18px',
+                lineHeight: 1.8,
+                maxWidth: '720px',
+                color: '#ffffff',
+              }}
+            >
+              Book a free discovery call. We will learn about your organization,
+              your customers, and your goals, and show you what a custom system
+              would look like for you.
             </p>
-            <p>
-              There is no standard price for a custom build because there is no
-              standard scope. Book a discovery call and we will walk through what
-              your system would look like and what it would cost.
-            </p>
-            <p className="os-pricing-note">
-              Book a free discovery call to start the conversation.
-            </p>
-          </div>
-          <div className="os-pricing-card">
-            <div className="os-price-label">Custom Chat System</div>
-            <div className="os-price-contact">Custom Pricing</div>
-            <div className="os-price-contact-sub">
-              Every custom system is scoped individually. Book a discovery call
-              and we will design the right system for your organization and give
-              you a clear quote.
-            </div>
-            <div className="os-price-divider" />
-            <div className="os-price-includes">Every Custom System Includes</div>
-            <ul className="os-price-feature-list">
-              {INCLUDES.map((i) => (
-                <li key={i}>{i}</li>
-              ))}
-            </ul>
-            <Link href="/contact" className="os-cta-btn">
-              Book a Free Discovery Call
-            </Link>
-          </div>
-        </div>
-      </div>
+          </FadeIn>
+        </section>
+      </main>
 
-      <div className="os-bottom-cta">
-        <h2>Ready to build a system designed around your organization?</h2>
-        <p>
-          Book a free discovery call. We will learn about your organization, your
-          customers, and your goals, and show you what a custom system would look
-          like for you.
-        </p>
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <SiteFooter />
       </div>
-
-      <SiteFooter />
       <StickyBookButton />
       <Script src="/embed.js" strategy="afterInteractive" />
     </>

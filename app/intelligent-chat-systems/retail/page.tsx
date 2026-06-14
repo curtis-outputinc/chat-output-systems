@@ -1,128 +1,113 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
-import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
+import FadeIn from '../../components/FadeIn';
+import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
+import ChatSystemIcon, { type IconVariant } from '../../components/ChatSystemIcons';
 
 export const metadata: Metadata = {
-  title: 'Customer Chat System for Retail and E-Commerce',
+  title: 'Customer Chat System for Retail and E-Commerce — chat.output.systems',
   description:
     'AI-powered customer chat for retail and e-commerce. Product discovery, cart recovery, return data, and 24/7 support.',
 };
 
-type FeatureRow = {
-  bulletsHeading: string;
-  bullets: string[];
-  valueHeading: string;
-  valueParagraph: string;
-};
+const TEAL = '#07e4c6';
 
-const FEATURES: FeatureRow[] = [
+interface Tile {
+  name: string;
+  blurb: string;
+  variant: IconVariant;
+}
+
+const TILES: Tile[] = [
   {
-    bulletsHeading: 'Product Help and Discovery',
-    bullets: [
-      'Customers describe what they are looking for and the system finds it',
-      'Recommends the right product based on what the customer needs',
-      'Answers detailed questions about product features, specs, and differences',
-      'Checks stock availability and tells customers if a product is in their size or colour',
-      'Lets customers know when an out-of-stock item is expected back',
-      'Surfaces relevant promotions and seasonal offers mid-conversation',
-      "Automatically responds in the customer's own language",
-    ],
-    valueHeading:
-      'Customers who find the right product quickly are more likely to buy it.',
-    valueParagraph:
-      'When a customer cannot find what they are looking for, they leave. This system lets them describe what they need in plain language and helps them find it immediately. It answers product questions, checks availability, and surfaces relevant options so the customer gets to the right product faster.',
+    name: 'Product Help and Discovery',
+    blurb:
+      'Customers describe what they need in plain language and the system finds it. Recommends the right product, answers detailed spec questions, checks stock and size, surfaces relevant promotions, and responds in the customer’s own language.',
+    variant: 'magnifier',
   },
   {
-    bulletsHeading: 'Orders, Shipping, and Returns',
-    bullets: [
-      'Answers shipping cost, delivery timeline, and availability questions instantly',
-      'Explains your return and exchange policy clearly and in full',
-      'Guides customers through how to start a return step by step',
-      'Answers order status and tracking questions without staff involvement',
-      'Reduces the volume of where-is-my-order calls and emails your team receives',
-      'Keeps answers current as shipping or return policies change',
-    ],
-    valueHeading:
-      'Order and shipping questions are the most common customer support request for retail businesses.',
-    valueParagraph:
-      'A large portion of customer service time in retail goes to answering the same questions about shipping, returns, and order status. This system handles all of those questions automatically, any time of day, without your team having to get involved. Your team spends less time on repetitive questions and more time on situations that actually need a person.',
+    name: 'Cart Abandonment and Checkout Support',
+    blurb:
+      'Engages hesitating shoppers, answers last-minute payment and discount questions, and clears up checkout confusion in real time. Captures contact details if they leave anyway, and notifies your team when a high-value customer abandons.',
+    variant: 'leadCapture',
   },
   {
-    bulletsHeading: 'Cart Abandonment and Checkout Support',
-    bullets: [
-      'Engages customers who appear to be hesitating before completing a purchase',
-      'Answers last-minute questions about payment options and discount codes',
-      'Clears up confusion about checkout steps that may be stopping a purchase',
-      'Surfaces relevant promotions at the moment a customer is closest to buying',
-      'Captures customer contact details for follow-up if they leave without buying',
-      'Notifies your team when a high-value customer abandons their cart',
-    ],
-    valueHeading:
-      'Most online shoppers who leave without buying had a question that went unanswered.',
-    valueParagraph:
-      'Cart abandonment is one of the most expensive problems in e-commerce. A customer adds items, reaches checkout, and stops. Usually it is because of a question they could not get answered fast enough. This system answers those questions in real time, removes the hesitation, and helps the customer complete their purchase.',
+    name: 'Orders, Shipping, and Returns',
+    blurb:
+      'Answers shipping cost, delivery timeline, return policy, and order status questions instantly without staff. Reduces where-is-my-order calls and emails so your team focuses on situations that actually need a person.',
+    variant: 'package',
   },
   {
-    bulletsHeading: 'Return Data and Customer Feedback',
-    bullets: [
-      'When a customer returns a product, the system asks why',
-      "Collects return reasons in the customer's own words",
-      'Logs and organizes that feedback for your review',
-      'Identifies which products are returned most and why',
-      'Collects general product feedback and satisfaction information',
-      'Gives you the data to make smarter product and inventory decisions',
-    ],
-    valueHeading:
-      'Knowing why customers return products is more valuable than knowing that they do.',
-    valueParagraph:
-      'Most businesses track how many products get returned. Very few know why in enough detail to act on it. This system asks customers directly, in the natural flow of the return conversation, and logs those reasons for your review. Over time that data tells you which products have recurring issues and where changes would reduce future returns.',
-  },
-  {
-    bulletsHeading: 'After Hours Support and Peak Season Scaling',
-    bullets: [
-      'Fully operational 24 hours a day, 7 days a week, 365 days a year',
-      'Handles high volumes during sales events, launches, and peak seasons automatically',
-      'No performance drop during Black Friday, holidays, or promotional periods',
-      'Pre-loaded with launch or promotion-specific content before events go live',
-      'Captures every inquiry even when your team is offline',
-    ],
-    valueHeading:
-      'Your busiest sales days should not also be your most chaotic customer service days.',
-    valueParagraph:
-      'During a sale or product launch, customer inquiries spike. This system handles that volume automatically with no slowdown and no drop in quality. It can be pre-loaded with promotion-specific information before a sale goes live so every customer gets accurate answers from the first minute.',
-  },
-  {
-    bulletsHeading: 'Analytics, Dashboard, and Monthly Management',
-    bullets: [
-      'Insights Dashboard shows top questions, engagement times, and system performance',
-      'See which products customers ask about most and which cause the most confusion',
-      'Conversation logs reviewed monthly',
-      'Knowledge base updated monthly as products, pricing, and promotions change',
-      'API, security, and privacy compliance updates applied every month',
-      'Monthly performance report delivered every month',
-      'Dedicated support for questions or changes at any time',
-    ],
-    valueHeading:
-      'The questions your customers ask tell you more about your business than most reports will.',
-    valueParagraph:
-      'What products are people most curious about? Where on your website are they getting confused? What questions are they asking that your product pages do not answer? The Insights Dashboard shows you all of that every month. We review the logs, update the knowledge base, apply all security updates, and send you a clear performance report.',
+    name: 'After Hours and Peak Season Scaling',
+    blurb:
+      'Fully operational 24/7/365. Handles Black Friday, launches, and holiday volume with no slowdown. Pre-loaded with promotion-specific content before sales go live so every customer gets accurate answers from minute one.',
+    variant: 'notification',
   },
 ];
 
-const INCLUDES = [
-  'Full done-for-you design and build',
-  'Custom knowledge base built from your content',
-  'Insights Dashboard',
-  'Monthly conversation log review',
-  'Monthly knowledge base updates',
-  'API, security, and compliance updates',
-  'Monthly performance report',
-  'Dedicated client support',
-];
+function Eyebrow({
+  children,
+  size = 'sm',
+}: {
+  children: ReactNode;
+  size?: 'sm' | 'lg';
+}) {
+  const fs = size === 'lg' ? '14px' : '11px';
+  const ls = size === 'lg' ? '3.5px' : '3px';
+  const pad = size === 'lg' ? '8px 22px' : '6px 18px';
+  return (
+    <div
+      className="inline-block font-semibold uppercase"
+      style={{
+        fontSize: fs,
+        letterSpacing: ls,
+        color: TEAL,
+        border: '1px solid rgba(7,228,198,0.28)',
+        padding: pad,
+        borderRadius: '2px',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function SystemTile({ tile, reverse }: { tile: Tile; reverse: boolean }) {
+  return (
+    <div
+      className="grid md:grid-cols-2 gap-10 md:gap-16 items-center px-8 md:px-14 py-14 md:py-20 mb-4"
+      style={{
+        background: '#0a0f0d',
+        border: '1px solid rgba(7,228,198,0.18)',
+        borderRadius: '6px',
+      }}
+    >
+      <div
+        className={`flex justify-center ${reverse ? 'md:order-2' : 'md:order-1'}`}
+      >
+        <ChatSystemIcon variant={tile.variant} size={220} />
+      </div>
+      <div className={reverse ? 'md:order-1' : 'md:order-2'}>
+        <h3
+          className="text-2xl md:text-[32px] font-extrabold tracking-tight mb-4 leading-[1.15]"
+          style={{ color: '#ffffff' }}
+        >
+          {tile.name}
+        </h3>
+        <p
+          className="text-lg md:text-xl leading-[1.65]"
+          style={{ color: '#ffffff' }}
+        >
+          {tile.blurb}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function RetailPage() {
   return (
@@ -130,105 +115,223 @@ export default function RetailPage() {
       <AnimatedNodesBackground />
       <SiteNav active="/intelligent-chat-systems/retail" />
 
-      <div className="os-hero">
-        <div className="os-hero-tag">Customer Chat System — Retail and E-Commerce</div>
-        <h1>
-          Help your customers find what they need and{' '}
-          <em>complete their purchase.</em>
-        </h1>
-        <p className="os-hero-intro">
-          This system is built for businesses that sell products, whether online,
-          in a physical store, or both. It helps your customers find products,
-          check availability, get shipping and return answers, and complete their
-          purchase with confidence. It also tells you what your customers are
-          asking, what they are returning, and where they get stuck on your
-          website. Everything is done for you from design through to monthly
-          management.
-        </p>
-        <div className="os-dfy-badge">
-          <span>100% Done For You — Design, Setup, and Monthly Management Included</span>
-        </div>
-      </div>
+      <main
+        className="text-white pb-40"
+        style={{ position: 'relative', zIndex: 1 }}
+      >
+        {/* HERO */}
+        <section className="px-6 sm:px-10 pt-36 pb-20 text-center">
+          <FadeIn>
+            <h1
+              className="font-black tracking-tight leading-[1.05] mb-6 mx-auto"
+              style={{
+                fontSize: 'clamp(36px, 5.8vw, 76px)',
+                letterSpacing: '-2.5px',
+                maxWidth: '1000px',
+                color: '#ffffff',
+              }}
+            >
+              Help customers find what they need and{' '}
+              <span style={{ color: TEAL }}>complete their purchase.</span>
+            </h1>
+            <p
+              className="mx-auto mb-4"
+              style={{
+                fontSize: '19px',
+                lineHeight: 1.75,
+                maxWidth: '700px',
+                color: '#ffffff',
+              }}
+            >
+              Built for businesses that sell products online, in store, or both.
+              The system helps shoppers find products, check availability, get
+              shipping and return answers, and complete their purchase with
+              confidence.
+            </p>
+            <p
+              className="mx-auto"
+              style={{
+                fontSize: '16px',
+                lineHeight: 1.7,
+                maxWidth: '700px',
+                color: '#ffffff',
+              }}
+            >
+              100% done for you. Design, setup, and monthly management included.
+            </p>
+          </FadeIn>
+        </section>
 
-      <div className="os-rule" />
+        <div
+          style={{
+            height: '1px',
+            background:
+              'linear-gradient(90deg, rgba(7,228,198,0.6) 0%, transparent 70%)',
+          }}
+        />
 
-      <div className="os-features">
-        <p className="os-section-label">What's Included</p>
-        {FEATURES.map((f) => (
-          <div className="os-feature-row" key={f.bulletsHeading}>
-            <div className="os-feature-bullets">
-              <h3>{f.bulletsHeading}</h3>
-              <ul className="os-bullet-list">
-                {f.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="os-feature-value">
-              <h3>{f.valueHeading}</h3>
-              <p>{f.valueParagraph}</p>
-            </div>
+        {/* TILES */}
+        <section
+          className="px-6 sm:px-10 py-24"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <div className="max-w-6xl mx-auto">
+            <FadeIn>
+              <div className="text-center mb-14">
+                <h2
+                  className="font-extrabold tracking-tight mx-auto mb-5"
+                  style={{
+                    fontSize: 'clamp(28px, 3.8vw, 48px)',
+                    letterSpacing: '-1.4px',
+                    color: '#ffffff',
+                  }}
+                >
+                  Built for stores.{' '}
+                  <span style={{ color: TEAL }}>
+                    Designed to close the sale.
+                  </span>
+                </h2>
+                <p
+                  className="mx-auto"
+                  style={{
+                    fontSize: '18px',
+                    lineHeight: 1.75,
+                    maxWidth: '620px',
+                    color: '#ffffff',
+                  }}
+                >
+                  Every capability targets the exact moments where retail
+                  shoppers hesitate, abandon, or come back to ask.
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* FEATURED — Shopping Cart flagship */}
+            <FadeIn delay={80}>
+              <div
+                className="relative overflow-hidden px-8 md:px-14 py-12 md:py-16 mb-8"
+                style={{
+                  background: '#000000',
+                  border: '1px solid rgba(7,228,198,0.34)',
+                  borderRadius: '6px',
+                }}
+              >
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '3px',
+                    background: TEAL,
+                  }}
+                />
+                <div className="grid md:grid-cols-[1fr_240px] gap-10 items-center">
+                  <div>
+                    <h3
+                      className="font-extrabold tracking-tight leading-[1.15] mb-5"
+                      style={{
+                        fontSize: 'clamp(24px, 3vw, 38px)',
+                        letterSpacing: '-1px',
+                        color: '#ffffff',
+                      }}
+                    >
+                      Return Data and Customer Feedback in Their Own Words.
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '19px',
+                        lineHeight: 1.75,
+                        maxWidth: '680px',
+                        color: '#ffffff',
+                      }}
+                    >
+                      When a customer returns a product the system asks why and
+                      logs the answer in the customer’s own words. Over time
+                      that data tells you which products have recurring issues
+                      and where changes would reduce future returns. Knowing why
+                      is more valuable than knowing how many.
+                    </p>
+                  </div>
+                  <div className="flex justify-center md:justify-end">
+                    <div
+                      style={{
+                        width: '100%',
+                        maxWidth: '240px',
+                        aspectRatio: '1 / 1',
+                      }}
+                    >
+                      <ChatSystemIcon
+                        variant="shoppingCart"
+                        size={240}
+                        ariaLabel="Shopping cart representing retail and e-commerce"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {TILES.map((tile, i) => (
+              <FadeIn key={tile.name} delay={100 + i * 60}>
+                <SystemTile tile={tile} reverse={i % 2 === 1} />
+              </FadeIn>
+            ))}
           </div>
-        ))}
-      </div>
+        </section>
 
-      <div className="os-rule" />
+        <div
+          style={{
+            height: '1px',
+            background:
+              'linear-gradient(90deg, rgba(7,228,198,0.6) 0%, transparent 70%)',
+          }}
+        />
 
-      <div className="os-pricing">
-        <div className="os-pricing-inner">
-          <div className="os-pricing-left">
-            <h2>
-              Built for your store.
-              <br />
-              <em>Managed every month.</em>
+        {/* BOTTOM CTA */}
+        <section
+          className="px-6 sm:px-10 py-24 text-center"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <FadeIn>
+            <Eyebrow size="lg">Get Started</Eyebrow>
+            <h2
+              className="font-extrabold tracking-tight leading-[1.1] mt-6 mb-5 mx-auto"
+              style={{
+                fontSize: 'clamp(28px, 3.8vw, 48px)',
+                letterSpacing: '-1.4px',
+                maxWidth: '780px',
+                color: '#ffffff',
+              }}
+            >
+              Ready to give your shoppers a better experience?
             </h2>
-            <p>
-              This is not a plugin you install and configure yourself. We design
-              it around your products, your policies, and your customers. We
-              build it, test it, launch it, and manage it every month so it stays
-              accurate as your inventory and promotions change.
+            <p
+              className="mx-auto"
+              style={{
+                fontSize: '18px',
+                lineHeight: 1.8,
+                maxWidth: '720px',
+                color: '#ffffff',
+              }}
+            >
+              Book a free discovery call. We can set up a demo customized to
+              your store so you know exactly what your new system will look
+              like.
             </p>
-            <p>
-              Pricing is based on the scope of your system, the number of features
-              you need, and any integrations involved. We put together a clear
-              quote after the discovery call.
-            </p>
-            <p className="os-pricing-note">
-              Book a free discovery call to get a custom quote for your business.
-            </p>
-          </div>
-          <div className="os-pricing-card">
-            <div className="os-price-label">Customer Chat System — Retail and E-Commerce</div>
-            <div className="os-price-contact">Custom Pricing</div>
-            <div className="os-price-contact-sub">
-              Pricing is based on the size and scope of your system. Book a free
-              discovery call and we will put together a clear quote for your
-              specific business.
-            </div>
-            <div className="os-price-divider" />
-            <div className="os-price-includes">Every System Includes</div>
-            <ul className="os-price-feature-list">
-              {INCLUDES.map((i) => (
-                <li key={i}>{i}</li>
-              ))}
-            </ul>
-            <Link href="/contact" className="os-cta-btn">
-              Book a Free Discovery Call
-            </Link>
-          </div>
-        </div>
-      </div>
+          </FadeIn>
+        </section>
+      </main>
 
-      <div className="os-bottom-cta">
-        <h2>Ready to give your customers a better experience?</h2>
-        <p>
-          Book a free discovery call. We can set up a demo for you, customized to
-          your business so you will know exactly what your new system would look
-          like.
-        </p>
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <SiteFooter />
       </div>
-
-      <SiteFooter />
       <StickyBookButton />
       <Script src="/embed.js" strategy="afterInteractive" />
     </>

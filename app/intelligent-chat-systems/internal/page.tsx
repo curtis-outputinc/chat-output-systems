@@ -1,115 +1,113 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import type { ReactNode } from 'react';
 import Script from 'next/script';
 import SiteNav from '../../components/SiteNav';
-import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import SiteFooter from '../../components/SiteFooter';
 import StickyBookButton from '../../components/StickyBookButton';
+import FadeIn from '../../components/FadeIn';
+import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
+import ChatSystemIcon, { type IconVariant } from '../../components/ChatSystemIcons';
 
 export const metadata: Metadata = {
-  title: 'Internal Chat System for Teams',
+  title: 'Internal Chat System for Teams — chat.output.systems',
   description:
     'An AI-powered internal chat system that gives your team instant access to SOPs, policies, and company knowledge.',
 };
 
-type FeatureRow = {
-  bulletsHeading: string;
-  bullets: string[];
-  valueHeading: string;
-  valueParagraph: string;
-};
+const TEAL = '#07e4c6';
 
-const FEATURES: FeatureRow[] = [
+interface Tile {
+  name: string;
+  blurb: string;
+  variant: IconVariant;
+}
+
+const TILES: Tile[] = [
   {
-    bulletsHeading: 'Instant Access to Company Knowledge',
-    bullets: [
-      'Staff ask questions in plain language and get an immediate answer',
-      'Pulls answers from your approved SOPs, manuals, policies, and documents',
-      'Finds the right information from large document libraries in seconds',
-      'Works the same whether your team is in the office or working remotely',
-      'Every team member gets the same accurate answer every time',
-      "Automatically responds in the team member's own language",
-      'Knowledge base updated monthly so answers reflect current company information',
-    ],
-    valueHeading:
-      'Your team should not spend 20 minutes searching for an answer that exists in a document somewhere.',
-    valueParagraph:
-      'Most companies have the information their team needs. The problem is that it is spread across folders, shared drives, email threads, and long documents that take time to find and read. This system puts all of that knowledge in one place and makes it instantly searchable in plain language.',
+    name: 'SOPs, Policies, and Procedures',
+    blurb:
+      'Staff look up standard operating procedures by asking a simple question. HR policies, compliance rules, and exception cases retrieved on demand. Everyone follows the right process every time without memorizing documents — and updates land monthly.',
+    variant: 'shield',
   },
   {
-    bulletsHeading: 'SOPs, Policies, and Procedures',
-    bullets: [
-      'Staff can look up standard operating procedures by asking a simple question',
-      'HR policies, operational guidelines, and compliance rules are all accessible instantly',
-      'Refund procedures, return policies, and exception rules retrieved on demand',
-      'Staff follow the right process every time without memorizing documents',
-      'New procedures and policy updates are added to the system monthly',
-      'Reduces the risk of staff following outdated processes',
-    ],
-    valueHeading:
-      'When every team member follows the same process, the quality of your service goes up.',
-    valueParagraph:
-      'Inconsistent processes cost businesses money. A refund handled wrong, a procedure skipped, a policy misapplied. This system gives every team member instant access to the exact procedure for any situation, in the exact words your company uses. The right process, every time.',
+    name: 'Onboarding and Training Support',
+    blurb:
+      'New staff ask questions during onboarding without needing a manager present. Common first-week questions answered instantly so new hires build confidence faster, and senior staff stop answering the same questions over and over.',
+    variant: 'lightbulb',
   },
   {
-    bulletsHeading: 'Onboarding and Training Support',
-    bullets: [
-      'New staff can ask questions during onboarding without needing a manager present',
-      'Training materials and onboarding documents available on demand',
-      'Common first-week questions answered instantly so new hires build confidence faster',
-      'Reduces the time senior staff spend answering repetitive onboarding questions',
-      'New team members follow the same processes from day one',
-      'Training content updated monthly as processes and products change',
-    ],
-    valueHeading:
-      'New staff get up to speed faster when they can find answers without interrupting someone.',
-    valueParagraph:
-      'Onboarding a new team member takes time from everyone. This system handles that. New hires type their questions, get accurate answers from approved company content, and learn faster without pulling everyone else away from their work. That shortens the onboarding period and reduces the cost of bringing new people on.',
+    name: 'Role-Based Access and Security',
+    blurb:
+      'Different team members see only what is relevant to their role. Sensitive information stays restricted to the people who need it. Secure access whether your team is in-office or remote. Security updates applied every month.',
+    variant: 'magnifier',
   },
   {
-    bulletsHeading: 'Role-Based Access and Security',
-    bullets: [
-      'Different team members see only the information relevant to their role',
-      'Sensitive information is restricted to the people who need it',
-      'Access controls configured during setup and reviewed monthly',
-      'Secure access whether your team is in-office or working remotely',
-      'Security updates applied every month as part of monthly management',
-    ],
-    valueHeading:
-      'Not every team member needs access to every piece of company information.',
-    valueParagraph:
-      'A customer service rep needs different information than a manager. A warehouse team member needs different access than someone in finance. This system is configured with role-based access so each person sees exactly what they need and nothing more.',
-  },
-  {
-    bulletsHeading: 'Analytics, Dashboard, and Monthly Management',
-    bullets: [
-      'Insights Dashboard shows what your team is asking most and where knowledge gaps exist',
-      'Unanswered staff questions are logged and used to expand the knowledge base monthly',
-      'Conversation logs reviewed monthly to ensure accuracy',
-      'Knowledge base updated monthly as your business changes',
-      'API, security, and privacy compliance updates applied every month',
-      'Monthly performance report delivered every month',
-      'Dedicated support for questions or changes at any time',
-    ],
-    valueHeading:
-      'The questions your team asks most often tell you where your internal documentation needs work.',
-    valueParagraph:
-      'When the same question keeps coming up, it usually means there is a gap in your documentation or a process that is not clear enough. The Insights Dashboard shows you exactly what your team is asking most so you can identify and fix those gaps.',
+    name: 'Insights Dashboard and Monthly Management',
+    blurb:
+      'See what your team is asking most and where the knowledge gaps are. Unanswered questions logged and used to expand the knowledge base monthly. Conversation logs reviewed, security updates applied, and a performance report delivered every month.',
+    variant: 'chatBubble',
   },
 ];
 
-const INCLUDES = [
-  'Full done-for-you design and build',
-  'Custom knowledge base built from your documents',
-  'Role-based access configuration',
-  'Onboarding and training content setup',
-  'Insights Dashboard',
-  'Monthly conversation log review',
-  'Monthly knowledge base updates',
-  'API, security, and compliance updates',
-  'Monthly performance report',
-  'Dedicated client support',
-];
+function Eyebrow({
+  children,
+  size = 'sm',
+}: {
+  children: ReactNode;
+  size?: 'sm' | 'lg';
+}) {
+  const fs = size === 'lg' ? '14px' : '11px';
+  const ls = size === 'lg' ? '3.5px' : '3px';
+  const pad = size === 'lg' ? '8px 22px' : '6px 18px';
+  return (
+    <div
+      className="inline-block font-semibold uppercase"
+      style={{
+        fontSize: fs,
+        letterSpacing: ls,
+        color: TEAL,
+        border: '1px solid rgba(7,228,198,0.28)',
+        padding: pad,
+        borderRadius: '2px',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function SystemTile({ tile, reverse }: { tile: Tile; reverse: boolean }) {
+  return (
+    <div
+      className="grid md:grid-cols-2 gap-10 md:gap-16 items-center px-8 md:px-14 py-14 md:py-20 mb-4"
+      style={{
+        background: '#0a0f0d',
+        border: '1px solid rgba(7,228,198,0.18)',
+        borderRadius: '6px',
+      }}
+    >
+      <div
+        className={`flex justify-center ${reverse ? 'md:order-2' : 'md:order-1'}`}
+      >
+        <ChatSystemIcon variant={tile.variant} size={220} />
+      </div>
+      <div className={reverse ? 'md:order-1' : 'md:order-2'}>
+        <h3
+          className="text-2xl md:text-[32px] font-extrabold tracking-tight mb-4 leading-[1.15]"
+          style={{ color: '#ffffff' }}
+        >
+          {tile.name}
+        </h3>
+        <p
+          className="text-lg md:text-xl leading-[1.65]"
+          style={{ color: '#ffffff' }}
+        >
+          {tile.blurb}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function InternalPage() {
   return (
@@ -117,105 +115,223 @@ export default function InternalPage() {
       <AnimatedNodesBackground />
       <SiteNav active="/intelligent-chat-systems/internal" />
 
-      <div className="os-hero">
-        <div className="os-hero-tag">Internal Chat System</div>
-        <h1>
-          Your team gets the right answer{' '}
-          <em>in seconds, not minutes.</em>
-        </h1>
-        <p className="os-hero-intro">
-          This system is built for your staff, not your customers. It gives every
-          member of your team instant access to company information through plain
-          language questions. Instead of searching through folders, waiting on a
-          manager, or digging through email threads, your team types a question
-          and gets the right answer immediately. Everything is built from your
-          own approved company content, and everything is done for you from
-          design through to monthly management.
-        </p>
-        <div className="os-dfy-badge">
-          <span>100% Done For You — Design, Setup, and Monthly Management Included</span>
-        </div>
-      </div>
+      <main
+        className="text-white pb-40"
+        style={{ position: 'relative', zIndex: 1 }}
+      >
+        {/* HERO */}
+        <section className="px-6 sm:px-10 pt-36 pb-20 text-center">
+          <FadeIn>
+            <h1
+              className="font-black tracking-tight leading-[1.05] mb-6 mx-auto"
+              style={{
+                fontSize: 'clamp(36px, 5.8vw, 76px)',
+                letterSpacing: '-2.5px',
+                maxWidth: '1000px',
+                color: '#ffffff',
+              }}
+            >
+              Your team gets the right answer{' '}
+              <span style={{ color: TEAL }}>in seconds, not minutes.</span>
+            </h1>
+            <p
+              className="mx-auto mb-4"
+              style={{
+                fontSize: '19px',
+                lineHeight: 1.75,
+                maxWidth: '700px',
+                color: '#ffffff',
+              }}
+            >
+              Built for your staff, not your customers. Every member of your
+              team gets instant access to company information through plain
+              language questions — no folder digging, no waiting on a manager,
+              no email thread archaeology.
+            </p>
+            <p
+              className="mx-auto"
+              style={{
+                fontSize: '16px',
+                lineHeight: 1.7,
+                maxWidth: '700px',
+                color: '#ffffff',
+              }}
+            >
+              100% done for you. Design, setup, and monthly management included.
+            </p>
+          </FadeIn>
+        </section>
 
-      <div className="os-rule" />
+        <div
+          style={{
+            height: '1px',
+            background:
+              'linear-gradient(90deg, rgba(7,228,198,0.6) 0%, transparent 70%)',
+          }}
+        />
 
-      <div className="os-features">
-        <p className="os-section-label">What's Included</p>
-        {FEATURES.map((f) => (
-          <div className="os-feature-row" key={f.bulletsHeading}>
-            <div className="os-feature-bullets">
-              <h3>{f.bulletsHeading}</h3>
-              <ul className="os-bullet-list">
-                {f.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="os-feature-value">
-              <h3>{f.valueHeading}</h3>
-              <p>{f.valueParagraph}</p>
-            </div>
+        {/* TILES */}
+        <section
+          className="px-6 sm:px-10 py-24"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <div className="max-w-6xl mx-auto">
+            <FadeIn>
+              <div className="text-center mb-14">
+                <h2
+                  className="font-extrabold tracking-tight mx-auto mb-5"
+                  style={{
+                    fontSize: 'clamp(28px, 3.8vw, 48px)',
+                    letterSpacing: '-1.4px',
+                    color: '#ffffff',
+                  }}
+                >
+                  Built for your team.{' '}
+                  <span style={{ color: TEAL }}>
+                    Designed to remove friction.
+                  </span>
+                </h2>
+                <p
+                  className="mx-auto"
+                  style={{
+                    fontSize: '18px',
+                    lineHeight: 1.75,
+                    maxWidth: '620px',
+                    color: '#ffffff',
+                  }}
+                >
+                  Every capability is designed to give staff the right answer
+                  faster and keep your operations consistent across the team.
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* FEATURED — Instant Knowledge */}
+            <FadeIn delay={80}>
+              <div
+                className="relative overflow-hidden px-8 md:px-14 py-12 md:py-16 mb-8"
+                style={{
+                  background: '#000000',
+                  border: '1px solid rgba(7,228,198,0.34)',
+                  borderRadius: '6px',
+                }}
+              >
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '3px',
+                    background: TEAL,
+                  }}
+                />
+                <div className="grid md:grid-cols-[1fr_240px] gap-10 items-center">
+                  <div>
+                    <h3
+                      className="font-extrabold tracking-tight leading-[1.15] mb-5"
+                      style={{
+                        fontSize: 'clamp(24px, 3vw, 38px)',
+                        letterSpacing: '-1px',
+                        color: '#ffffff',
+                      }}
+                    >
+                      Instant access to every document your team needs.
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '19px',
+                        lineHeight: 1.75,
+                        maxWidth: '680px',
+                        color: '#ffffff',
+                      }}
+                    >
+                      Most companies already have the information their team
+                      needs — it is just spread across folders, drives, email
+                      threads, and long documents. This system puts all of that
+                      knowledge in one place, instantly searchable in plain
+                      language, with the same accurate answer every time.
+                    </p>
+                  </div>
+                  <div className="flex justify-center md:justify-end">
+                    <div
+                      style={{
+                        width: '100%',
+                        maxWidth: '240px',
+                        aspectRatio: '1 / 1',
+                      }}
+                    >
+                      <ChatSystemIcon
+                        variant="knowledge"
+                        size={240}
+                        ariaLabel="Stack of books representing instant company knowledge"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {TILES.map((tile, i) => (
+              <FadeIn key={tile.name} delay={100 + i * 60}>
+                <SystemTile tile={tile} reverse={i % 2 === 1} />
+              </FadeIn>
+            ))}
           </div>
-        ))}
-      </div>
+        </section>
 
-      <div className="os-rule" />
+        <div
+          style={{
+            height: '1px',
+            background:
+              'linear-gradient(90deg, rgba(7,228,198,0.6) 0%, transparent 70%)',
+          }}
+        />
 
-      <div className="os-pricing">
-        <div className="os-pricing-inner">
-          <div className="os-pricing-left">
-            <h2>
-              Built for your team.
-              <br />
-              <em>Managed every month.</em>
+        {/* BOTTOM CTA */}
+        <section
+          className="px-6 sm:px-10 py-24 text-center"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <FadeIn>
+            <Eyebrow size="lg">Get Started</Eyebrow>
+            <h2
+              className="font-extrabold tracking-tight leading-[1.1] mt-6 mb-5 mx-auto"
+              style={{
+                fontSize: 'clamp(28px, 3.8vw, 48px)',
+                letterSpacing: '-1.4px',
+                maxWidth: '780px',
+                color: '#ffffff',
+              }}
+            >
+              Ready to give your team the information they need instantly?
             </h2>
-            <p>
-              This is not a search tool you set up and hand off to your team. We
-              design it around your company's actual knowledge, build it using
-              your approved documents, test it, launch it, and manage it every
-              month so it stays accurate as your business evolves.
+            <p
+              className="mx-auto"
+              style={{
+                fontSize: '18px',
+                lineHeight: 1.8,
+                maxWidth: '720px',
+                color: '#ffffff',
+              }}
+            >
+              Book a free discovery call. We can set up a demo customized to
+              your company so you know exactly what your internal system will
+              look like.
             </p>
-            <p>
-              Pricing is based on the size of your knowledge base, the number of
-              team members, and any integrations involved. We put together a
-              clear quote after the discovery call.
-            </p>
-            <p className="os-pricing-note">
-              Book a free discovery call to get a custom quote for your business.
-            </p>
-          </div>
-          <div className="os-pricing-card">
-            <div className="os-price-label">Internal Chat System</div>
-            <div className="os-price-contact">Custom Pricing</div>
-            <div className="os-price-contact-sub">
-              Pricing is based on the size and scope of your system. Book a free
-              discovery call and we will put together a clear quote for your
-              specific business.
-            </div>
-            <div className="os-price-divider" />
-            <div className="os-price-includes">Every System Includes</div>
-            <ul className="os-price-feature-list">
-              {INCLUDES.map((i) => (
-                <li key={i}>{i}</li>
-              ))}
-            </ul>
-            <Link href="/contact" className="os-cta-btn">
-              Book a Free Discovery Call
-            </Link>
-          </div>
-        </div>
-      </div>
+          </FadeIn>
+        </section>
+      </main>
 
-      <div className="os-bottom-cta">
-        <h2>Ready to give your team the information they need instantly?</h2>
-        <p>
-          Book a free discovery call. We can set up a demo for you, customized to
-          your business so you will know exactly what your new system would look
-          like.
-        </p>
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <SiteFooter />
       </div>
-
-      <SiteFooter />
       <StickyBookButton />
       <Script src="/embed.js" strategy="afterInteractive" />
     </>
