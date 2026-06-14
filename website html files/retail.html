@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Customer Chat System for Retail and E-Commerce | Output Systems</title>
+  <meta name="description" content="AI-powered customer chat for retail and e-commerce. Product discovery, cart recovery, return data, and 24/7 support.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body><!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo_white.png" alt="Output Systems">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="">Intelligent Chat Systems ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="standard.html">Standard Intelligent Website Chat System</a>
+        <a href="service.html">Customer Chat System — Service Business</a>
+        <a href="retail.html">Customer Chat System — Retail and E-Commerce</a>
+        <a href="internal.html">Internal Chat System</a>
+        <a href="custom.html">Custom Chat System</a>
+      </div>
+    </li>
+    <li><a href="process.html" class="">Our Process</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="compliance.html" class="">Privacy and Data</a></li>
+    <li><a href="contact.html" class="">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div id="mobile-menu" style="display:none;position:fixed;top:72px;left:0;right:0;background:#000;z-index:999;padding:32px 24px;border-bottom:1px solid rgba(7,228,198,0.15);overflow-y:auto;max-height:80vh;">
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:20px;">
+    <li><a href="index.html" style="font-size:17px;font-weight:600;color:#fff;">Home</a></li>
+    <li style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;">Intelligent Chat Systems</li>
+    <li style="padding-left:16px;"><a href="standard.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Standard Intelligent Website Chat System</a></li>
+    <li style="padding-left:16px;"><a href="service.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Service Business</a></li>
+    <li style="padding-left:16px;"><a href="retail.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Retail and E-Commerce</a></li>
+    <li style="padding-left:16px;"><a href="internal.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Internal Chat System</a></li>
+    <li style="padding-left:16px;"><a href="custom.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Custom Chat System</a></li>
+    <li><a href="process.html" style="font-size:17px;font-weight:600;color:#fff;">Our Process</a></li>
+    <li><a href="about.html" style="font-size:17px;font-weight:600;color:#fff;">About</a></li>
+    <li><a href="compliance.html" style="font-size:17px;font-weight:600;color:#07e4c6;">Privacy and Data</a></li>
+    <li><a href="contact.html" style="font-size:17px;font-weight:600;color:#fff;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo_white.png" alt="Output Systems" style="height:28px;width:auto;">
+      <p>AI-powered intelligent chat systems built for your business. 100% done for you, from design through to monthly management.</p>
+      <div class="footer-tagline">Reclaim Time. Increase Profits. Reduce Expenses.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standard.html">Standard Chat System</a></li>
+        <li><a href="service.html">Service Business</a></li>
+        <li><a href="retail.html">Retail and E-Commerce</a></li>
+        <li><a href="internal.html">Internal Chat System</a></li>
+        <li><a href="custom.html">Custom Chat System</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Privacy and Data</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+      <div style="margin-top:32px;">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:connect@output.systems">connect@output.systems</a></li>
+          <li><a href="tel:6476223799">647 622 3799</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;line-height:1.5;">375 University Ave<br>Toronto, Ontario, Canada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Output Systems / Output Inc. All rights reserved. Toronto, Ontario, Canada.</p>
+    <p style="color:rgba(255,255,255,0.15);font-size:12px;">chat.output.systems</p>
+  </div>
+</footer>
+
+<!-- STICKY BUTTON -->
+<div id="os-sticky">
+  <a href="contact.html">BOOK A FREE DISCOVERY CALL</a>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+(function(){
+  function toggleMenu(){
+    var m=document.getElementById('mobile-menu');
+    m.style.display=m.style.display==='none'?'block':'none';
+  }
+  window.toggleMenu=toggleMenu;
+  var el=document.getElementById('os-sticky');
+  var a=el.querySelector('a');
+  function check(){
+    if(window.innerWidth<=860){
+      el.style.bottom='5vh';
+      el.style.left='0';
+      el.style.right='auto';
+      el.style.width='50%';
+      el.style.justifyContent='center';
+      a.style.width='90%';
+      a.style.fontSize='13px';
+    } else {
+      el.style.bottom='20px';
+      el.style.left='0';
+      el.style.right='0';
+      el.style.width='100%';
+      el.style.justifyContent='center';
+      a.style.width='20%';
+      a.style.fontSize='15px';
+    }
+  }
+  check();
+  window.addEventListener('resize',check);
+  // Lazy load images
+  if('IntersectionObserver' in window){
+    var imgs=document.querySelectorAll('img[data-src]');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.src=e.target.dataset.src;
+          observer.unobserve(e.target);
+        }
+      });
+    });
+    imgs.forEach(function(img){observer.observe(img);});
+  }
+})();
+</script>
+
+<div class="os-hero">
+  <div class="os-hero-tag">Customer Chat System — Retail and E-Commerce</div>
+  <h1>Help your customers find what they need and <em>complete their purchase.</em></h1>
+  <p class="os-hero-intro">This system is built for businesses that sell products, whether online, in a physical store, or both. It helps your customers find products, check availability, get shipping and return answers, and complete their purchase with confidence. It also tells you what your customers are asking, what they are returning, and where they get stuck on your website. Everything is done for you from design through to monthly management.</p>
+  <div class="os-dfy-badge"><span>100% Done For You — Design, Setup, and Monthly Management Included</span></div>
+</div>
+<div class="os-rule"></div>
+<div class="os-features">
+  <p class="os-section-label">What's Included</p>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Product Help and Discovery</h3><ul class="os-bullet-list"><li>Customers describe what they are looking for and the system finds it</li><li>Recommends the right product based on what the customer needs</li><li>Answers detailed questions about product features, specs, and differences</li><li>Checks stock availability and tells customers if a product is in their size or colour</li><li>Lets customers know when an out-of-stock item is expected back</li><li>Surfaces relevant promotions and seasonal offers mid-conversation</li><li>Automatically responds in the customer's own language</li></ul></div>
+    <div class="os-feature-value"><h3>Customers who find the right product quickly are more likely to buy it.</h3><p>When a customer cannot find what they are looking for, they leave. This system lets them describe what they need in plain language and helps them find it immediately. It answers product questions, checks availability, and surfaces relevant options so the customer gets to the right product faster.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Orders, Shipping, and Returns</h3><ul class="os-bullet-list"><li>Answers shipping cost, delivery timeline, and availability questions instantly</li><li>Explains your return and exchange policy clearly and in full</li><li>Guides customers through how to start a return step by step</li><li>Answers order status and tracking questions without staff involvement</li><li>Reduces the volume of where-is-my-order calls and emails your team receives</li><li>Keeps answers current as shipping or return policies change</li></ul></div>
+    <div class="os-feature-value"><h3>Order and shipping questions are the most common customer support request for retail businesses.</h3><p>A large portion of customer service time in retail goes to answering the same questions about shipping, returns, and order status. This system handles all of those questions automatically, any time of day, without your team having to get involved. Your team spends less time on repetitive questions and more time on situations that actually need a person.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Cart Abandonment and Checkout Support</h3><ul class="os-bullet-list"><li>Engages customers who appear to be hesitating before completing a purchase</li><li>Answers last-minute questions about payment options and discount codes</li><li>Clears up confusion about checkout steps that may be stopping a purchase</li><li>Surfaces relevant promotions at the moment a customer is closest to buying</li><li>Captures customer contact details for follow-up if they leave without buying</li><li>Notifies your team when a high-value customer abandons their cart</li></ul></div>
+    <div class="os-feature-value"><h3>Most online shoppers who leave without buying had a question that went unanswered.</h3><p>Cart abandonment is one of the most expensive problems in e-commerce. A customer adds items, reaches checkout, and stops. Usually it is because of a question they could not get answered fast enough. This system answers those questions in real time, removes the hesitation, and helps the customer complete their purchase.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Return Data and Customer Feedback</h3><ul class="os-bullet-list"><li>When a customer returns a product, the system asks why</li><li>Collects return reasons in the customer's own words</li><li>Logs and organizes that feedback for your review</li><li>Identifies which products are returned most and why</li><li>Collects general product feedback and satisfaction information</li><li>Gives you the data to make smarter product and inventory decisions</li></ul></div>
+    <div class="os-feature-value"><h3>Knowing why customers return products is more valuable than knowing that they do.</h3><p>Most businesses track how many products get returned. Very few know why in enough detail to act on it. This system asks customers directly, in the natural flow of the return conversation, and logs those reasons for your review. Over time that data tells you which products have recurring issues and where changes would reduce future returns.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>After Hours Support and Peak Season Scaling</h3><ul class="os-bullet-list"><li>Fully operational 24 hours a day, 7 days a week, 365 days a year</li><li>Handles high volumes during sales events, launches, and peak seasons automatically</li><li>No performance drop during Black Friday, holidays, or promotional periods</li><li>Pre-loaded with launch or promotion-specific content before events go live</li><li>Captures every inquiry even when your team is offline</li></ul></div>
+    <div class="os-feature-value"><h3>Your busiest sales days should not also be your most chaotic customer service days.</h3><p>During a sale or product launch, customer inquiries spike. This system handles that volume automatically with no slowdown and no drop in quality. It can be pre-loaded with promotion-specific information before a sale goes live so every customer gets accurate answers from the first minute.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Analytics, Dashboard, and Monthly Management</h3><ul class="os-bullet-list"><li>Insights Dashboard shows top questions, engagement times, and system performance</li><li>See which products customers ask about most and which cause the most confusion</li><li>Conversation logs reviewed monthly</li><li>Knowledge base updated monthly as products, pricing, and promotions change</li><li>API, security, and privacy compliance updates applied every month</li><li>Monthly performance report delivered every month</li><li>Dedicated support for questions or changes at any time</li></ul></div>
+    <div class="os-feature-value"><h3>The questions your customers ask tell you more about your business than most reports will.</h3><p>What products are people most curious about? Where on your website are they getting confused? What questions are they asking that your product pages do not answer? The Insights Dashboard shows you all of that every month. We review the logs, update the knowledge base, apply all security updates, and send you a clear performance report.</p></div>
+  </div>
+</div>
+<div class="os-rule"></div>
+<div class="os-pricing">
+  <div class="os-pricing-inner">
+    <div class="os-pricing-left">
+      <h2>Built for your store.<br><em>Managed every month.</em></h2>
+      <p>This is not a plugin you install and configure yourself. We design it around your products, your policies, and your customers. We build it, test it, launch it, and manage it every month so it stays accurate as your inventory and promotions change.</p>
+      <p>Pricing is based on the scope of your system, the number of features you need, and any integrations involved. We put together a clear quote after the discovery call.</p>
+      <p class="os-pricing-note">Book a free discovery call to get a custom quote for your business.</p>
+    </div>
+    <div class="os-pricing-card">
+      <div class="os-price-label">Customer Chat System — Retail and E-Commerce</div>
+      <div class="os-price-contact">Custom Pricing</div>
+      <div class="os-price-contact-sub">Pricing is based on the size and scope of your system. Book a free discovery call and we will put together a clear quote for your specific business.</div>
+      <div class="os-price-divider"></div>
+      <div class="os-price-includes">Every System Includes</div>
+      <ul class="os-price-feature-list">
+        <li>Full done-for-you design and build</li>
+        <li>Custom knowledge base built from your content</li>
+        <li>Insights Dashboard</li>
+        <li>Monthly conversation log review</li>
+        <li>Monthly knowledge base updates</li>
+        <li>API, security, and compliance updates</li>
+        <li>Monthly performance report</li>
+        <li>Dedicated client support</li>
+      </ul>
+      <a href="contact.html" class="os-cta-btn">Book a Free Discovery Call</a>
+    </div>
+  </div>
+</div>
+<div class="os-bottom-cta">
+  <h2>Ready to give your customers a better experience?</h2>
+  <p>Book a free discovery call. We can set up a demo for you, customized to your business so you will know exactly what your new system would look like.</p>
+</div>
+</body></html>

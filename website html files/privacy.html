@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Privacy Policy | Output Systems</title>
+  <meta name="description" content="Output Systems Privacy Policy. How we collect, use, and protect your personal information. PIPEDA, GDPR, CCPA compliant.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body><!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo_white.png" alt="Output Systems">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="">Intelligent Chat Systems ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="standard.html">Standard Intelligent Website Chat System</a>
+        <a href="service.html">Customer Chat System — Service Business</a>
+        <a href="retail.html">Customer Chat System — Retail and E-Commerce</a>
+        <a href="internal.html">Internal Chat System</a>
+        <a href="custom.html">Custom Chat System</a>
+      </div>
+    </li>
+    <li><a href="process.html" class="">Our Process</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="compliance.html" class="">Privacy and Data</a></li>
+    <li><a href="contact.html" class="">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div id="mobile-menu" style="display:none;position:fixed;top:72px;left:0;right:0;background:#000;z-index:999;padding:32px 24px;border-bottom:1px solid rgba(7,228,198,0.15);overflow-y:auto;max-height:80vh;">
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:20px;">
+    <li><a href="index.html" style="font-size:17px;font-weight:600;color:#fff;">Home</a></li>
+    <li style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;">Intelligent Chat Systems</li>
+    <li style="padding-left:16px;"><a href="standard.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Standard Intelligent Website Chat System</a></li>
+    <li style="padding-left:16px;"><a href="service.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Service Business</a></li>
+    <li style="padding-left:16px;"><a href="retail.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Retail and E-Commerce</a></li>
+    <li style="padding-left:16px;"><a href="internal.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Internal Chat System</a></li>
+    <li style="padding-left:16px;"><a href="custom.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Custom Chat System</a></li>
+    <li><a href="process.html" style="font-size:17px;font-weight:600;color:#fff;">Our Process</a></li>
+    <li><a href="about.html" style="font-size:17px;font-weight:600;color:#fff;">About</a></li>
+    <li><a href="compliance.html" style="font-size:17px;font-weight:600;color:#07e4c6;">Privacy and Data</a></li>
+    <li><a href="contact.html" style="font-size:17px;font-weight:600;color:#fff;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo_white.png" alt="Output Systems" style="height:28px;width:auto;">
+      <p>AI-powered intelligent chat systems built for your business. 100% done for you, from design through to monthly management.</p>
+      <div class="footer-tagline">Reclaim Time. Increase Profits. Reduce Expenses.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standard.html">Standard Chat System</a></li>
+        <li><a href="service.html">Service Business</a></li>
+        <li><a href="retail.html">Retail and E-Commerce</a></li>
+        <li><a href="internal.html">Internal Chat System</a></li>
+        <li><a href="custom.html">Custom Chat System</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Privacy and Data</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+      <div style="margin-top:32px;">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:connect@output.systems">connect@output.systems</a></li>
+          <li><a href="tel:6476223799">647 622 3799</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;line-height:1.5;">375 University Ave<br>Toronto, Ontario, Canada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Output Systems / Output Inc. All rights reserved. Toronto, Ontario, Canada.</p>
+    <p style="color:rgba(255,255,255,0.15);font-size:12px;">chat.output.systems</p>
+  </div>
+</footer>
+
+<!-- STICKY BUTTON -->
+<div id="os-sticky">
+  <a href="contact.html">BOOK A FREE DISCOVERY CALL</a>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+(function(){
+  function toggleMenu(){
+    var m=document.getElementById('mobile-menu');
+    m.style.display=m.style.display==='none'?'block':'none';
+  }
+  window.toggleMenu=toggleMenu;
+  var el=document.getElementById('os-sticky');
+  var a=el.querySelector('a');
+  function check(){
+    if(window.innerWidth<=860){
+      el.style.bottom='5vh';
+      el.style.left='0';
+      el.style.right='auto';
+      el.style.width='50%';
+      el.style.justifyContent='center';
+      a.style.width='90%';
+      a.style.fontSize='13px';
+    } else {
+      el.style.bottom='20px';
+      el.style.left='0';
+      el.style.right='0';
+      el.style.width='100%';
+      el.style.justifyContent='center';
+      a.style.width='20%';
+      a.style.fontSize='15px';
+    }
+  }
+  check();
+  window.addEventListener('resize',check);
+  // Lazy load images
+  if('IntersectionObserver' in window){
+    var imgs=document.querySelectorAll('img[data-src]');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.src=e.target.dataset.src;
+          observer.unobserve(e.target);
+        }
+      });
+    });
+    imgs.forEach(function(img){observer.observe(img);});
+  }
+})();
+</script>
+
+<div class="os-hero">
+  <div class="os-hero-tag">Legal</div>
+  <h1>Privacy <em>Policy</em></h1>
+  <p class="os-hero-intro">Effective Date: November 3, 2025 &nbsp;|&nbsp; Last Updated: April 1, 2026</p>
+</div>
+<div class="os-rule"></div>
+<section style="padding:64px 60px 80px;background:#000;max-width:900px;">
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">1. Introduction</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;">Output ("Output," "we," "us," or "our") operates the website located at output.systems and chat.output.systems (the "Website") and provides business consulting and intelligent systems development services (the "Services"). Output is operated by 14305124 Canada Inc, a corporation organized under the laws of Canada with its principal place of business in Toronto, Ontario, Canada.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;">This Privacy Policy describes how Output collects, uses, discloses, retains, and protects personal information when you visit the Website, communicate with us, or engage our Services.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">This Privacy Policy is intended to comply with: PIPEDA (Canada); Quebec Law 25; GDPR and UK GDPR; CCPA/CPRA (California); and other applicable data protection laws.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">2. Data Controller and Contact Information</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;">For all privacy-related inquiries, requests, or complaints, please contact:</p>
+    <div style="background:#0d1f1a;border:1px solid rgba(7,228,198,0.15);border-left:3px solid #07e4c6;padding:24px 28px;max-width:480px;">
+      <div style="font-size:16px;color:rgba(255,255,255,0.8);line-height:1.8;">
+        <strong style="color:#fff;">Privacy Officer:</strong> Curtis Grier-Coward<br>
+        <strong style="color:#fff;">Email:</strong> <a href="mailto:curtis@output.systems" style="color:#07e4c6;">curtis@output.systems</a><br>
+        <strong style="color:#fff;">Address:</strong> 375 University Ave Suite 3267, Toronto, Ontario, Canada M5G 2J5
+      </div>
+    </div>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-top:16px;">We will respond to all inquiries within thirty (30) days, or such shorter period as required by applicable law.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">3. Information We Collect</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;"><strong style="color:#fff;">3.1 Information You Provide Directly</strong> — Full name, email address, telephone number, business name and role, industry and business size, information about your business operations relevant to the Services requested, communication preferences, and any other information you voluntarily provide.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;"><strong style="color:#fff;">3.2 Information Collected Automatically</strong> — IP address, browser type and version, operating system, device identifiers, pages visited, referring URL, date and time of access, geolocation data derived from IP address, cookies and similar tracking technologies.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;"><strong style="color:#fff;">3.3 Sensitive Personal Information</strong> — We do not knowingly collect sensitive personal information such as government IDs, health information, biometric data, racial or ethnic origin, religious beliefs, or sexual orientation.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">4. Legal Bases for Processing (GDPR / UK GDPR)</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">For individuals in the EU, UK, or Switzerland, we process personal information on the following bases: Consent, Contract, Legitimate Interests, and Legal Obligation. You may withdraw consent at any time without affecting the lawfulness of prior processing.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">5. How We Use Personal Information</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">To respond to inquiries, deliver and improve our Services, process transactions, send service and marketing communications (where permitted), analyze Website usage, prevent fraud, comply with legal obligations, and enforce our terms. We do not use personal information for automated decision-making that produces legal effects without explicit consent.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">6. Disclosure of Personal Information</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;"><strong style="color:#fff;">We do not sell personal information.</strong> We may share it only with service providers bound by contractual protections (cloud hosting, email platforms, CRM, analytics, payment processors, professional advisors), where required by law, in connection with a business transfer, or with your explicit consent.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">7. Cookies and Tracking Technologies</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">We use strictly necessary cookies, analytics cookies (subject to consent), and marketing cookies (subject to consent). You may manage preferences through the Website's cookie consent tool or your browser settings. Non-essential cookies are not deployed until consent is given for users in jurisdictions requiring prior consent.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">8. Data Retention</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">Inquiry data (no engagement): up to 24 months. Active client data: duration of engagement plus 7 years. Marketing data: until unsubscribe or withdrawal of consent. Website analytics: up to 26 months. Legal records: as required by law. Data no longer required is securely deleted or anonymized.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">9. International Data Transfers</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">Output is based in Canada, which has been recognized by the European Commission as providing adequate data protection for commercial organizations subject to PIPEDA. For transfers to other jurisdictions, we rely on appropriate safeguards including Standard Contractual Clauses.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">10. Data Security</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">We implement encryption in transit (TLS/SSL) and at rest, access controls, regular security assessments, staff confidentiality obligations, vendor due diligence, and incident response procedures. No method of electronic transmission is completely secure. In the event of a data breach, we will notify affected parties and regulatory authorities as required by law.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">11. Your Rights</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;"><strong style="color:#fff;">All users:</strong> Access, correction, deletion, withdrawal of consent, and complaint.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;"><strong style="color:#fff;">EU / UK / Switzerland (GDPR):</strong> Restriction of processing, data portability, right to object, right not to be subject to automated decision-making, and the right to lodge a complaint with your local data protection authority.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:14px;"><strong style="color:#fff;">California residents (CCPA/CPRA):</strong> Know what personal information is collected, request deletion, correct inaccurate information, opt out of sale or sharing (Output does not sell personal information), limit use of sensitive personal information, and non-discrimination for exercising rights.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">To exercise any right, contact us at <a href="mailto:curtis@output.systems" style="color:#07e4c6;">curtis@output.systems</a>. We will verify your identity before responding.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">12. Children's Privacy</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">The Website and Services are not directed to children under the age of 16. We do not knowingly collect personal information from children. If we learn we have done so, we will delete it promptly.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">13. Third-Party Links and Embedded Content</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">The Website may contain links to third-party websites and embedded content (such as scheduling widgets). Embedded content behaves as if you had visited the third-party website directly. These third parties may collect data, set cookies, and monitor your interaction with their content. We encourage you to review their privacy policies.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">14. Marketing Communications</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">We may send marketing communications where permitted by law and where required, with your consent. You may opt out at any time by clicking unsubscribe in any marketing email or contacting us directly.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">15. Changes to This Privacy Policy</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">We may update this Privacy Policy from time to time. The updated version will be posted on the Website with a revised Last Updated date. Material changes will be communicated through additional means where practicable. Continued use of the Website after the effective date constitutes acceptance of the revised Policy.</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">16. Regulatory Authorities</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">Canada: Office of the Privacy Commissioner (priv.gc.ca) &nbsp;|&nbsp; Quebec: Commission d'accès à l'information (cai.gouv.qc.ca) &nbsp;|&nbsp; EU: Your local Data Protection Authority (edpb.europa.eu) &nbsp;|&nbsp; UK: Information Commissioner's Office (ico.org.uk) &nbsp;|&nbsp; California: California Privacy Protection Agency (cppa.ca.gov)</p>
+  </div>
+
+  <div style="margin-bottom:48px;">
+    <h2 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:16px;">17. Governing Law</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.75);line-height:1.85;">This Privacy Policy is governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein. Disputes will be subject to the exclusive jurisdiction of the courts of the Province of Ontario, except where prohibited by applicable law in your jurisdiction. Nothing in this Policy limits your right to bring a complaint under the mandatory provisions of your local data protection laws.</p>
+  </div>
+
+</section>
+</body></html>

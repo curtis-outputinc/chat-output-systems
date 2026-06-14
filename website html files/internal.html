@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Internal Chat System for Teams | Output Systems</title>
+  <meta name="description" content="An AI-powered internal chat system that gives your team instant access to SOPs, policies, and company knowledge.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body><!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo_white.png" alt="Output Systems">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="">Intelligent Chat Systems ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="standard.html">Standard Intelligent Website Chat System</a>
+        <a href="service.html">Customer Chat System — Service Business</a>
+        <a href="retail.html">Customer Chat System — Retail and E-Commerce</a>
+        <a href="internal.html">Internal Chat System</a>
+        <a href="custom.html">Custom Chat System</a>
+      </div>
+    </li>
+    <li><a href="process.html" class="">Our Process</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="compliance.html" class="">Privacy and Data</a></li>
+    <li><a href="contact.html" class="">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div id="mobile-menu" style="display:none;position:fixed;top:72px;left:0;right:0;background:#000;z-index:999;padding:32px 24px;border-bottom:1px solid rgba(7,228,198,0.15);overflow-y:auto;max-height:80vh;">
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:20px;">
+    <li><a href="index.html" style="font-size:17px;font-weight:600;color:#fff;">Home</a></li>
+    <li style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;">Intelligent Chat Systems</li>
+    <li style="padding-left:16px;"><a href="standard.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Standard Intelligent Website Chat System</a></li>
+    <li style="padding-left:16px;"><a href="service.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Service Business</a></li>
+    <li style="padding-left:16px;"><a href="retail.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Retail and E-Commerce</a></li>
+    <li style="padding-left:16px;"><a href="internal.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Internal Chat System</a></li>
+    <li style="padding-left:16px;"><a href="custom.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Custom Chat System</a></li>
+    <li><a href="process.html" style="font-size:17px;font-weight:600;color:#fff;">Our Process</a></li>
+    <li><a href="about.html" style="font-size:17px;font-weight:600;color:#fff;">About</a></li>
+    <li><a href="compliance.html" style="font-size:17px;font-weight:600;color:#07e4c6;">Privacy and Data</a></li>
+    <li><a href="contact.html" style="font-size:17px;font-weight:600;color:#fff;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo_white.png" alt="Output Systems" style="height:28px;width:auto;">
+      <p>AI-powered intelligent chat systems built for your business. 100% done for you, from design through to monthly management.</p>
+      <div class="footer-tagline">Reclaim Time. Increase Profits. Reduce Expenses.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standard.html">Standard Chat System</a></li>
+        <li><a href="service.html">Service Business</a></li>
+        <li><a href="retail.html">Retail and E-Commerce</a></li>
+        <li><a href="internal.html">Internal Chat System</a></li>
+        <li><a href="custom.html">Custom Chat System</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Privacy and Data</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+      <div style="margin-top:32px;">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:connect@output.systems">connect@output.systems</a></li>
+          <li><a href="tel:6476223799">647 622 3799</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;line-height:1.5;">375 University Ave<br>Toronto, Ontario, Canada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Output Systems / Output Inc. All rights reserved. Toronto, Ontario, Canada.</p>
+    <p style="color:rgba(255,255,255,0.15);font-size:12px;">chat.output.systems</p>
+  </div>
+</footer>
+
+<!-- STICKY BUTTON -->
+<div id="os-sticky">
+  <a href="contact.html">BOOK A FREE DISCOVERY CALL</a>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+(function(){
+  function toggleMenu(){
+    var m=document.getElementById('mobile-menu');
+    m.style.display=m.style.display==='none'?'block':'none';
+  }
+  window.toggleMenu=toggleMenu;
+  var el=document.getElementById('os-sticky');
+  var a=el.querySelector('a');
+  function check(){
+    if(window.innerWidth<=860){
+      el.style.bottom='5vh';
+      el.style.left='0';
+      el.style.right='auto';
+      el.style.width='50%';
+      el.style.justifyContent='center';
+      a.style.width='90%';
+      a.style.fontSize='13px';
+    } else {
+      el.style.bottom='20px';
+      el.style.left='0';
+      el.style.right='0';
+      el.style.width='100%';
+      el.style.justifyContent='center';
+      a.style.width='20%';
+      a.style.fontSize='15px';
+    }
+  }
+  check();
+  window.addEventListener('resize',check);
+  // Lazy load images
+  if('IntersectionObserver' in window){
+    var imgs=document.querySelectorAll('img[data-src]');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.src=e.target.dataset.src;
+          observer.unobserve(e.target);
+        }
+      });
+    });
+    imgs.forEach(function(img){observer.observe(img);});
+  }
+})();
+</script>
+
+<div class="os-hero">
+  <div class="os-hero-tag">Internal Chat System</div>
+  <h1>Your team gets the right answer <em>in seconds, not minutes.</em></h1>
+  <p class="os-hero-intro">This system is built for your staff, not your customers. It gives every member of your team instant access to company information through plain language questions. Instead of searching through folders, waiting on a manager, or digging through email threads, your team types a question and gets the right answer immediately. Everything is built from your own approved company content, and everything is done for you from design through to monthly management.</p>
+  <div class="os-dfy-badge"><span>100% Done For You — Design, Setup, and Monthly Management Included</span></div>
+</div>
+<div class="os-rule"></div>
+<div class="os-features">
+  <p class="os-section-label">What's Included</p>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Instant Access to Company Knowledge</h3><ul class="os-bullet-list"><li>Staff ask questions in plain language and get an immediate answer</li><li>Pulls answers from your approved SOPs, manuals, policies, and documents</li><li>Finds the right information from large document libraries in seconds</li><li>Works the same whether your team is in the office or working remotely</li><li>Every team member gets the same accurate answer every time</li><li>Automatically responds in the team member's own language</li><li>Knowledge base updated monthly so answers reflect current company information</li></ul></div>
+    <div class="os-feature-value"><h3>Your team should not spend 20 minutes searching for an answer that exists in a document somewhere.</h3><p>Most companies have the information their team needs. The problem is that it is spread across folders, shared drives, email threads, and long documents that take time to find and read. This system puts all of that knowledge in one place and makes it instantly searchable in plain language.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>SOPs, Policies, and Procedures</h3><ul class="os-bullet-list"><li>Staff can look up standard operating procedures by asking a simple question</li><li>HR policies, operational guidelines, and compliance rules are all accessible instantly</li><li>Refund procedures, return policies, and exception rules retrieved on demand</li><li>Staff follow the right process every time without memorizing documents</li><li>New procedures and policy updates are added to the system monthly</li><li>Reduces the risk of staff following outdated processes</li></ul></div>
+    <div class="os-feature-value"><h3>When every team member follows the same process, the quality of your service goes up.</h3><p>Inconsistent processes cost businesses money. A refund handled wrong, a procedure skipped, a policy misapplied. This system gives every team member instant access to the exact procedure for any situation, in the exact words your company uses. The right process, every time.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Onboarding and Training Support</h3><ul class="os-bullet-list"><li>New staff can ask questions during onboarding without needing a manager present</li><li>Training materials and onboarding documents available on demand</li><li>Common first-week questions answered instantly so new hires build confidence faster</li><li>Reduces the time senior staff spend answering repetitive onboarding questions</li><li>New team members follow the same processes from day one</li><li>Training content updated monthly as processes and products change</li></ul></div>
+    <div class="os-feature-value"><h3>New staff get up to speed faster when they can find answers without interrupting someone.</h3><p>Onboarding a new team member takes time from everyone. This system handles that. New hires type their questions, get accurate answers from approved company content, and learn faster without pulling everyone else away from their work. That shortens the onboarding period and reduces the cost of bringing new people on.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Role-Based Access and Security</h3><ul class="os-bullet-list"><li>Different team members see only the information relevant to their role</li><li>Sensitive information is restricted to the people who need it</li><li>Access controls configured during setup and reviewed monthly</li><li>Secure access whether your team is in-office or working remotely</li><li>Security updates applied every month as part of monthly management</li></ul></div>
+    <div class="os-feature-value"><h3>Not every team member needs access to every piece of company information.</h3><p>A customer service rep needs different information than a manager. A warehouse team member needs different access than someone in finance. This system is configured with role-based access so each person sees exactly what they need and nothing more.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Analytics, Dashboard, and Monthly Management</h3><ul class="os-bullet-list"><li>Insights Dashboard shows what your team is asking most and where knowledge gaps exist</li><li>Unanswered staff questions are logged and used to expand the knowledge base monthly</li><li>Conversation logs reviewed monthly to ensure accuracy</li><li>Knowledge base updated monthly as your business changes</li><li>API, security, and privacy compliance updates applied every month</li><li>Monthly performance report delivered every month</li><li>Dedicated support for questions or changes at any time</li></ul></div>
+    <div class="os-feature-value"><h3>The questions your team asks most often tell you where your internal documentation needs work.</h3><p>When the same question keeps coming up, it usually means there is a gap in your documentation or a process that is not clear enough. The Insights Dashboard shows you exactly what your team is asking most so you can identify and fix those gaps.</p></div>
+  </div>
+</div>
+<div class="os-rule"></div>
+<div class="os-pricing">
+  <div class="os-pricing-inner">
+    <div class="os-pricing-left">
+      <h2>Built for your team.<br><em>Managed every month.</em></h2>
+      <p>This is not a search tool you set up and hand off to your team. We design it around your company's actual knowledge, build it using your approved documents, test it, launch it, and manage it every month so it stays accurate as your business evolves.</p>
+      <p>Pricing is based on the size of your knowledge base, the number of team members, and any integrations involved. We put together a clear quote after the discovery call.</p>
+      <p class="os-pricing-note">Book a free discovery call to get a custom quote for your business.</p>
+    </div>
+    <div class="os-pricing-card">
+      <div class="os-price-label">Internal Chat System</div>
+      <div class="os-price-contact">Custom Pricing</div>
+      <div class="os-price-contact-sub">Pricing is based on the size and scope of your system. Book a free discovery call and we will put together a clear quote for your specific business.</div>
+      <div class="os-price-divider"></div>
+      <div class="os-price-includes">Every System Includes</div>
+      <ul class="os-price-feature-list">
+        <li>Full done-for-you design and build</li>
+        <li>Custom knowledge base built from your documents</li>
+        <li>Role-based access configuration</li>
+        <li>Onboarding and training content setup</li>
+        <li>Insights Dashboard</li>
+        <li>Monthly conversation log review</li>
+        <li>Monthly knowledge base updates</li>
+        <li>API, security, and compliance updates</li>
+        <li>Monthly performance report</li>
+        <li>Dedicated client support</li>
+      </ul>
+      <a href="contact.html" class="os-cta-btn">Book a Free Discovery Call</a>
+    </div>
+  </div>
+</div>
+<div class="os-bottom-cta">
+  <h2>Ready to give your team the information they need instantly?</h2>
+  <p>Book a free discovery call. We can set up a demo for you, customized to your business so you will know exactly what your new system would look like.</p>
+</div>
+</body></html>

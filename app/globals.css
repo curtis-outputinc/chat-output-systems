@@ -1,0 +1,392 @@
+@import "tailwindcss";
+
+@custom-variant theme-dark (.theme-dark &);
+@custom-variant theme-light (.theme-light &);
+
+@theme {
+  /* Brand tokens */
+  --color-bg: #000000;
+  --color-brand-blue: #385ee6;
+  --color-brand-green: #00ff2f;
+  --color-brand-teal: #07e4c6;
+
+  /* Typography */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Admin dashboard theme variables.
+   The .theme-dark / .theme-light classes are set on <html> by the theme init
+   script in lib/insights/theme.ts. Chatbot pages use hardcoded dark Tailwind
+   classes and are unaffected. */
+
+.theme-dark {
+  --admin-bg: #000000;
+  --admin-bg-elevated: #0a0a0a;
+  --admin-bg-tile: #0d0d0d;
+  /* Foreground is solid white across muted and subtle variants too — no gray text. */
+  --admin-fg: #ffffff;
+  --admin-fg-muted: #ffffff;
+  --admin-fg-subtle: #ffffff;
+  --admin-border: rgba(255, 255, 255, 0.10);
+  --admin-border-strong: rgba(255, 255, 255, 0.18);
+  --admin-accent: #07e4c6;
+  --admin-accent-dim: rgba(7, 228, 198, 0.18);
+  --admin-tile-hover: rgba(255, 255, 255, 0.04);
+  --admin-link: #07e4c6;
+  --admin-link-hover: #1ae0cb;
+  --admin-success: #9fff66;
+  --admin-warning: #fbbf24;
+  --admin-danger: #f87171;
+  --admin-info: #60a5fa;
+  --admin-chart-1: #07e4c6;
+  --admin-chart-2: #385ee6;
+  --admin-chart-3: #fbbf24;
+  --admin-chart-4: #f87171;
+  --admin-chart-5: #c084fc;
+  --admin-chart-grid: rgba(255, 255, 255, 0.18);
+  --admin-chart-text: #ffffff;
+  /* Inputs get their own surface so the text box is visibly lifted off the page background. */
+  --admin-input-bg: #262626;
+  --admin-input-border: rgba(255, 255, 255, 0.20);
+  --admin-input-placeholder: rgba(255, 255, 255, 0.55);
+}
+
+.theme-light {
+  --admin-bg: #fafafa;
+  --admin-bg-elevated: #ffffff;
+  --admin-bg-tile: #ffffff;
+  /* Foreground is solid black across muted and subtle variants too. */
+  --admin-fg: #0a0a0a;
+  --admin-fg-muted: #0a0a0a;
+  --admin-fg-subtle: #0a0a0a;
+  --admin-border: rgba(0, 0, 0, 0.08);
+  --admin-border-strong: rgba(0, 0, 0, 0.14);
+  --admin-accent: #0a9d8b;
+  --admin-accent-dim: rgba(7, 228, 198, 0.15);
+  --admin-tile-hover: rgba(0, 0, 0, 0.03);
+  --admin-link: #0a9d8b;
+  --admin-link-hover: #14b8a6;
+  --admin-success: #16a34a;
+  --admin-warning: #d97706;
+  --admin-danger: #dc2626;
+  --admin-info: #2563eb;
+  --admin-chart-1: #0a9d8b;
+  --admin-chart-2: #385ee6;
+  --admin-chart-3: #d97706;
+  --admin-chart-4: #dc2626;
+  --admin-chart-5: #9333ea;
+  --admin-chart-grid: rgba(0, 0, 0, 0.18);
+  --admin-chart-text: #0a0a0a;
+  --admin-input-bg: #ffffff;
+  --admin-input-border: rgba(0, 0, 0, 0.22);
+  --admin-input-placeholder: rgba(0, 0, 0, 0.45);
+}
+
+/* Inputs across the admin shell pick up the input-specific background. */
+.admin-shell input[type="text"]::placeholder,
+.admin-shell input[type="search"]::placeholder {
+  color: var(--admin-input-placeholder);
+}
+
+html,
+body {
+  background-color: var(--color-bg);
+  color: white;
+  /* Belt-and-suspenders: nothing on any page should cause a horizontal
+   * scrollbar on mobile. Any element wider than the viewport (a stray
+   * fixed-width container, the marquee track before it gets clipped, etc.)
+   * gets silently cut off rather than causing the whole page to scroll
+   * sideways. */
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Selection accent uses the brand green */
+::selection {
+  background-color: var(--color-brand-green);
+  color: var(--color-bg);
+}
+
+/* Admin-only body override: the admin layout wraps in a div that uses the
+   theme background. */
+.admin-shell {
+  background: var(--admin-bg);
+  color: var(--admin-fg);
+  min-height: 100vh;
+}
+
+/* Admin font size scale: every Tailwind text class is bumped +1px from default
+   inside the admin shell, plus the arbitrary [10px] / [11px] / [13px] / [14px]
+   values used in the admin components. */
+.admin-shell .text-xs { font-size: 13px !important; }
+.admin-shell .text-sm { font-size: 15px !important; }
+.admin-shell .text-base { font-size: 17px !important; }
+.admin-shell .text-lg { font-size: 19px !important; }
+.admin-shell .text-xl { font-size: 21px !important; }
+.admin-shell .text-2xl { font-size: 25px !important; }
+.admin-shell .text-3xl { font-size: 31px !important; }
+.admin-shell .text-\[10px\] { font-size: 11px !important; }
+.admin-shell .text-\[11px\] { font-size: 12px !important; }
+.admin-shell .text-\[13px\] { font-size: 14px !important; }
+.admin-shell .text-\[14px\] { font-size: 15px !important; }
+
+/* Demo page starlight background — each star fades in to a per-star peak
+   opacity via the --peak CSS variable and back to zero. */
+@keyframes demo-star-twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.6); }
+  50% { opacity: var(--peak, 0.4); transform: scale(1); }
+}
+
+/* ---------------------------------------------------------------------------
+ * os-* content classes from the HTML mockup design system.
+ * Used by the marketing pages (home, process, about, vertical pages, etc).
+ * Nav, footer, hamburger, and body globals from the mockup CSS are intentionally
+ * omitted — those are handled by SiteNav / SiteFooter / MobileMenu components.
+ * --------------------------------------------------------------------------- */
+:root {
+  --teal: #07e4c6;
+  --teal-dark: #05b89e;
+  --teal-dim: rgba(7,228,198,0.07);
+  --teal-border: rgba(7,228,198,0.14);
+  --black-alt: #0a0a0a;
+  --black-section: #0d1f1a;
+}
+
+/* HERO */
+.os-hero {
+  padding: 140px 60px 80px;
+  width: 100%;
+}
+.os-hero-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 24px;
+}
+.os-hero h1 {
+  font-size: clamp(44px, 6.5vw, 80px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+  color: #ffffff;
+  margin-bottom: 28px;
+  max-width: 860px;
+}
+.os-hero h1 em { font-style: normal; color: var(--teal); }
+.os-hero-intro {
+  font-size: 19px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.8);
+  max-width: 680px;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+.os-dfy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--teal-dim);
+  border-left: 3px solid var(--teal);
+  padding: 13px 22px;
+}
+.os-dfy-badge span { font-size: 17px; font-weight: 500; color: var(--teal); }
+
+/* RULE */
+.os-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--teal) 0%, transparent 60%);
+  width: 100%;
+}
+
+/* FEATURE ROWS */
+.os-features { width: 100%; padding: 72px 60px; background: #000; }
+.os-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 48px;
+}
+.os-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--teal-border);
+  padding: 56px 0;
+}
+.os-feature-row:last-child { border-bottom: 1px solid var(--teal-border); }
+.os-feature-bullets { padding-right: 60px; border-right: 1px solid var(--teal-border); }
+.os-feature-bullets h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 28px;
+}
+.os-bullet-list { list-style: none; display: flex; flex-direction: column; gap: 14px; padding: 0; margin: 0; }
+.os-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.55;
+}
+.os-bullet-list li::before {
+  content: '✓';
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.os-feature-value { padding-left: 60px; }
+.os-feature-value h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+.os-feature-value p { font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.85; }
+
+/* PRICING */
+.os-pricing {
+  background: var(--black-section);
+  border-top: 1px solid var(--teal-border);
+  border-bottom: 1px solid var(--teal-border);
+  padding: 88px 60px;
+  width: 100%;
+}
+.os-pricing-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+.os-pricing-left h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+}
+.os-pricing-left h2 em { font-style: normal; color: var(--teal); }
+.os-pricing-left p { font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 16px; }
+.os-pricing-note { font-size: 16px; color: rgba(255,255,255,0.45); font-style: italic; margin-top: 8px; }
+.os-pricing-card {
+  background: #000;
+  border: 1px solid rgba(7,228,198,0.25);
+  border-radius: 6px;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.os-pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+}
+.os-price-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+.os-price-main { font-size: 58px; font-weight: 900; color: #fff; letter-spacing: -2px; line-height: 1; margin-bottom: 4px; }
+.os-price-main sup { font-size: 24px; vertical-align: super; letter-spacing: 0; }
+.os-price-sub-label { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+.os-price-monthly { font-size: 44px; font-weight: 900; color: #fff; letter-spacing: -1px; margin-bottom: 4px; line-height: 1; }
+.os-price-monthly-label { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 36px; }
+.os-price-contact { font-size: 42px; font-weight: 900; color: #fff; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 8px; }
+.os-price-contact-sub { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 32px; line-height: 1.6; }
+.os-price-divider { width: 100%; height: 1px; background: rgba(7,228,198,0.18); margin-bottom: 28px; }
+.os-price-includes { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+.os-price-feature-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; padding: 0; }
+.os-price-feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 17px; color: #fff; line-height: 1.5; }
+.os-price-feature-list li::before { content: '✓'; color: var(--teal); font-weight: 700; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.os-cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--teal);
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 18px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  margin-top: 8px;
+}
+.os-cta-btn:hover { opacity: 0.88; }
+
+/* BOTTOM CTA */
+.os-bottom-cta {
+  width: 100%;
+  padding: 88px 60px;
+  text-align: center;
+  background: #000;
+}
+.os-bottom-cta h2 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1.5px;
+  margin-bottom: 18px;
+  line-height: 1.1;
+}
+.os-bottom-cta p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+/* Logo scroller marquee used on home + some vertical pages */
+@keyframes scroll-logos {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* os-* responsive overrides */
+@media (max-width: 860px) {
+  .os-hero { padding: 100px 24px 60px; }
+  .os-hero h1 { font-size: clamp(36px, 10vw, 52px); letter-spacing: -1.5px; }
+  .os-hero-intro { font-size: 18px; }
+  .os-features { padding: 48px 24px; }
+  .os-feature-row { grid-template-columns: 1fr; gap: 36px; }
+  .os-feature-bullets { padding-right: 0; border-right: none; border-bottom: 1px solid var(--teal-border); padding-bottom: 36px; }
+  .os-feature-value { padding-left: 0; }
+  .os-pricing { padding: 56px 24px; }
+  .os-pricing-inner { grid-template-columns: 1fr; gap: 44px; }
+  .os-pricing-card { padding: 32px 24px; }
+  .os-bottom-cta { padding: 56px 24px 100px; }
+}
+
+/* Print styles for the report viewer */
+@media print {
+  .admin-shell {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .report-print-wrapper {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+  }
+  .report-print-wrapper * {
+    background: transparent !important;
+    color: #000000 !important;
+    border-color: #cccccc !important;
+  }
+}

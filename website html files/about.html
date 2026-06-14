@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>About Output Systems | Intelligent Chat Systems</title>
+  <meta name="description" content="We do not build generic chat systems. We build Output Systems. Two outputs, one system, 100% done for you.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="shared.css">
+  <!-- Google Analytics - insert GA4 tracking script here -->
+  <!-- Microsoft Clarity - insert Clarity tracking script here -->
+</head>
+<body><!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo_white.png" alt="Output Systems">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="">Intelligent Chat Systems ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="standard.html">Standard Intelligent Website Chat System</a>
+        <a href="service.html">Customer Chat System — Service Business</a>
+        <a href="retail.html">Customer Chat System — Retail and E-Commerce</a>
+        <a href="internal.html">Internal Chat System</a>
+        <a href="custom.html">Custom Chat System</a>
+      </div>
+    </li>
+    <li><a href="process.html" class="">Our Process</a></li>
+    <li><a href="about.html" class="PAGE_ABOUT active">About</a></li>
+    <li><a href="compliance.html" class="">Privacy and Data</a></li>
+    <li><a href="contact.html" class="">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div id="mobile-menu" style="display:none;position:fixed;top:72px;left:0;right:0;background:#000;z-index:999;padding:32px 24px;border-bottom:1px solid rgba(7,228,198,0.15);overflow-y:auto;max-height:80vh;">
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:20px;">
+    <li><a href="index.html" style="font-size:17px;font-weight:600;color:#fff;">Home</a></li>
+    <li style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;">Intelligent Chat Systems</li>
+    <li style="padding-left:16px;"><a href="standard.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Standard Intelligent Website Chat System</a></li>
+    <li style="padding-left:16px;"><a href="service.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Service Business</a></li>
+    <li style="padding-left:16px;"><a href="retail.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Retail and E-Commerce</a></li>
+    <li style="padding-left:16px;"><a href="internal.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Internal Chat System</a></li>
+    <li style="padding-left:16px;"><a href="custom.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Custom Chat System</a></li>
+    <li><a href="process.html" style="font-size:17px;font-weight:600;color:#fff;">Our Process</a></li>
+    <li><a href="about.html" style="font-size:17px;font-weight:600;color:#fff;">About</a></li>
+    <li><a href="compliance.html" style="font-size:17px;font-weight:600;color:#07e4c6;">Privacy and Data</a></li>
+    <li><a href="contact.html" style="font-size:17px;font-weight:600;color:#fff;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo_white.png" alt="Output Systems" style="height:28px;width:auto;">
+      <p>AI-powered intelligent chat systems built for your business. 100% done for you, from design through to monthly management.</p>
+      <div class="footer-tagline">Reclaim Time. Increase Profits. Reduce Expenses.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standard.html">Standard Chat System</a></li>
+        <li><a href="service.html">Service Business</a></li>
+        <li><a href="retail.html">Retail and E-Commerce</a></li>
+        <li><a href="internal.html">Internal Chat System</a></li>
+        <li><a href="custom.html">Custom Chat System</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Privacy and Data</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+      <div style="margin-top:32px;">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:connect@output.systems">connect@output.systems</a></li>
+          <li><a href="tel:6476223799">647 622 3799</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;line-height:1.5;">375 University Ave<br>Toronto, Ontario, Canada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Output Systems / Output Inc. All rights reserved. Toronto, Ontario, Canada.</p>
+    <p style="color:rgba(255,255,255,0.15);font-size:12px;">chat.output.systems</p>
+  </div>
+</footer>
+
+<!-- STICKY BUTTON -->
+<div id="os-sticky">
+  <a href="contact.html">BOOK A FREE DISCOVERY CALL</a>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+(function(){
+  function toggleMenu(){
+    var m=document.getElementById('mobile-menu');
+    m.style.display=m.style.display==='none'?'block':'none';
+  }
+  window.toggleMenu=toggleMenu;
+  var el=document.getElementById('os-sticky');
+  var a=el.querySelector('a');
+  function check(){
+    if(window.innerWidth<=860){
+      el.style.bottom='5vh';
+      el.style.left='0';
+      el.style.right='auto';
+      el.style.width='50%';
+      el.style.justifyContent='center';
+      a.style.width='90%';
+      a.style.fontSize='13px';
+    } else {
+      el.style.bottom='20px';
+      el.style.left='0';
+      el.style.right='0';
+      el.style.width='100%';
+      el.style.justifyContent='center';
+      a.style.width='20%';
+      a.style.fontSize='15px';
+    }
+  }
+  check();
+  window.addEventListener('resize',check);
+  // Lazy load images
+  if('IntersectionObserver' in window){
+    var imgs=document.querySelectorAll('img[data-src]');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.src=e.target.dataset.src;
+          observer.unobserve(e.target);
+        }
+      });
+    });
+    imgs.forEach(function(img){observer.observe(img);});
+  }
+})();
+</script>
+
+<div class="os-hero">
+  <div class="os-hero-tag">About Output Systems</div>
+  <h1>We do not build intelligent chat systems.<br>We build <em>Output Systems.</em></h1>
+  <p class="os-hero-intro">Most businesses are focused on one side of the equation. They want a tool that helps their customers get answers faster. What they are not thinking about is what those conversations reveal about their business. Output Systems is built to deliver both at the same time.</p>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:700px;line-height:1.8;margin-top:16px;">Every system we build produces two distinct outputs simultaneously. One facing your customers, one facing your business. That dual output structure is what separates everything we build from every traditional intelligent chat system on the market. Fully done-for-you. Fully managed. Built to get smarter every month.</p>
+</div>
+
+<div class="os-rule"></div>
+
+<section style="padding:72px 60px;background:#0d1f1a;">
+  <p style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:20px;">The Core Difference</p>
+  <h2 style="font-size:clamp(30px,4vw,52px);font-weight:900;letter-spacing:-1.5px;margin-bottom:20px;">Two Outputs. One System.</h2>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;margin-bottom:16px;">Most businesses think of an intelligent chat system as something that helps their customers find answers. That is one output. What they are missing is the second one.</p>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;margin-bottom:32px;">Every conversation a visitor has with our system generates a layer of customer intelligence. What people are asking for. Where they drop off. What objections they raise. What information is missing from your website. How your business is being perceived by the people most likely to buy from you. Traditional intelligent chat systems discard that data entirely.</p>
+
+  <blockquote style="border-left:3px solid #07e4c6;padding:24px 32px;background:#0a0a0a;margin:32px 0;max-width:820px;">
+    <p style="font-size:19px;font-weight:600;line-height:1.6;font-style:italic;">Traditional intelligent chat systems answer your customer's questions. Output Systems answers your customer's questions and helps them take actions such as booking appointments, submitting their information, and taking the next step with your business. Output Systems then turns every one of those conversations into <span style="color:#07e4c6;font-style:normal;">insights and intelligence your team can act on.</span></p>
+  </blockquote>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;max-width:820px;">
+    <div style="background:#000;border:1px solid rgba(7,228,198,0.2);border-top:3px solid #07e4c6;padding:32px 28px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:10px;">Output One</div>
+      <div style="font-size:19px;font-weight:800;margin-bottom:14px;">What Your Customers Experience</div>
+      <div style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.7;">Instant answers, 24/7 support, appointment booking, lead capture, and seamless service — all without a human in the loop.</div>
+    </div>
+    <div style="background:#000;border:1px solid rgba(7,228,198,0.2);border-top:3px solid #07e4c6;padding:32px 28px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:10px;">Output Two</div>
+      <div style="font-size:19px;font-weight:800;margin-bottom:14px;">What Your Business Learns</div>
+      <div style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.7;">Customer intelligence captured from every conversation. What visitors want, where they drop off, and what your business needs to improve.</div>
+    </div>
+  </div>
+</section>
+
+<div class="os-rule"></div>
+
+<section style="padding:72px 60px;background:#000;">
+  <p style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:20px;">What Each Output Includes</p>
+  <h2 style="font-size:clamp(28px,3.5vw,48px);font-weight:900;letter-spacing:-1px;margin-bottom:20px;">Built for your customers. Built for your business.</h2>
+  <p style="font-size:18px;color:rgba(255,255,255,0.75);max-width:820px;line-height:1.85;margin-bottom:40px;">Both outputs run simultaneously from the moment the system goes live.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:820px;">
+    <div>
+      <h3 style="font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#07e4c6;margin-bottom:20px;">Output One — Your Customers</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>24/7 customer support with no wait times</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Live pricing, service, and qualification info</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Appointment scheduling linked to your calendar</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Full lead capture before a human gets involved</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Hot lead notification to your team in real time</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Multilingual support as a standard capability</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Integrations with your existing platforms</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#07e4c6;margin-bottom:20px;">Output Two — Your Business</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>What visitors are actually asking for in their words</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Where visitors drop off and why</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Objections and concerns that come up repeatedly</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Information gaps your website is missing</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>How customers perceive your brand and services</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid #111;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Monthly insights surfaced back to your team</li>
+        <li style="font-size:17px;padding:8px 0 8px 22px;position:relative;color:rgba(255,255,255,0.8);"><span style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;background:#07e4c6;border-radius:50%;"></span>Data that improves both your business and the system</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="os-rule"></div>
+
+<section style="padding:72px 60px;background:#0d1f1a;">
+  <p style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:20px;">100% Done For You</p>
+  <h2 style="font-size:clamp(26px,3.5vw,44px);font-weight:900;letter-spacing:-1px;margin-bottom:20px;max-width:820px;">There is a significant difference between buying a tool and having a system built for you.</h2>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;margin-bottom:16px;">DIY platforms like Chatbase, Tidio, and similar tools are software subscriptions. You upload your content, write your prompts, configure your flows, test the responses, fix the errors, and update everything yourself every time your business changes. And because nobody is watching the data, nobody ever knows if it is actually working.</p>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;margin-bottom:16px;">Output handles everything. From the discovery call through to design, build, knowledge base configuration, testing, launch, and ongoing monthly management. Your team provides the business context and we do the rest.</p>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;">That is what makes Output a business partner, not a software subscription.</p>
+</section>
+
+<div class="os-rule"></div>
+
+<section style="padding:72px 60px;background:#000;">
+  <p style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:20px;">The Self-Improving System</p>
+  <h2 style="font-size:clamp(26px,3.5vw,44px);font-weight:900;letter-spacing:-1px;margin-bottom:20px;">A system that gets smarter every month.</h2>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;margin-bottom:16px;">Most intelligent chat systems are set up once and forgotten. That is why most of them fail. Nobody is watching whether visitors are disengaging after one message. Nobody is tracking which questions the system cannot answer. Nobody is analyzing what the conversation data is revealing about the business.</p>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;margin-bottom:16px;">Because Output Systems actively monitors conversation data every month, every system we manage becomes self-improving over time. If visitors are dropping off early, that is a signal. If the same questions keep coming up unanswered, that is a knowledge gap.</p>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;">That ongoing loop of monitor, analyze, improve, and report is what turns an intelligent chat system into a genuine business asset.</p>
+</section>
+
+<div class="os-rule"></div>
+
+<section style="padding:72px 60px;background:#0d1f1a;">
+  <p style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:20px;">Monthly System Management</p>
+  <h2 style="font-size:clamp(26px,3.5vw,44px);font-weight:900;letter-spacing:-1px;margin-bottom:20px;max-width:820px;">Active stewardship of a business asset — every single month.</h2>
+  <p style="font-size:18px;color:rgba(255,255,255,0.8);max-width:820px;line-height:1.85;margin-bottom:32px;">Every system we build includes ongoing Monthly System Management. Each month we handle:</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:820px;">
+    <div style="background:#000;border:1px solid #1a1a1a;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;"><div style="width:8px;height:8px;min-width:8px;background:#07e4c6;border-radius:50%;margin-top:6px;"></div><div style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.6;">Conversation log review to catch anything inaccurate or off-brand</div></div>
+    <div style="background:#000;border:1px solid #1a1a1a;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;"><div style="width:8px;height:8px;min-width:8px;background:#07e4c6;border-radius:50%;margin-top:6px;"></div><div style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.6;">Unanswered question tracking and knowledge base expansion</div></div>
+    <div style="background:#000;border:1px solid #1a1a1a;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;"><div style="width:8px;height:8px;min-width:8px;background:#07e4c6;border-radius:50%;margin-top:6px;"></div><div style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.6;">API and security updates applied automatically</div></div>
+    <div style="background:#000;border:1px solid #1a1a1a;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;"><div style="width:8px;height:8px;min-width:8px;background:#07e4c6;border-radius:50%;margin-top:6px;"></div><div style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.6;">Uptime monitoring with real-time alerting</div></div>
+    <div style="background:#000;border:1px solid #1a1a1a;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;"><div style="width:8px;height:8px;min-width:8px;background:#07e4c6;border-radius:50%;margin-top:6px;"></div><div style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.6;">Knowledge base updated to reflect current pricing, services, and policies</div></div>
+    <div style="background:#000;border:1px solid #1a1a1a;padding:20px 22px;display:flex;align-items:flex-start;gap:14px;"><div style="width:8px;height:8px;min-width:8px;background:#07e4c6;border-radius:50%;margin-top:6px;"></div><div style="font-size:16px;color:rgba(255,255,255,0.75);line-height:1.6;">Monthly performance report delivered to your team</div></div>
+  </div>
+</section>
+
+<div class="os-bottom-cta">
+  <h2>Find out what Output Systems can do for your business.</h2>
+  <p>Book a free discovery call. We will learn about your business, show you what the system looks like, and tell you exactly what it would produce for your customers and your team.</p>
+</div>
+</body></html>

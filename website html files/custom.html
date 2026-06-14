@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Custom Chat System | Output Systems</title>
+  <meta name="description" content="A fully custom AI chat system built from the ground up around your specific organization, industry, and requirements.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body><!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo_white.png" alt="Output Systems">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="">Intelligent Chat Systems ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="standard.html">Standard Intelligent Website Chat System</a>
+        <a href="service.html">Customer Chat System — Service Business</a>
+        <a href="retail.html">Customer Chat System — Retail and E-Commerce</a>
+        <a href="internal.html">Internal Chat System</a>
+        <a href="custom.html">Custom Chat System</a>
+      </div>
+    </li>
+    <li><a href="process.html" class="">Our Process</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="compliance.html" class="">Privacy and Data</a></li>
+    <li><a href="contact.html" class="">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div id="mobile-menu" style="display:none;position:fixed;top:72px;left:0;right:0;background:#000;z-index:999;padding:32px 24px;border-bottom:1px solid rgba(7,228,198,0.15);overflow-y:auto;max-height:80vh;">
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:20px;">
+    <li><a href="index.html" style="font-size:17px;font-weight:600;color:#fff;">Home</a></li>
+    <li style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;">Intelligent Chat Systems</li>
+    <li style="padding-left:16px;"><a href="standard.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Standard Intelligent Website Chat System</a></li>
+    <li style="padding-left:16px;"><a href="service.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Service Business</a></li>
+    <li style="padding-left:16px;"><a href="retail.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Retail and E-Commerce</a></li>
+    <li style="padding-left:16px;"><a href="internal.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Internal Chat System</a></li>
+    <li style="padding-left:16px;"><a href="custom.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Custom Chat System</a></li>
+    <li><a href="process.html" style="font-size:17px;font-weight:600;color:#fff;">Our Process</a></li>
+    <li><a href="about.html" style="font-size:17px;font-weight:600;color:#fff;">About</a></li>
+    <li><a href="compliance.html" style="font-size:17px;font-weight:600;color:#07e4c6;">Privacy and Data</a></li>
+    <li><a href="contact.html" style="font-size:17px;font-weight:600;color:#fff;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo_white.png" alt="Output Systems" style="height:28px;width:auto;">
+      <p>AI-powered intelligent chat systems built for your business. 100% done for you, from design through to monthly management.</p>
+      <div class="footer-tagline">Reclaim Time. Increase Profits. Reduce Expenses.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standard.html">Standard Chat System</a></li>
+        <li><a href="service.html">Service Business</a></li>
+        <li><a href="retail.html">Retail and E-Commerce</a></li>
+        <li><a href="internal.html">Internal Chat System</a></li>
+        <li><a href="custom.html">Custom Chat System</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Privacy and Data</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+      <div style="margin-top:32px;">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:connect@output.systems">connect@output.systems</a></li>
+          <li><a href="tel:6476223799">647 622 3799</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;line-height:1.5;">375 University Ave<br>Toronto, Ontario, Canada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Output Systems / Output Inc. All rights reserved. Toronto, Ontario, Canada.</p>
+    <p style="color:rgba(255,255,255,0.15);font-size:12px;">chat.output.systems</p>
+  </div>
+</footer>
+
+<!-- STICKY BUTTON -->
+<div id="os-sticky">
+  <a href="contact.html">BOOK A FREE DISCOVERY CALL</a>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+(function(){
+  function toggleMenu(){
+    var m=document.getElementById('mobile-menu');
+    m.style.display=m.style.display==='none'?'block':'none';
+  }
+  window.toggleMenu=toggleMenu;
+  var el=document.getElementById('os-sticky');
+  var a=el.querySelector('a');
+  function check(){
+    if(window.innerWidth<=860){
+      el.style.bottom='5vh';
+      el.style.left='0';
+      el.style.right='auto';
+      el.style.width='50%';
+      el.style.justifyContent='center';
+      a.style.width='90%';
+      a.style.fontSize='13px';
+    } else {
+      el.style.bottom='20px';
+      el.style.left='0';
+      el.style.right='0';
+      el.style.width='100%';
+      el.style.justifyContent='center';
+      a.style.width='20%';
+      a.style.fontSize='15px';
+    }
+  }
+  check();
+  window.addEventListener('resize',check);
+  // Lazy load images
+  if('IntersectionObserver' in window){
+    var imgs=document.querySelectorAll('img[data-src]');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.src=e.target.dataset.src;
+          observer.unobserve(e.target);
+        }
+      });
+    });
+    imgs.forEach(function(img){observer.observe(img);});
+  }
+})();
+</script>
+
+<div class="os-hero">
+  <div class="os-hero-tag">Custom Chat System</div>
+  <h1>Your business was custom built. <em>Your chat system should be too.</em></h1>
+  <p class="os-hero-intro">The Custom Chat System is for organizations that need something built specifically for them. If your requirements go beyond what a standard package covers, this is where we start. We design the entire system from the ground up around your specific customers, your staff, your workflows, and the outcomes your business needs to achieve. Everything is done for you from the first discovery call through to ongoing monthly management.</p>
+  <div class="os-dfy-badge"><span>100% Done For You — Design, Setup, and Monthly Management Included</span></div>
+</div>
+<div class="os-rule"></div>
+<div class="os-features">
+  <p class="os-section-label">What's Included</p>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Built From Scratch Around Your Business</h3><ul class="os-bullet-list"><li>No templates, no pre-built flows, no generic configurations</li><li>Designed entirely around your specific customers, staff, and business goals</li><li>Conversation flows written to match your exact service or product model</li><li>Any combination of customer-facing and staff-facing capabilities</li><li>Supports multiple departments, locations, or business units if needed</li><li>Built to handle the specific complexity of your industry and operations</li><li>Automatically responds in your customers' or staff members' own language</li></ul></div>
+    <div class="os-feature-value"><h3>Standard systems are built for the average business. Your business is not average.</h3><p>Every standard system we offer is built for a specific type of business. But some organizations have requirements that go beyond those categories. A nonprofit that handles sensitive community referrals, a healthcare organization that needs careful guardrails, a hospitality business with complex booking needs. These organizations need a system designed specifically for them, not adjusted from a template.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Custom Integrations With Your Existing Tools</h3><ul class="os-bullet-list"><li>Connects to your existing software, CRM, booking tools, or databases</li><li>Pulls and pushes data between the system and your other platforms</li><li>Custom workflows triggered by specific conversation outcomes</li><li>Integrates with internal systems your team already uses every day</li><li>Supports multi-system deployment across your website and internal tools</li><li>Custom data collection, routing, and reporting built to your specifications</li></ul></div>
+    <div class="os-feature-value"><h3>Your system should work with the tools you already have, not around them.</h3><p>Most standard systems connect to common tools through standard integrations. Custom systems go further. If your business runs on specific software, uses a proprietary database, or needs the system to trigger actions in other platforms based on what customers say, we build those connections from the ground up.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Industry-Specific Guardrails and Compliance</h3><ul class="os-bullet-list"><li>Guardrails designed around your industry's specific rules and sensitivities</li><li>Healthcare: careful limits on medical information and clear escalation to professionals</li><li>Legal: no legal advice given, appropriate disclaimers, fast handoff to licensed staff</li><li>Finance: no financial advice given, regulated content handled with care</li><li>Government and nonprofit: sensitive community information handled responsibly</li><li>Custom escalation rules for situations that require human judgment</li><li>Privacy and compliance configuration reviewed and updated every month</li></ul></div>
+    <div class="os-feature-value"><h3>Some industries have specific rules about what a system can and cannot say. We build around those rules from the start.</h3><p>A system deployed in a healthcare setting needs to handle patient questions very differently from a system on a retail website. A legal services organization needs strict limits on what the system can advise on. We design the guardrails for these situations specifically, not generically, so the system protects your organization while still being genuinely useful.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Who This System Is Built For</h3><ul class="os-bullet-list"><li>Nonprofit organizations that need sensitive community referral and support flows</li><li>Healthcare providers that need careful patient communication guardrails</li><li>Government-adjacent organizations with specific compliance and access requirements</li><li>Hospitality businesses with complex booking and multi-location needs</li><li>Real estate organizations with specific intake, qualification, and document flows</li><li>Any business with requirements that fall outside a standard system configuration</li><li>Organizations that need both customer-facing and internal systems working together</li></ul></div>
+    <div class="os-feature-value"><h3>If your business has a challenge that does not fit a standard package, that is exactly what this system is for.</h3><p>The organizations that benefit most from a custom build are the ones where a standard system would require too many compromises. They need flows that do not exist in a template, integrations that are not on a standard list, guardrails that are specific to their industry, or a combination of capabilities that no single standard system provides.</p></div>
+  </div>
+  <div class="os-feature-row">
+    <div class="os-feature-bullets"><h3>Monthly Management Included</h3><ul class="os-bullet-list"><li>Conversation logs reviewed monthly to catch anything inaccurate or off-brand</li><li>Knowledge base updated monthly as your organization changes</li><li>API, security, and privacy compliance updates applied every month</li><li>Unanswered questions tracked and used to expand the knowledge base</li><li>Monthly performance report delivered to your team</li><li>Dedicated support for questions, changes, and expansions at any time</li></ul></div>
+    <div class="os-feature-value"><h3>A custom system requires the same ongoing care as any other system we build.</h3><p>Custom does not mean build once and leave. Your organization changes over time. New programs, new staff, new policies, new compliance requirements. Monthly management keeps your system aligned with those changes so it stays accurate, secure, and useful long after launch.</p></div>
+  </div>
+</div>
+<div class="os-rule"></div>
+<div class="os-pricing">
+  <div class="os-pricing-inner">
+    <div class="os-pricing-left">
+      <h2>Built specifically for you.<br><em>Managed every month.</em></h2>
+      <p>Custom systems are scoped individually because no two organizations have the same requirements. The discovery process is where we learn what you need, what your customers or staff need, and what success looks like for your organization.</p>
+      <p>There is no standard price for a custom build because there is no standard scope. Book a discovery call and we will walk through what your system would look like and what it would cost.</p>
+      <p class="os-pricing-note">Book a free discovery call to start the conversation.</p>
+    </div>
+    <div class="os-pricing-card">
+      <div class="os-price-label">Custom Chat System</div>
+      <div class="os-price-contact">Custom Pricing</div>
+      <div class="os-price-contact-sub">Every custom system is scoped individually. Book a discovery call and we will design the right system for your organization and give you a clear quote.</div>
+      <div class="os-price-divider"></div>
+      <div class="os-price-includes">Every Custom System Includes</div>
+      <ul class="os-price-feature-list">
+        <li>Full discovery and design process</li>
+        <li>Built from scratch around your specific needs</li>
+        <li>Custom knowledge base and conversation flows</li>
+        <li>Custom integrations with your existing tools</li>
+        <li>Industry-specific guardrails and compliance configuration</li>
+        <li>Custom Insights Dashboard</li>
+        <li>Full testing before launch</li>
+        <li>Monthly conversation log review</li>
+        <li>Monthly knowledge base updates</li>
+        <li>API, security, and compliance updates</li>
+        <li>Monthly performance report</li>
+        <li>Dedicated client support</li>
+      </ul>
+      <a href="contact.html" class="os-cta-btn">Book a Free Discovery Call</a>
+    </div>
+  </div>
+</div>
+<div class="os-bottom-cta">
+  <h2>Ready to build a system designed around your organization?</h2>
+  <p>Book a free discovery call. We will learn about your organization, your customers, and your goals, and show you what a custom system would look like for you.</p>
+</div>
+</body></html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Our Process | Output Systems</title>
+  <meta name="description" content="How we build, deploy, and manage your intelligent chat system from discovery call to monthly management.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="shared.css">
+  <!-- Google Analytics - insert GA4 tracking script here -->
+  <!-- Microsoft Clarity - insert Clarity tracking script here -->
+</head>
+<body><!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo_white.png" alt="Output Systems">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="">Intelligent Chat Systems ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="standard.html">Standard Intelligent Website Chat System</a>
+        <a href="service.html">Customer Chat System — Service Business</a>
+        <a href="retail.html">Customer Chat System — Retail and E-Commerce</a>
+        <a href="internal.html">Internal Chat System</a>
+        <a href="custom.html">Custom Chat System</a>
+      </div>
+    </li>
+    <li><a href="process.html" class="PAGE_PROCESS active">Our Process</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="compliance.html" class="">Privacy and Data</a></li>
+    <li><a href="contact.html" class="">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div id="mobile-menu" style="display:none;position:fixed;top:72px;left:0;right:0;background:#000;z-index:999;padding:32px 24px;border-bottom:1px solid rgba(7,228,198,0.15);overflow-y:auto;max-height:80vh;">
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:20px;">
+    <li><a href="index.html" style="font-size:17px;font-weight:600;color:#fff;">Home</a></li>
+    <li style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;">Intelligent Chat Systems</li>
+    <li style="padding-left:16px;"><a href="standard.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Standard Intelligent Website Chat System</a></li>
+    <li style="padding-left:16px;"><a href="service.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Service Business</a></li>
+    <li style="padding-left:16px;"><a href="retail.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Retail and E-Commerce</a></li>
+    <li style="padding-left:16px;"><a href="internal.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Internal Chat System</a></li>
+    <li style="padding-left:16px;"><a href="custom.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Custom Chat System</a></li>
+    <li><a href="process.html" style="font-size:17px;font-weight:600;color:#fff;">Our Process</a></li>
+    <li><a href="about.html" style="font-size:17px;font-weight:600;color:#fff;">About</a></li>
+    <li><a href="compliance.html" style="font-size:17px;font-weight:600;color:#07e4c6;">Privacy and Data</a></li>
+    <li><a href="contact.html" style="font-size:17px;font-weight:600;color:#fff;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo_white.png" alt="Output Systems" style="height:28px;width:auto;">
+      <p>AI-powered intelligent chat systems built for your business. 100% done for you, from design through to monthly management.</p>
+      <div class="footer-tagline">Reclaim Time. Increase Profits. Reduce Expenses.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standard.html">Standard Chat System</a></li>
+        <li><a href="service.html">Service Business</a></li>
+        <li><a href="retail.html">Retail and E-Commerce</a></li>
+        <li><a href="internal.html">Internal Chat System</a></li>
+        <li><a href="custom.html">Custom Chat System</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Privacy and Data</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+      <div style="margin-top:32px;">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:connect@output.systems">connect@output.systems</a></li>
+          <li><a href="tel:6476223799">647 622 3799</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;line-height:1.5;">375 University Ave<br>Toronto, Ontario, Canada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Output Systems / Output Inc. All rights reserved. Toronto, Ontario, Canada.</p>
+    <p style="color:rgba(255,255,255,0.15);font-size:12px;">chat.output.systems</p>
+  </div>
+</footer>
+
+<!-- STICKY BUTTON -->
+<div id="os-sticky">
+  <a href="contact.html">BOOK A FREE DISCOVERY CALL</a>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+(function(){
+  function toggleMenu(){
+    var m=document.getElementById('mobile-menu');
+    m.style.display=m.style.display==='none'?'block':'none';
+  }
+  window.toggleMenu=toggleMenu;
+  var el=document.getElementById('os-sticky');
+  var a=el.querySelector('a');
+  function check(){
+    if(window.innerWidth<=860){
+      el.style.bottom='5vh';
+      el.style.left='0';
+      el.style.right='auto';
+      el.style.width='50%';
+      el.style.justifyContent='center';
+      a.style.width='90%';
+      a.style.fontSize='13px';
+    } else {
+      el.style.bottom='20px';
+      el.style.left='0';
+      el.style.right='0';
+      el.style.width='100%';
+      el.style.justifyContent='center';
+      a.style.width='20%';
+      a.style.fontSize='15px';
+    }
+  }
+  check();
+  window.addEventListener('resize',check);
+  // Lazy load images
+  if('IntersectionObserver' in window){
+    var imgs=document.querySelectorAll('img[data-src]');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.src=e.target.dataset.src;
+          observer.unobserve(e.target);
+        }
+      });
+    });
+    imgs.forEach(function(img){observer.observe(img);});
+  }
+})();
+</script>
+
+<div class="os-hero">
+  <div class="os-hero-tag">Our Process</div>
+  <h1>Here is how we build you a <em>fully running system.</em></h1>
+  <p class="os-hero-intro">We handle every step of the process for you. You do not need technical knowledge, a development team, or hours of your own time. You provide the business context. We do the rest.</p>
+  <div class="os-dfy-badge"><span>100% Done For You — From Discovery Call to Monthly Management</span></div>
+</div>
+<div class="os-rule"></div>
+<section style="padding:72px 60px;background:#000;">
+  <p class="os-section-label">How It Works</p>
+
+  <div style="display:grid;grid-template-columns:80px 1fr;gap:40px;border-top:1px solid rgba(7,228,198,0.14);padding:64px 0;align-items:start;">
+    <div style="font-size:73px;font-weight:800;color:rgba(7,228,198,0.22);line-height:1;letter-spacing:-3px;">01</div>
+    <div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:8px;">Step One</div>
+      <h2 style="font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:20px;">The Free Discovery Call</h2>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:16px;max-width:720px;">This is where we start. We get on a call and learn about your business, your customers, your team, your current tools, and where your biggest problems are. You do not need to prepare anything formal. A plain description of how your business works and where things are falling through the cracks is everything we need.</p>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:20px;max-width:720px;">By the end of this call, you will know whether a system from Output is the right fit for your business, which system makes the most sense for your situation, and roughly what it would look like and cost. There is no obligation and no pressure.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;max-width:640px;">
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Free, no obligation, no commitment required</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We learn about your business, your customers, and your goals</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We identify the right system for your situation</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We walk you through what the system would look like for your business</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We put together a clear scope and quote after the call</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:80px 1fr;gap:40px;border-top:1px solid rgba(7,228,198,0.14);padding:64px 0;align-items:start;">
+    <div style="font-size:73px;font-weight:800;color:rgba(7,228,198,0.22);line-height:1;letter-spacing:-3px;">02</div>
+    <div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:8px;">Step Two</div>
+      <h2 style="font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:20px;">Design and Demo</h2>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:16px;max-width:720px;">Once we understand your business, we design the system. This includes the conversation flows, the knowledge base structure, the lead capture setup, the guardrails, the tone and brand alignment, and any integrations your business needs. We then build a working demo tailored specifically to your business.</p>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:20px;max-width:720px;">This is not a generic product demo. It is a working prototype built on your actual services, your policies, and your brand. You interact with it, give us feedback, and we refine it until it is exactly right for your business.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;max-width:640px;">
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We design the system around your specific business and customers</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We build the knowledge base from your approved content</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We configure conversation flows, guardrails, and lead capture</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>You review the demo and give us feedback</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We refine until you are happy with how it looks and works</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:80px 1fr;gap:40px;border-top:1px solid rgba(7,228,198,0.14);padding:64px 0;align-items:start;">
+    <div style="font-size:73px;font-weight:800;color:rgba(7,228,198,0.22);line-height:1;letter-spacing:-3px;">03</div>
+    <div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:8px;">Step Three</div>
+      <h2 style="font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:20px;">Deployment and Launch</h2>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:16px;max-width:720px;">When you are happy with the system, we deploy it. For website systems, this means we provide a lightweight embed code that gets added to your website. No rebuild, no major technical work on your end. We handle all of the technical deployment from our side.</p>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:20px;max-width:720px;">Before the system goes live, we run a full round of testing to make sure it handles real customer questions accurately, stays within scope, and performs correctly under normal usage.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;max-width:640px;">
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Full pre-launch testing across real-world question scenarios</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Guardrail verification to confirm the system stays on topic</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Lightweight embed code provided for website deployment</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>We walk your team through the system before go-live</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Most standard systems are live within two to four weeks of the discovery call</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:80px 1fr;gap:40px;border-top:1px solid rgba(7,228,198,0.14);border-bottom:1px solid rgba(7,228,198,0.14);padding:64px 0;align-items:start;">
+    <div style="font-size:73px;font-weight:800;color:rgba(7,228,198,0.22);line-height:1;letter-spacing:-3px;">04</div>
+    <div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;margin-bottom:8px;">Step Four</div>
+      <h2 style="font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:20px;">Monthly System Management</h2>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:16px;max-width:720px;">Launch is not the end. It is the beginning. Every month, we actively manage your system to make sure it stays accurate, current, secure, and performing as your business changes.</p>
+      <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.85;margin-bottom:20px;max-width:720px;">Every month you receive a performance report showing how the system is doing, what your customers are asking, what questions the system could not answer, and what we updated during the month.</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:13px;max-width:640px;">
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Conversation logs reviewed monthly</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Knowledge base updated monthly as your business changes</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>API, security, and privacy compliance updates every month</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Real-time uptime monitoring with immediate error alerting</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Monthly performance report delivered to you every month</li>
+        <li style="display:flex;align-items:flex-start;gap:14px;font-size:18px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="color:#07e4c6;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;">✓</span>Dedicated support for questions, changes, or expansions at any time</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="os-rule"></div>
+
+<div class="os-bottom-cta">
+  <h2>Ready to start with Step One?</h2>
+  <p>Book a free discovery call. It takes about 30 minutes and by the end of it you will know exactly what your system would look like and what it would cost.</p>
+</div>
+</body></html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Customer Chat System for Service Businesses | Output Systems</title>
+  <meta name="description" content="An AI-powered customer chat system that qualifies leads, books appointments, and alerts your team when a serious prospect arrives.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="shared.css">
+  <!-- Google Analytics - insert GA4 tracking script here -->
+  <!-- Microsoft Clarity - insert Clarity tracking script here -->
+</head>
+<body><!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo_white.png" alt="Output Systems">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="">Intelligent Chat Systems ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="standard.html">Standard Intelligent Website Chat System</a>
+        <a href="service.html">Customer Chat System — Service Business</a>
+        <a href="retail.html">Customer Chat System — Retail and E-Commerce</a>
+        <a href="internal.html">Internal Chat System</a>
+        <a href="custom.html">Custom Chat System</a>
+      </div>
+    </li>
+    <li><a href="process.html" class="">Our Process</a></li>
+    <li><a href="about.html" class="">About</a></li>
+    <li><a href="compliance.html" class="">Privacy and Data</a></li>
+    <li><a href="contact.html" class="">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div id="mobile-menu" style="display:none;position:fixed;top:72px;left:0;right:0;background:#000;z-index:999;padding:32px 24px;border-bottom:1px solid rgba(7,228,198,0.15);overflow-y:auto;max-height:80vh;">
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:20px;">
+    <li><a href="index.html" style="font-size:17px;font-weight:600;color:#fff;">Home</a></li>
+    <li style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#07e4c6;">Intelligent Chat Systems</li>
+    <li style="padding-left:16px;"><a href="standard.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Standard Intelligent Website Chat System</a></li>
+    <li style="padding-left:16px;"><a href="service.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Service Business</a></li>
+    <li style="padding-left:16px;"><a href="retail.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Customer Chat — Retail and E-Commerce</a></li>
+    <li style="padding-left:16px;"><a href="internal.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Internal Chat System</a></li>
+    <li style="padding-left:16px;"><a href="custom.html" style="font-size:15px;color:rgba(255,255,255,0.7);">Custom Chat System</a></li>
+    <li><a href="process.html" style="font-size:17px;font-weight:600;color:#fff;">Our Process</a></li>
+    <li><a href="about.html" style="font-size:17px;font-weight:600;color:#fff;">About</a></li>
+    <li><a href="compliance.html" style="font-size:17px;font-weight:600;color:#07e4c6;">Privacy and Data</a></li>
+    <li><a href="contact.html" style="font-size:17px;font-weight:600;color:#fff;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo_white.png" alt="Output Systems" style="height:28px;width:auto;">
+      <p>AI-powered intelligent chat systems built for your business. 100% done for you, from design through to monthly management.</p>
+      <div class="footer-tagline">Reclaim Time. Increase Profits. Reduce Expenses.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standard.html">Standard Chat System</a></li>
+        <li><a href="service.html">Service Business</a></li>
+        <li><a href="retail.html">Retail and E-Commerce</a></li>
+        <li><a href="internal.html">Internal Chat System</a></li>
+        <li><a href="custom.html">Custom Chat System</a></li>
+        <li><a href="process.html">Our Process</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Privacy and Data</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul><li><a href="privacy.html">Privacy Policy</a></li></ul>
+      <div style="margin-top:32px;">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:connect@output.systems">connect@output.systems</a></li>
+          <li><a href="tel:6476223799">647 622 3799</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:13px;line-height:1.5;">375 University Ave<br>Toronto, Ontario, Canada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Output Systems / Output Inc. All rights reserved. Toronto, Ontario, Canada.</p>
+    <p style="color:rgba(255,255,255,0.15);font-size:12px;">chat.output.systems</p>
+  </div>
+</footer>
+
+<!-- STICKY BUTTON -->
+<div id="os-sticky">
+  <a href="contact.html">BOOK A FREE DISCOVERY CALL</a>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+(function(){
+  function toggleMenu(){
+    var m=document.getElementById('mobile-menu');
+    m.style.display=m.style.display==='none'?'block':'none';
+  }
+  window.toggleMenu=toggleMenu;
+  var el=document.getElementById('os-sticky');
+  var a=el.querySelector('a');
+  function check(){
+    if(window.innerWidth<=860){
+      el.style.bottom='5vh';
+      el.style.left='0';
+      el.style.right='auto';
+      el.style.width='50%';
+      el.style.justifyContent='center';
+      a.style.width='90%';
+      a.style.fontSize='13px';
+    } else {
+      el.style.bottom='20px';
+      el.style.left='0';
+      el.style.right='0';
+      el.style.width='100%';
+      el.style.justifyContent='center';
+      a.style.width='20%';
+      a.style.fontSize='15px';
+    }
+  }
+  check();
+  window.addEventListener('resize',check);
+  // Lazy load images
+  if('IntersectionObserver' in window){
+    var imgs=document.querySelectorAll('img[data-src]');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.src=e.target.dataset.src;
+          observer.unobserve(e.target);
+        }
+      });
+    });
+    imgs.forEach(function(img){observer.observe(img);});
+  }
+})();
+</script>
+
+<div class="os-hero">
+  <div class="os-hero-tag">Customer Chat System — Service Business</div>
+  <h1>Your customers get answers. Your team gets <em>qualified leads.</em></h1>
+  <p class="os-hero-intro">This system is built for businesses that sell a service, a skill, or an outcome. It answers your customers' questions, finds out what they need, books appointments, and alerts your team when a serious lead comes in. It does this 24 hours a day, 7 days a week. Everything is done for you from design through to monthly management.</p>
+  <div class="os-dfy-badge"><span>100% Done For You — Design, Setup, and Monthly Management Included</span></div>
+</div>
+<div class="os-rule"></div>
+<div class="os-features">
+  <p class="os-section-label">What's Included</p>
+  
+    <div class="os-feature-row">
+      <div class="os-feature-bullets">
+        <h3>Always Available — 24 Hours a Day</h3>
+        <ul class="os-bullet-list"><li>Operates 24 hours a day, 7 days a week with no staff needed</li><li>Answers customer questions after hours, on weekends, and on holidays</li><li>Captures inquiries at any time and notifies your team</li><li>Real-time uptime monitoring with immediate error alerts</li><li>Your business never misses an inquiry because the office was closed</li><li>Knowledge base updated monthly so answers stay current</li></ul>
+      </div>
+      <div class="os-feature-value">
+        <h3>Your next customer may reach out tonight at 9pm.</h3>
+        <p>Most service businesses only capture leads during business hours. If someone visits your website at night and cannot get an answer, they move on to the next option. This system stays open when you are not. It answers their questions, collects their information, and makes sure your team sees it first thing in the morning.</p>
+      </div>
+    </div>
+    <div class="os-feature-row">
+      <div class="os-feature-bullets">
+        <h3>Answers Trained on Your Business</h3>
+        <ul class="os-bullet-list"><li>Custom trained on your services, pricing, policies, and FAQs</li><li>Explains what you do in clear, simple language</li><li>Walks customers through what to expect from your service step by step</li><li>Communicates your credentials, experience, and reviews when relevant</li><li>Handles objections and comparison questions using your approved content</li><li>Automatically responds in the customer's own language</li><li>Guardrails prevent off-topic, inaccurate, or harmful responses</li></ul>
+      </div>
+      <div class="os-feature-value">
+        <h3>Your customers want to know if you are the right fit before they call.</h3>
+        <p>Before a potential client books a call or sends an email, they want answers. What do you do, who do you help, how much does it cost, what happens next? This system gives them those answers clearly and accurately, using only your approved content. When a customer does reach your team, they already understand what you do and are more likely to move forward.</p>
+      </div>
+    </div>
+    <div class="os-feature-row">
+      <div class="os-feature-bullets">
+        <h3>Lead Capture and Qualification</h3>
+        <ul class="os-bullet-list"><li>Collects customer name, email, and phone number automatically</li><li>Asks qualifying questions based on your business rules</li><li>Gathers location, service type, timeline, and situation before handoff</li><li>Sends your team a full summary of the conversation</li><li>Routes inquiries to the right team member based on service type</li><li>Your team receives organized leads, not cold unqualified messages</li><li>Notifies your team the moment a lead is captured</li></ul>
+      </div>
+      <div class="os-feature-value">
+        <h3>Your team should spend time on real opportunities, not sorting through cold inquiries.</h3>
+        <p>When a lead comes in through a contact form or email, your team has to ask a series of questions just to figure out if the person is a good fit. This system does that work before the handoff. It asks the right questions, collects the relevant details, and sends your team a clear summary.</p>
+      </div>
+    </div>
+    <div class="os-feature-row">
+      <div class="os-feature-bullets">
+        <h3>Appointment Booking and Intake</h3>
+        <ul class="os-bullet-list"><li>Customers can request a call or consultation directly in the conversation</li><li>Begins the client intake process before the first meeting</li><li>Collects situation details, preferences, and relevant background upfront</li><li>Sends preparation instructions to clients after booking</li><li>Reduces back-and-forth before the first appointment</li><li>Your team arrives at every first meeting with context already collected</li></ul>
+      </div>
+      <div class="os-feature-value">
+        <h3>The first meeting goes better when everyone is prepared.</h3>
+        <p>Most first consultations start with the same questions: What brings you in? What have you tried? What is your situation? This system collects all of that before the meeting happens. Your team arrives prepared, the client feels heard, and the conversation can move straight to what matters.</p>
+      </div>
+    </div>
+    <div class="os-feature-row">
+      <div class="os-feature-bullets">
+        <h3>Top Prospect Recognition and Urgency Detection</h3>
+        <ul class="os-bullet-list"><li>Identifies customers showing high intent or urgency in real time</li><li>Flags those conversations and notifies your team immediately</li><li>Sends a summary of the conversation with key details highlighted</li><li>Detects time-sensitive situations and routes them to a human fast</li><li>Ensures serious leads do not sit unanswered for hours</li><li>Gives your team the edge to respond before a competitor does</li></ul>
+      </div>
+      <div class="os-feature-value">
+        <h3>A serious customer who does not hear back within the hour often moves on.</h3>
+        <p>Not every inquiry needs immediate attention, but some do. When a customer says they need help urgently, or when the conversation signals strong buying intent, your team needs to know right away. This system identifies those situations automatically, flags them, and sends your team a summary so they can act fast.</p>
+      </div>
+    </div>
+    <div class="os-feature-row">
+      <div class="os-feature-bullets">
+        <h3>Analytics, Dashboard, and Monthly Management</h3>
+        <ul class="os-bullet-list"><li>Insights Dashboard shows leads, top questions, engagement times, and performance</li><li>See which pages on your website generate the most customer questions</li><li>Track which questions your system answers and which it cannot</li><li>Conversation logs reviewed monthly</li><li>Knowledge base updated monthly as your services, pricing, or policies change</li><li>API, security, and privacy compliance updates applied every month</li><li>Monthly performance report delivered every month</li><li>Dedicated support for questions or changes at any time</li></ul>
+      </div>
+      <div class="os-feature-value">
+        <h3>You can see exactly how the system is performing every single month.</h3>
+        <p>The Insights Dashboard gives you a clear view of what your customers are asking, when they are asking it, and where on your website they are most engaged. Every month, we review the conversation logs, update the knowledge base, apply all security and compliance updates, and send you a performance report.</p>
+      </div>
+    </div>
+</div>
+<div class="os-rule"></div>
+<div class="os-pricing">
+  <div class="os-pricing-inner">
+    <div class="os-pricing-left">
+      <h2>Built for your business.<br><em>Managed every month.</em></h2>
+      <p>This is not a tool you set up and forget. We design it around your specific service business, build it, test it, launch it, and manage it every month so it keeps working as your business grows and changes.</p>
+      <p>Pricing is based on the scope of your system, the number of features you need, and the integrations involved. We put a number together after the discovery call when we understand exactly what you need.</p>
+      <p class="os-pricing-note">Book a free discovery call to get a custom quote for your business.</p>
+    </div>
+    <div class="os-pricing-card">
+      <div class="os-price-label">Customer Chat System — Service Business</div>
+      <div class="os-price-contact">Custom Pricing</div><div class="os-price-contact-sub">Pricing is based on the size and scope of your system. Book a free discovery call and we will put together a clear quote for your specific business.</div>
+      <div class="os-price-divider"></div>
+      <div class="os-price-includes">Every System Includes</div>
+      <ul class="os-price-feature-list"><li>Full done-for-you design and build</li><li>Custom knowledge base built from your content</li><li>Lead capture and qualification setup</li><li>Appointment booking and intake flows</li><li>Top Prospect Recognition and urgency alerts</li><li>Insights Dashboard</li><li>Monthly conversation log review</li><li>Monthly knowledge base updates</li><li>API, security, and compliance updates</li><li>Monthly performance report</li><li>Dedicated client support</li></ul>
+      <a href="contact.html" class="os-cta-btn">Book a Free Discovery Call</a>
+    </div>
+  </div>
+</div>
+<div class="os-bottom-cta">
+  <h2>Ready to give your customers a better experience?</h2>
+  <p>Book a free discovery call. We can set up a demo for you, customized to your business so you will know exactly what your new system would look like.</p>
+</div></body></html>
