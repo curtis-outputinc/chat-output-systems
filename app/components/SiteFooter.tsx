@@ -46,7 +46,6 @@ export default function SiteFooter() {
             className="text-white"
             style={{
               fontSize: '15px',
-              opacity: 0.75,
               lineHeight: 1.75,
               marginTop: '16px',
               maxWidth: '300px',
@@ -90,10 +89,9 @@ export default function SiteFooter() {
               <li key={href}>
                 <Link
                   href={href}
-                  className="text-white transition-opacity duration-200"
+                  className="text-white"
                   style={{
                     fontSize: '16px',
-                    opacity: 0.8,
                   }}
                 >
                   {label}
@@ -127,7 +125,6 @@ export default function SiteFooter() {
                 className="text-white"
                 style={{
                   fontSize: '16px',
-                  opacity: 0.8,
                 }}
               >
                 Privacy Policy
@@ -157,7 +154,6 @@ export default function SiteFooter() {
                 className="text-white"
                 style={{
                   fontSize: '16px',
-                  opacity: 0.8,
                 }}
               >
                 connect@output.systems
@@ -169,7 +165,6 @@ export default function SiteFooter() {
                 className="text-white"
                 style={{
                   fontSize: '16px',
-                  opacity: 0.8,
                 }}
               >
                 647 622 3799
@@ -178,7 +173,6 @@ export default function SiteFooter() {
             <li
               className="text-white"
               style={{
-                opacity: 0.75,
                 fontSize: '15px',
                 lineHeight: 1.5,
               }}
@@ -200,14 +194,14 @@ export default function SiteFooter() {
       >
         <p
           className="text-white"
-          style={{ fontSize: '15px', opacity: 0.75, lineHeight: 1.6 }}
+          style={{ fontSize: '15px', lineHeight: 1.6 }}
         >
           © {year} Output Systems / Output Inc. All rights reserved. Toronto,
           Ontario, Canada.
         </p>
         <p
           className="text-white"
-          style={{ fontSize: '13px', opacity: 0.5 }}
+          style={{ fontSize: '13px' }}
         >
           chat.output.systems
         </p>

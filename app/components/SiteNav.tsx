@@ -65,8 +65,7 @@ export default function SiteNav({ active }: { active?: string }) {
                   className="font-medium transition-opacity duration-200 bg-transparent border-none cursor-pointer text-white"
                   style={{
                     fontSize: '17px',
-                    opacity: chatSystemsActive ? 1 : 0.8,
-                    color: chatSystemsActive ? TEAL : undefined,
+                    color: chatSystemsActive ? TEAL : '#ffffff',
                     whiteSpace: 'nowrap',
                     padding: 0,
                   }}
@@ -100,8 +99,7 @@ export default function SiteNav({ active }: { active?: string }) {
                             padding: '14px 24px',
                             fontSize: '15px',
                             fontWeight: 500,
-                            opacity: isActive ? 1 : 0.8,
-                            color: isActive ? TEAL : undefined,
+                            color: isActive ? TEAL : '#ffffff',
                             borderBottom:
                               idx < CHAT_SYSTEMS_LINKS.length - 1
                                 ? '1px solid rgba(255,255,255,0.06)'
@@ -126,8 +124,7 @@ export default function SiteNav({ active }: { active?: string }) {
                 className="font-medium transition-opacity duration-200 text-white"
                 style={{
                   fontSize: '17px',
-                  opacity: isActive ? 1 : 0.8,
-                  color: isActive ? TEAL : undefined,
+                  color: isActive ? TEAL : '#ffffff',
                   whiteSpace: 'nowrap',
                 }}
               >

@@ -142,8 +142,7 @@ export default function MobileMenu({ active }: { active?: string }) {
                       display: 'block',
                       fontSize: '17px',
                       fontWeight: 500,
-                      color: '#ffffff',
-                      opacity: isActive ? 1 : 0.88,
+                      color: isActive ? TEAL : '#ffffff',
                       textDecoration: 'none',
                       lineHeight: 1.45,
                     }}

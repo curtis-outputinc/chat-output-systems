@@ -111,7 +111,6 @@ export default function HomePage() {
                 lineHeight: 1.7,
                 maxWidth: '900px',
                 color: '#ffffff',
-                opacity: 0.92,
                 textWrap: 'balance',
               }}
             >
@@ -160,7 +159,6 @@ export default function HomePage() {
                   fontSize: '19px',
                   lineHeight: 1.8,
                   color: '#ffffff',
-                  opacity: 0.95,
                 }}
               >
                 Every Intelligent Chat System we build is designed to produce
@@ -217,7 +215,6 @@ export default function HomePage() {
                   fontSize: '19px',
                   lineHeight: 1.8,
                   color: '#ffffff',
-                  opacity: 0.95,
                 }}
               >
                 Every conversation produces data, and that data gets surfaced
@@ -291,7 +288,6 @@ export default function HomePage() {
                         fontSize: '16px',
                         lineHeight: 1.7,
                         color: '#ffffff',
-                        opacity: 0.88,
                       }}
                     >
                       {step.body}
@@ -395,7 +391,6 @@ export default function HomePage() {
                         fontSize: '19px',
                         lineHeight: 1.75,
                         color: '#ffffff',
-                        opacity: 0.92,
                       }}
                     >
                       {card.body}
