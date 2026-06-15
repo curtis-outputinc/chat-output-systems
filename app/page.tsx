@@ -284,12 +284,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* STATS — centered, pie chart + check-marked bullets */}
+        {/* STATS — pie chart + check-marked bullets, 2-col */}
         <section className="px-6 sm:px-10 py-24" style={{ position: 'relative' }}>
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto">
             <FadeIn>
               <h2
-                className="font-extrabold tracking-tight leading-[1.1] mx-auto mb-14"
+                className="font-extrabold tracking-tight leading-[1.1] mx-auto mb-14 text-center"
                 style={{
                   fontSize: 'clamp(32px, 4.5vw, 56px)',
                   letterSpacing: '-1.6px',
