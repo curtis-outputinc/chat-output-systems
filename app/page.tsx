@@ -103,8 +103,8 @@ export default function HomePage() {
               }}
             >
               Intelligent Website Chat Systems built to help businesses
-              acquire and keep more clients
-              <span style={{ color: TEAL }}>.</span>
+              acquire and keep{' '}
+              <span style={{ color: TEAL }}>more clients.</span>
             </h1>
             {/* Desktop subhead — inline in hero */}
             <p
