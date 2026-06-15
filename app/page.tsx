@@ -56,11 +56,11 @@ function Eyebrow({ children }: { children: ReactNode }) {
 
 const MINI_TILES = [
   {
-    title: 'Around-the-Clock Operations, 7 Days a Week',
+    title: 'Around-the-Clock Operations, 24/7',
     body:
       'Your customers are online 24 hours a day, 7 days a week. Your customer support should be too.',
     icon: (
-      <svg width={52} height={52} viewBox="0 0 52 52" aria-hidden="true">
+      <svg width={104} height={104} viewBox="0 0 52 52" aria-hidden="true">
         <circle cx={26} cy={26} r={22} fill="none" stroke={TEAL} strokeWidth={1.5} opacity={0.4} />
         <circle cx={26} cy={26} r={18} fill="rgba(7,228,198,0.06)" />
         <line x1={26} y1={26} x2={26} y2={10} stroke={TEAL} strokeWidth={2} strokeLinecap="round" className="home-clock-minute" />
@@ -78,7 +78,7 @@ const MINI_TILES = [
     body:
       "Nothing generic here. Your Intelligent Chat System is trained on your brand's tone, products, services, pricing and policies for accurate customer interaction.",
     icon: (
-      <svg width={52} height={52} viewBox="0 0 52 52" aria-hidden="true">
+      <svg width={104} height={104} viewBox="0 0 52 52" aria-hidden="true">
         {/* Head */}
         <rect x={10} y={18} width={32} height={24} rx={4} fill="none" stroke={TEAL} strokeWidth={1.5} opacity={0.7} />
         {/* Antenna mount */}
@@ -103,11 +103,11 @@ const MINI_TILES = [
     ),
   },
   {
-    title: '100% Done-For-You Service, Not By You',
+    title: '100% Done-For-You Service',
     body:
       'Most traditional chatbots require you to launch, program, update and maintain. We handle everything from start to finish and beyond.',
     icon: (
-      <svg width={52} height={52} viewBox="0 0 52 52" aria-hidden="true">
+      <svg width={104} height={104} viewBox="0 0 52 52" aria-hidden="true">
         {/* Clipboard outline */}
         <rect x={11} y={10} width={30} height={36} rx={3} fill="none" stroke={TEAL} strokeWidth={1.5} opacity={0.7} />
         {/* Clip on top */}
@@ -380,11 +380,11 @@ export default function HomePage() {
                   <div style={{ marginBottom: '20px' }}>{tile.icon}</div>
                   <h3
                     style={{
-                      fontSize: '19px',
+                      fontSize: '23px',
                       fontWeight: 700,
                       color: '#ffffff',
-                      marginBottom: '12px',
-                      lineHeight: 1.3,
+                      marginBottom: '14px',
+                      lineHeight: 1.25,
                     }}
                   >
                     {tile.title}
