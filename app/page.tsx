@@ -194,8 +194,7 @@ export default function HomePage() {
                 maxWidth: '1100px',
               }}
             >
-              <span style={{ color: TEAL }}>Intelligent Website Chat Systems</span>{' '}
-              designed to acquire and keep{' '}
+              Intelligent Website Chat Systems designed to acquire and keep{' '}
               <span style={{ color: TEAL }}>more clients.</span>
             </h1>
             <p
@@ -264,7 +263,7 @@ export default function HomePage() {
               durationMs={1800}
               preHeadline="Consumers are"
               headline="more likely to convert with a business that has a responsive chat system on their website."
-              citation=""
+              citation="(2026 Marketing Mag)"
             />
           </FadeIn>
         </section>
