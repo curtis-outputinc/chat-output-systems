@@ -217,8 +217,8 @@ export default function ProcessPage() {
               <TypingHeading
                 totalMs={4500}
                 segments={[
-                  { text: 'Here is how we build you a ' },
-                  { text: 'fully running system.', color: TEAL, nowrap: true },
+                  { text: '4 easy steps to your new ' },
+                  { text: 'intelligent chat system.', color: TEAL },
                 ]}
               />
             </h1>
