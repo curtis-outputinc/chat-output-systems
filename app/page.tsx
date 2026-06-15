@@ -410,9 +410,9 @@ export default function HomePage() {
                 />
               </h2>
               <p style={{ fontSize: '19px', color: '#ffffff', lineHeight: 1.85 }}>
-                Customers are converting when their needs are met quickly.
-                Understanding exactly what your website visitors are asking and
-                acting on that is the ultimate data for increasing profits.
+                Our system provides instantaneous responses relevant to your
+                specific business while giving you data on what your clients
+                are asking from you the most.
               </p>
             </FadeIn>
 
@@ -474,10 +474,10 @@ export default function HomePage() {
                   />
                 </h2>
                 <p style={{ fontSize: '19px', color: '#ffffff', lineHeight: 1.85 }}>
-                  No training needed, no turnover, 24/7 support. Your intelligent
-                  chat system supports your clients without the overhead. Being
-                  a better service team is the ultimate decrease in admin costs
-                  and wasted effort.
+                  No training needed, no turnover, 24/7 support. Your
+                  intelligent chat system supports your clients with almost
+                  90% less of the overhead costs. Better service. More
+                  accurate responses. Lower overhead.
                 </p>
               </div>
             </FadeIn>
