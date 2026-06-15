@@ -267,9 +267,10 @@ export default function AboutPage() {
                     color: '#ffffff',
                   }}
                 >
-                  Most businesses think of an intelligent chat system as
-                  something that helps their customers find answers. That is
-                  one output. What they are missing is the second one.
+                  Every system we build does two things at once. Your customers
+                  get instant, accurate answers, 24/7 support, booking, and a
+                  clear next step. Your business gets a clear view of what
+                  those customers are asking for.
                 </p>
                 <p
                   className="mx-auto mt-4"
@@ -284,7 +285,7 @@ export default function AboutPage() {
                   layer of customer intelligence. What people are asking for.
                   Where they drop off. What objections they raise. What
                   information is missing from your website. Traditional
-                  intelligent chat systems discard that data entirely.
+                  chatbots discard that data entirely.
                 </p>
               </div>
             </FadeIn>
@@ -328,11 +329,11 @@ export default function AboutPage() {
                         color: '#ffffff',
                       }}
                     >
-                      Traditional intelligent chat systems answer your
-                      customers&apos; questions. Output Systems answers your
-                      customers&apos; questions, helps them book, submit info,
-                      and take the next step — then turns every one of those
-                      conversations into{' '}
+                      Traditional chatbots answer your customers&apos;
+                      questions. Output Systems answers your customers&apos;
+                      questions, helps them book, submit info, and take the
+                      next step — then turns every one of those conversations
+                      into{' '}
                       <span style={{ color: TEAL }}>
                         insights and intelligence your team can act on.
                       </span>
@@ -377,12 +378,11 @@ export default function AboutPage() {
                   marginBottom: '16px',
                 }}
               >
-                DIY platforms like Chatbase, Tidio, and similar tools are
-                software subscriptions. You upload your content, write your
-                prompts, configure your flows, test the responses, fix the
-                errors, and update everything yourself every time your business
-                changes. And because nobody is watching the data, nobody ever
-                knows if it is actually working.
+                You provide the business context. We handle everything else.
+                From the discovery call through design, build, knowledge base
+                configuration, testing, launch, and ongoing monthly management.
+                Your team never touches a configuration screen, writes a
+                prompt, or chases an error.
               </p>
               <p
                 style={{
@@ -392,10 +392,10 @@ export default function AboutPage() {
                   marginBottom: '16px',
                 }}
               >
-                Output handles everything. From the discovery call through to
-                design, build, knowledge base configuration, testing, launch,
-                and ongoing monthly management. Your team provides the business
-                context and we do the rest.
+                Your system is trained on your actual services, pricing,
+                policies, and tone. Guardrails are configured around your
+                business. Integrations are built into your existing tools.
+                And every month, we are inside the system making it sharper.
               </p>
               <p
                 style={{
@@ -404,8 +404,8 @@ export default function AboutPage() {
                   color: '#ffffff',
                 }}
               >
-                That is what makes Output a business partner, not a software
-                subscription.
+                That is what makes Output Systems a business partner, not a
+                software subscription you maintain yourself.
               </p>
             </FadeIn>
             <FadeIn delay={160}>
@@ -452,12 +452,10 @@ export default function AboutPage() {
                     marginBottom: '16px',
                   }}
                 >
-                  Most intelligent chat systems are set up once and forgotten.
-                  That is why most of them fail. Nobody is watching whether
-                  visitors are disengaging after one message. Nobody is
-                  tracking which questions the system cannot answer. Nobody is
-                  analyzing what the conversation data is revealing about the
-                  business.
+                  Your system gets sharper every month. We actively monitor
+                  conversation data, watch where visitors drop off, track which
+                  questions came up unanswered, and tune the knowledge base
+                  around what your customers are actually asking for.
                 </p>
                 <p
                   style={{
@@ -467,11 +465,11 @@ export default function AboutPage() {
                     marginBottom: '16px',
                   }}
                 >
-                  Because Output Systems actively monitors conversation data
-                  every month, every system we manage becomes self-improving
-                  over time. If visitors are dropping off early, that is a
-                  signal. If the same questions keep coming up unanswered, that
-                  is a knowledge gap.
+                  When a new objection starts appearing in conversations, we
+                  address it. When your business changes its pricing,
+                  services, or policies, we update the system. When a
+                  knowledge gap emerges, we fill it. That work happens before
+                  you have to ask.
                 </p>
                 <p
                   style={{
@@ -480,7 +478,7 @@ export default function AboutPage() {
                     color: '#ffffff',
                   }}
                 >
-                  That ongoing loop of monitor, analyze, improve, and report is
+                  The ongoing loop of monitor, analyze, improve, and report is
                   what turns an intelligent chat system into a genuine business
                   asset.
                 </p>
