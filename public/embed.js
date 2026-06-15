@@ -99,31 +99,35 @@
   document.head.appendChild(mobileStyles);
 
   // ---------- Bubble heartbeat pulse — runs every 3 seconds ----------
+  // Continuous gentle pulse: scale 1 → 1.12 → 1 with the background tinting
+  // brighter teal at peak and a soft glow ring. Pauses on hover so the user
+  // sees a steady target to click.
   var pulseStyles = document.createElement('style');
   pulseStyles.textContent =
     '@keyframes output-bubble-pulse {' +
-      '0%, 70%, 100% {' +
+      '0% {' +
         'transform: scale(1);' +
-        'background-color: #1ae0cb;' +
-        'box-shadow: 0 4px 12px rgba(0,0,0,0.35);' +
+        'background-color: #1ae0cb !important;' +
+        'box-shadow: 0 4px 12px rgba(0,0,0,0.35), 0 0 0 0 rgba(7,228,198,0.55);' +
       '}' +
-      '82% {' +
-        'transform: scale(1.14);' +
-        'background-color: #07e4c6;' +
-        'box-shadow: 0 4px 22px rgba(7,228,198,0.55), 0 4px 12px rgba(0,0,0,0.35);' +
+      '50% {' +
+        'transform: scale(1.12);' +
+        'background-color: #5beed5 !important;' +
+        'box-shadow: 0 6px 22px rgba(0,0,0,0.4), 0 0 0 14px rgba(7,228,198,0);' +
       '}' +
-      '92% {' +
-        'transform: scale(0.98);' +
-        'background-color: #1ae0cb;' +
-        'box-shadow: 0 4px 12px rgba(0,0,0,0.35);' +
+      '100% {' +
+        'transform: scale(1);' +
+        'background-color: #1ae0cb !important;' +
+        'box-shadow: 0 4px 12px rgba(0,0,0,0.35), 0 0 0 0 rgba(7,228,198,0);' +
       '}' +
     '}' +
     '#output-chatbot-bubble {' +
-      'animation: output-bubble-pulse 3s ease-in-out infinite;' +
+      'animation: output-bubble-pulse 3s ease-in-out infinite !important;' +
+      'transform-origin: center center;' +
+      'will-change: transform, background-color, box-shadow;' +
     '}' +
-    /* Pause the heartbeat while the user is hovering or has the panel open. */
     '#output-chatbot-bubble-container:hover #output-chatbot-bubble {' +
-      'animation-play-state: paused;' +
+      'animation-play-state: paused !important;' +
     '}';
   document.head.appendChild(pulseStyles);
 
