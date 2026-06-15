@@ -10,6 +10,7 @@ import IntegrationsMarquee from './components/IntegrationsMarquee';
 import AnimatedStatCounter from './components/AnimatedStatCounter';
 import AnimatedNodesBackground from './components/AnimatedNodesBackground';
 import HomeChecklist from './components/HomeChecklist';
+import HomeStatsBlock from './components/HomeStatsBlock';
 import TypingHeading from './components/TypingHeading';
 import Image from 'next/image';
 
@@ -283,64 +284,28 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* TWO-COL PROOF */}
+        {/* STATS — centered, pie chart + check-marked bullets */}
         <section className="px-6 sm:px-10 py-24" style={{ position: 'relative' }}>
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="max-w-4xl mx-auto text-center">
             <FadeIn>
               <h2
-                className="font-extrabold tracking-tight leading-[1.1] mb-6"
+                className="font-extrabold tracking-tight leading-[1.1] mx-auto mb-14"
                 style={{
                   fontSize: 'clamp(32px, 4.5vw, 56px)',
                   letterSpacing: '-1.6px',
                   color: '#ffffff',
+                  maxWidth: '900px',
                 }}
               >
-                Your website works.
-                <br />
-                <span style={{ color: TEAL }}>Your chat system should too.</span>
+                Is your business adapting to{' '}
+                <span style={{ color: TEAL }}>
+                  today&apos;s customer trends?
+                </span>
               </h2>
-              <p style={{ fontSize: '18px', lineHeight: 1.85, color: '#ffffff', marginBottom: '14px' }}>
-                Website visitors are 2.8x to 3.0x more likely to convert with a
-                business that has a chat interface online.
-              </p>
-              <p style={{ fontSize: '18px', lineHeight: 1.85, color: '#ffffff', marginBottom: '14px' }}>
-                78% of online consumers commit to the business that responds
-                first. Our chat system gives instant, context-relevant
-                responses.
-              </p>
-              <p style={{ fontSize: '18px', lineHeight: 1.85, color: '#ffffff' }}>
-                63% of e-commerce browsing and conversions happen outside of
-                normal 9-to-5 business hours. Your customer support should be
-                24/7.
-              </p>
             </FadeIn>
 
-            <FadeIn delay={160}>
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  background: '#0a0f0d',
-                  border: '1px solid rgba(7,228,198,0.14)',
-                  borderRadius: '6px',
-                  padding: '48px',
-                }}
-              >
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: '2px',
-                    background: TEAL,
-                  }}
-                />
-                <p style={{ fontSize: '17px', color: '#ffffff', lineHeight: 1.8, margin: 0 }}>
-                  Advanced, intelligent chat systems like Output handle over 80%
-                  of routine inbound inquiries automatically. This saves tens
-                  of hours of overhead while giving customers instant answers.
-                </p>
-              </div>
+            <FadeIn delay={120}>
+              <HomeStatsBlock />
             </FadeIn>
           </div>
         </section>

@@ -398,6 +398,18 @@ body {
 }
 .home-arrow-hit { animation: home-arrow-fly 0.7s ease-out 1.1s both; transform-origin: 100px 100px; }
 
+/* Home stats block — checklist rows fade up with stagger (delay set inline
+   per item) once the parent .home-stat-visible class is added. */
+.home-stat-item {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.home-stat-item.home-stat-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Checklist sequential reveal — each row's checkmark draws first, then the
    text fades in. The whole row starts invisible; .home-check-visible cues
    both sub-animations. */
