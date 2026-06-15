@@ -673,14 +673,23 @@ export default function HomePage() {
                   letterSpacing: '-2px',
                   lineHeight: 1.08,
                   color: '#ffffff',
-                  maxWidth: '480px',
+                  maxWidth: '520px',
                 }}
               >
-                Intelligent Website Chat Systems designed to{' '}
-                <span style={{ color: TEAL }}>engage</span> your{' '}
-                <span style={{ color: TEAL }}>website</span>{' '}
-                <span style={{ color: TEAL }}>visitors</span> without scaling
-                your team or expenses.
+                <TypingHeading
+                  totalMs={7000}
+                  triggerOnScroll
+                  segments={[
+                    {
+                      text:
+                        'Intelligent Chat Agents designed to support your website visitors towards ',
+                    },
+                    { text: 'conversion', color: TEAL },
+                    { text: ' and your organization towards ' },
+                    { text: 'efficiency', color: TEAL },
+                    { text: '.' },
+                  ]}
+                />
               </h2>
             </FadeIn>
 
