@@ -17,7 +17,7 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   title: 'Intelligent Website Chat Systems — Output Systems',
   description:
-    'Output designs and manages AI-powered chat systems that answer visitor questions, capture lead info, support customer needs, and give businesses clearer insight into what their clients are asking for.',
+    'Welcome to your fully designed and managed Output-powered chat system. Your intelligent chat agent can intuitively answer website visitor questions, capture lead info, support customer needs, and give your business clear and unique insights into what your customers are asking for.',
 };
 
 const TEAL = '#07e4c6';
@@ -220,10 +220,11 @@ export default function HomePage() {
                 textWrap: 'balance',
               }}
             >
-              Output designs and manages AI-powered chat systems that answer
-              visitor questions, capture lead info, support customer needs, and
-              give businesses clearer insight into what their clients are
-              asking for.
+              Welcome to your fully designed and managed Output-powered chat
+              system. Your intelligent chat agent can intuitively answer
+              website visitor questions, capture lead info, support customer
+              needs, and give your business clear and unique insights into
+              what your customers are asking for.
             </p>
           </FadeIn>
         </section>
@@ -244,10 +245,11 @@ export default function HomePage() {
                 textWrap: 'balance',
               }}
             >
-              Output designs and manages AI-powered chat systems that answer
-              visitor questions, capture lead info, support customer needs, and
-              give businesses clearer insight into what their clients are
-              asking for.
+              Welcome to your fully designed and managed Output-powered chat
+              system. Your intelligent chat agent can intuitively answer
+              website visitor questions, capture lead info, support customer
+              needs, and give your business clear and unique insights into
+              what your customers are asking for.
             </p>
           </FadeIn>
         </section>
