@@ -19,7 +19,10 @@ export default function CookiesBanner() {
     }
   }, []);
 
-  function handleAccept() {
+  function dismiss() {
+    // Either Accept or X writes the same flag so the banner doesn't pop up
+    // again on the next visit. Closing without checking the box is treated
+    // as an acknowledgement that the site still uses cookies — per Curtis.
     try {
       localStorage.setItem(STORAGE_KEY, '1');
     } catch {}
@@ -35,12 +38,11 @@ export default function CookiesBanner() {
       aria-live="polite"
       style={{
         position: 'fixed',
-        left: '16px',
-        right: '16px',
-        bottom: '90px',
+        left: '20px',
+        bottom: '20px',
         zIndex: 10000,
-        margin: '0 auto',
-        maxWidth: '640px',
+        width: 'calc(100% - 40px)',
+        maxWidth: '420px',
         background: 'rgba(10,15,13,0.97)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
@@ -54,6 +56,26 @@ export default function CookiesBanner() {
         gap: '18px',
       }}
     >
+      <button
+        type="button"
+        onClick={dismiss}
+        aria-label="Close cookies notice"
+        style={{
+          position: 'absolute',
+          top: '8px',
+          right: '10px',
+          background: 'transparent',
+          border: 'none',
+          color: '#ffffff',
+          fontSize: '20px',
+          lineHeight: 1,
+          cursor: 'pointer',
+          padding: '6px 10px',
+          opacity: 0.7,
+        }}
+      >
+        ×
+      </button>
       <div>
         <h2
           style={{
@@ -111,7 +133,7 @@ export default function CookiesBanner() {
 
       <button
         type="button"
-        onClick={handleAccept}
+        onClick={dismiss}
         disabled={!agreed}
         style={{
           background: agreed ? TEAL : 'rgba(7,228,198,0.2)',

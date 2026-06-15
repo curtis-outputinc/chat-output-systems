@@ -199,7 +199,7 @@ export default function HomePage() {
               }}
             >
               <TypingHeading
-                totalMs={4000}
+                totalMs={8000}
                 segments={[
                   {
                     text:
