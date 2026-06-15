@@ -186,7 +186,6 @@ export default function HomePage() {
           style={{ minHeight: '100vh', paddingTop: '96px', paddingBottom: '40px' }}
         >
           <FadeIn>
-            <Eyebrow>Intelligent Website Chat Systems</Eyebrow>
             <h1
               className="font-black tracking-tight leading-[1.04] mx-auto mb-8"
               style={{
@@ -195,7 +194,8 @@ export default function HomePage() {
                 maxWidth: '1100px',
               }}
             >
-              Designed to acquire and keep{' '}
+              <span style={{ color: TEAL }}>Intelligent Website Chat Systems</span>{' '}
+              designed to acquire and keep{' '}
               <span style={{ color: TEAL }}>more clients.</span>
             </h1>
             <p
@@ -411,7 +411,6 @@ export default function HomePage() {
         <section className="px-6 sm:px-10 py-32">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn>
-              <Eyebrow>Revenue</Eyebrow>
               <h2
                 className="font-extrabold tracking-tight leading-[1.05] mb-5"
                 style={{
@@ -492,7 +491,6 @@ export default function HomePage() {
             </FadeIn>
 
             <FadeIn delay={160}>
-              <Eyebrow>Operations</Eyebrow>
               <h2
                 className="font-extrabold tracking-tight leading-[1.05] mb-5"
                 style={{
@@ -565,7 +563,6 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto">
             <FadeIn>
               <div className="text-center mb-14">
-                <Eyebrow>How It Works</Eyebrow>
                 <h2
                   className="font-extrabold tracking-tight"
                   style={{
@@ -592,44 +589,31 @@ export default function HomePage() {
                     }}
                   >
                     <div
-                      aria-hidden="true"
                       style={{
-                        position: 'absolute',
-                        top: '32px',
-                        right: '36px',
-                        fontSize: '72px',
+                        fontSize: 'clamp(72px, 9vw, 110px)',
                         fontWeight: 900,
-                        color: 'rgba(7,228,198,0.18)',
+                        color: TEAL,
+                        opacity: 0.7,
                         lineHeight: 1,
-                        letterSpacing: '-3px',
+                        letterSpacing: '-4px',
+                        marginBottom: '20px',
                       }}
                     >
                       {step.num}
                     </div>
-                    <div
-                      style={{
-                        fontSize: '12px',
-                        fontWeight: 700,
-                        letterSpacing: '2.5px',
-                        textTransform: 'uppercase',
-                        color: TEAL,
-                        marginBottom: '10px',
-                      }}
-                    >
-                      {step.label}
-                    </div>
                     <h3
                       style={{
-                        fontSize: '24px',
+                        fontSize: 'clamp(26px, 2.6vw, 34px)',
                         fontWeight: 800,
                         color: '#ffffff',
-                        marginBottom: '14px',
-                        letterSpacing: '-0.3px',
+                        marginBottom: '18px',
+                        letterSpacing: '-0.6px',
+                        lineHeight: 1.15,
                       }}
                     >
                       {step.title}
                     </h3>
-                    <p style={{ fontSize: '17px', color: '#ffffff', lineHeight: 1.8 }}>
+                    <p style={{ fontSize: '18px', color: '#ffffff', lineHeight: 1.8 }}>
                       {step.body}
                     </p>
                   </div>
@@ -709,18 +693,21 @@ export default function HomePage() {
         >
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
             <FadeIn>
-              <Eyebrow>What You Get</Eyebrow>
               <h2
                 className="font-black tracking-tight"
                 style={{
-                  fontSize: 'clamp(32px, 5vw, 64px)',
-                  letterSpacing: '-2.5px',
-                  lineHeight: 1.03,
+                  fontSize: 'clamp(32px, 4.4vw, 56px)',
+                  letterSpacing: '-2px',
+                  lineHeight: 1.08,
                   color: '#ffffff',
+                  maxWidth: '480px',
                 }}
               >
-                Intelligent Website Chat Systems designed to engage your
-                website visitors without scaling your team or expenses.
+                Intelligent Website Chat Systems designed to{' '}
+                <span style={{ color: TEAL }}>engage</span> your{' '}
+                <span style={{ color: TEAL }}>website</span>{' '}
+                <span style={{ color: TEAL }}>visitors</span> without scaling
+                your team or expenses.
               </h2>
             </FadeIn>
 

@@ -17,6 +17,12 @@ const ITEMS = [
 
 const TEAL = '#07e4c6';
 
+// Animation timing per item:
+//   t=0      checkmark icon fades in + checkmark stroke draws (0.45s)
+//   t=0.35s  text fades in (0.35s)
+// Stagger between items: 600ms (one fully completes before the next starts).
+const ITEM_STAGGER_MS = 600;
+
 export default function HomeChecklist() {
   const listRef = useRef<HTMLUListElement | null>(null);
 
@@ -32,13 +38,22 @@ export default function HomeChecklist() {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           const idx = items.indexOf(entry.target as HTMLLIElement);
-          window.setTimeout(() => {
-            entry.target.classList.add('home-check-visible');
-          }, idx * 80);
-          io.unobserve(entry.target);
+          // Only fire the cascade once, on the FIRST item that enters view.
+          // The rest follow on a stagger so they always animate in order.
+          if (idx !== 0) {
+            io.unobserve(entry.target);
+            continue;
+          }
+          items.forEach((el, i) => {
+            window.setTimeout(() => {
+              el.classList.add('home-check-visible');
+            }, i * ITEM_STAGGER_MS);
+          });
+          items.forEach((el) => io.unobserve(el));
+          break;
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.15 },
     );
 
     items.forEach((item) => io.observe(item));
@@ -58,43 +73,46 @@ export default function HomeChecklist() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '16px',
-            padding: '14px 0',
+            gap: '20px',
+            padding: '18px 0',
             borderBottom:
               i < ITEMS.length - 1
-                ? '1px solid rgba(7,228,198,0.08)'
+                ? '1px solid rgba(7,228,198,0.12)'
                 : 'none',
           }}
         >
           <div
+            className="home-check-circle"
             style={{
-              width: '24px',
-              height: '24px',
+              width: '40px',
+              height: '40px',
               borderRadius: '50%',
-              background: 'rgba(7,228,198,0.06)',
-              border: '1px solid rgba(7,228,198,0.28)',
+              background: 'rgba(7,228,198,0.08)',
+              border: '1.5px solid rgba(7,228,198,0.38)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
             }}
           >
-            <svg viewBox="0 0 24 24" width={12} height={12} aria-hidden="true">
+            <svg viewBox="0 0 24 24" width={22} height={22} aria-hidden="true">
               <polyline
                 points="20 6 9 17 4 12"
                 fill="none"
                 stroke={TEAL}
-                strokeWidth={2.5}
+                strokeWidth={3}
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="home-check-draw"
+                className="home-check-stroke"
               />
             </svg>
           </div>
           <span
+            className="home-check-text"
             style={{
-              fontSize: '17px',
+              fontSize: '19px',
               color: '#ffffff',
+              lineHeight: 1.5,
             }}
           >
             {label}
