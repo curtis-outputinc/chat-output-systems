@@ -175,7 +175,7 @@ export default function HomePage() {
             justifyContent: 'flex-start',
           }}
         >
-          <FadeIn>
+          <FadeIn durationMs={3000}>
             <h1
               className="font-black tracking-tight leading-[1.04] mx-auto mb-8"
               style={{
@@ -184,18 +184,14 @@ export default function HomePage() {
                 maxWidth: '1100px',
               }}
             >
-              <TypingHeading
-                totalMs={6000}
-                segments={[
-                  {
-                    text:
-                      'Intelligent Website Chat Systems designed to acquire and retain ',
-                  },
-                  { text: 'more clients', color: TEAL },
-                  { text: '.' },
-                ]}
-              />
+              Intelligent Website Chat Systems designed to acquire and retain{' '}
+              <span style={{ color: TEAL, whiteSpace: 'nowrap' }}>
+                more clients
+              </span>
+              .
             </h1>
+          </FadeIn>
+          <FadeIn delay={2000} durationMs={3000}>
             <p
               className="mx-auto hidden md:block"
               style={{
@@ -215,12 +211,15 @@ export default function HomePage() {
           </FadeIn>
         </section>
 
-        {/* Mobile-only subhead — appears after the hero */}
+        {/* Mobile-only subhead — appears after the hero (scroll-triggered).
+            On mobile the subhead lives below the fold, so the scroll-into-view
+            FadeIn does the right thing without the 2s delay (no need to wait
+            on a section the user just scrolled to). */}
         <section
           className="md:hidden px-6 text-center"
           style={{ paddingTop: '40px', paddingBottom: '64px' }}
         >
-          <FadeIn>
+          <FadeIn durationMs={3000}>
             <p
               className="mx-auto"
               style={{
