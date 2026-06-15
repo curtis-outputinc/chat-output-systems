@@ -18,7 +18,7 @@ export const CHAT_SYSTEMS_LINKS = [
 const NAV_LINKS: { href: string; label: string; group?: 'chat-systems' }[] = [
   { href: '#chat-systems', label: 'Intelligent Chat Systems ▾', group: 'chat-systems' },
   { href: '/process', label: 'Our Process' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'About Us' },
   { href: '/compliance', label: 'Privacy and Data' },
   { href: '/contact', label: 'Contact' },
 ];

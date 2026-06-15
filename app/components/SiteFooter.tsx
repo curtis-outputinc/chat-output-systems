@@ -11,7 +11,7 @@ const PAGE_LINKS = [
   { href: '/intelligent-chat-systems/internal', label: 'Internal Chat System' },
   { href: '/intelligent-chat-systems/custom', label: 'Custom Chat System' },
   { href: '/process', label: 'Our Process' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'About Us' },
   { href: '/compliance', label: 'Privacy and Data' },
   { href: '/contact', label: 'Contact' },
 ];

@@ -8,7 +8,7 @@ const TEAL = '#07e4c6';
 
 const PRIMARY_LINKS = [
   { href: '/process', label: 'Our Process' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'About Us' },
   { href: '/compliance', label: 'Privacy and Data' },
   { href: '/contact', label: 'Contact' },
 ];
