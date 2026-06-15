@@ -217,9 +217,9 @@ export default function AboutPage() {
                 textWrap: 'balance',
               }}
             >
-              Our systems handle customer support — answering questions,
+              Our systems handle customer support by answering questions,
               booking appointments, and putting clients in touch with the
-              right staff — while an intelligence layer underneath shows your
+              right staff. An intelligence layer underneath shows your
               business exactly how customers are interacting with your website
               and what they are asking for.
             </p>
