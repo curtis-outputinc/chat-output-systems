@@ -17,7 +17,7 @@ const BULLETS = [
   'Website visitors are 2.8x to 3.0x more likely to convert with a business that has a chat interface online.',
   '78% of online consumers commit to the business that responds first. Our chat system gives instant, context-relevant responses.',
   '63% of e-commerce browsing and conversions happen outside of normal 9-to-5 business hours. Your customer support should be 24/7.',
-  'Advanced, intelligent chat systems like Output handle over 80% of routine inbound inquiries automatically. This saves tens of hours of overhead while giving customers instant answers.',
+  'Our advanced intelligent chat systems handle over 90% of routine inbound inquiries automatically. This can save hundreds of hours per month for a business by letting customers self-serve and receive instant answers around the clock.',
 ];
 
 const BULLET_STAGGER_MS = 220;
@@ -133,68 +133,6 @@ export default function HomeStatsBlock() {
             />
           </svg>
 
-          {/* Floating line-graph overlay (top-right, constant animation) */}
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '6%',
-              right: '4%',
-              width: '34%',
-              maxWidth: '130px',
-              padding: '10px 12px',
-              background: 'rgba(0,0,0,0.62)',
-              border: '1px solid rgba(7,228,198,0.35)',
-              borderRadius: '8px',
-              boxShadow: '0 6px 18px rgba(0,0,0,0.35)',
-              backdropFilter: 'blur(2px)',
-            }}
-          >
-            <svg
-              viewBox="0 0 110 70"
-              width="100%"
-              height="auto"
-              style={{ display: 'block' }}
-            >
-              {/* Baseline */}
-              <line
-                x1={6}
-                y1={62}
-                x2={104}
-                y2={62}
-                stroke="rgba(255,255,255,0.22)"
-                strokeWidth={1}
-              />
-              {/* Rising trend line */}
-              <polyline
-                points="10,54 28,46 46,50 64,32 82,22 98,10"
-                fill="none"
-                stroke="#ffffff"
-                strokeWidth={2.4}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="home-stat-graphline"
-              />
-              {/* Arrowhead at the end */}
-              <polyline
-                points="90,10 98,10 98,18"
-                fill="none"
-                stroke={TEAL}
-                strokeWidth={2.4}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="home-stat-graphline"
-              />
-              {/* Pulse dot at the peak */}
-              <circle
-                cx={98}
-                cy={10}
-                r={3.5}
-                fill={TEAL}
-                className="home-stat-graphdot"
-              />
-            </svg>
-          </div>
         </div>
       </div>
 

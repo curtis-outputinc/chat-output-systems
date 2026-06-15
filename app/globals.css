@@ -410,33 +410,6 @@ body {
   transform: translateY(0);
 }
 
-/* Home stats block — small floating line graph overlay continuously draws
-   its trend line, holds, erases, and repeats. The peak dot pulses on the
-   same beat so the whole element reads as "live data". */
-@keyframes home-stat-graph-line {
-  0%   { stroke-dashoffset: 240; }
-  40%  { stroke-dashoffset: 0; }
-  70%  { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -240; }
-}
-.home-stat-graphline {
-  stroke-dasharray: 240;
-  stroke-dashoffset: 240;
-  animation: home-stat-graph-line 3.4s ease-in-out infinite;
-}
-
-@keyframes home-stat-graph-dot {
-  0%, 40% { opacity: 0; transform: scale(0.5); }
-  55% { opacity: 1; transform: scale(1.25); }
-  70% { opacity: 1; transform: scale(1); }
-  85%, 100% { opacity: 0; transform: scale(0.5); }
-}
-.home-stat-graphdot {
-  transform-origin: 98px 10px;
-  transform-box: fill-box;
-  animation: home-stat-graph-dot 3.4s ease-in-out infinite;
-}
-
 /* Checklist sequential reveal — each row's checkmark draws first, then the
    text fades in. The whole row starts invisible; .home-check-visible cues
    both sub-animations. */
