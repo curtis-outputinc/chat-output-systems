@@ -687,6 +687,26 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* STAT — 74% */}
+        <section
+          className="px-6 sm:px-10 py-28"
+          style={{
+            background: '#0d1f1a',
+            borderTop: '1px solid rgba(7,228,198,0.1)',
+            borderBottom: '1px solid rgba(7,228,198,0.1)',
+          }}
+        >
+          <FadeIn>
+            <AnimatedStatCounter
+              target={74}
+              suffix="%"
+              durationMs={1800}
+              headline="of consumers expect customer service to be available 24/7."
+              citation="(Zendesk CX Trends, 2026)"
+            />
+          </FadeIn>
+        </section>
+
         {/* CHECKLIST */}
         <section
           className="px-6 sm:px-10 py-32"
