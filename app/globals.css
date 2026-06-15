@@ -363,6 +363,24 @@ body {
 .home-float-dot:nth-of-type(2) { animation-delay: 0.4s; }
 .home-float-dot:nth-of-type(3) { animation-delay: 0.8s; }
 
+/* Clipboard checkmarks: each row draws in, holds briefly, then erases out.
+   The cycle loops infinitely so it looks like the icon is constantly being
+   "written" and reset. Each row is offset so they cascade top → bottom. */
+@keyframes home-clip-check-cycle {
+  0%   { stroke-dashoffset: 12; }
+  20%  { stroke-dashoffset: 0; }
+  70%  { stroke-dashoffset: 0; }
+  85%  { stroke-dashoffset: -12; }
+  100% { stroke-dashoffset: -12; }
+}
+.home-clip-check-1, .home-clip-check-2, .home-clip-check-3 {
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: home-clip-check-cycle 3.6s ease-in-out infinite;
+}
+.home-clip-check-2 { animation-delay: 0.5s; }
+.home-clip-check-3 { animation-delay: 1s; }
+
 /* Bullseye target rings (Decrease Costs section). */
 @keyframes home-pulse-ring {
   0%   { opacity: 0; transform: scale(0.3); }

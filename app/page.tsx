@@ -79,23 +79,26 @@ const MINI_TILES = [
       "Nothing generic here. Your Intelligent Chat System is trained on your brand's tone, products, services, pricing and policies for accurate customer interaction.",
     icon: (
       <svg width={52} height={52} viewBox="0 0 52 52" aria-hidden="true">
+        {/* Head */}
         <rect x={10} y={18} width={32} height={24} rx={4} fill="none" stroke={TEAL} strokeWidth={1.5} opacity={0.7} />
+        {/* Antenna mount */}
         <rect x={18} y={12} width={16} height={8} rx={3} fill="none" stroke={TEAL} strokeWidth={1.2} opacity={0.5} />
         <line x1={26} y1={12} x2={26} y2={8} stroke={TEAL} strokeWidth={1.2} opacity={0.5} />
         <circle cx={26} cy={7} r={2} fill={TEAL} opacity={0.7} />
+        {/* Eyes */}
         <circle cx={20} cy={28} r={3} fill={TEAL} opacity={0.8} />
         <circle cx={32} cy={28} r={3} fill={TEAL} opacity={0.8} />
-        <path d="M19 36 Q26 32 33 36" fill="none" stroke={TEAL} strokeWidth={1.5} strokeLinecap="round">
+        {/* Speaking mouth — ellipse whose vertical radius (ry) opens/closes
+            in a 4-frame cycle so it reads as talking, not just bouncing. */}
+        <ellipse cx={26} cy={36} rx={5} ry={1} fill={TEAL}>
           <animate
-            attributeName="d"
-            values="M19 36 Q26 32 33 36;M19 36 Q26 40 33 36;M19 36 Q26 32 33 36"
-            dur="2s"
+            attributeName="ry"
+            values="1;3.5;1;2.5;1"
+            keyTimes="0;0.25;0.5;0.75;1"
+            dur="0.8s"
             repeatCount="indefinite"
           />
-        </path>
-        <circle cx={6} cy={26} r={2} fill={TEAL} className="home-float-dot" />
-        <circle cx={46} cy={22} r={1.5} fill={TEAL} className="home-float-dot" />
-        <circle cx={44} cy={34} r={1.5} fill={TEAL} className="home-float-dot" />
+        </ellipse>
       </svg>
     ),
   },
@@ -105,20 +108,19 @@ const MINI_TILES = [
       'Most traditional chatbots require you to launch, program, update and maintain. We handle everything from start to finish and beyond.',
     icon: (
       <svg width={52} height={52} viewBox="0 0 52 52" aria-hidden="true">
-        <circle cx={26} cy={26} r={22} fill="none" stroke={TEAL} strokeWidth={1.5} opacity={0.3} />
-        <circle cx={26} cy={26} r={14} fill="rgba(7,228,198,0.06)" stroke={TEAL} strokeWidth={1} opacity={0.5} />
-        <polyline
-          points="18,26 23,32 34,20"
-          fill="none"
-          stroke={TEAL}
-          strokeWidth={2.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeDasharray={30}
-          strokeDashoffset={30}
-        >
-          <animate attributeName="stroke-dashoffset" from={30} to={0} dur="0.8s" fill="freeze" begin="0.5s" />
-        </polyline>
+        {/* Clipboard outline */}
+        <rect x={11} y={10} width={30} height={36} rx={3} fill="none" stroke={TEAL} strokeWidth={1.5} opacity={0.7} />
+        {/* Clip on top */}
+        <rect x={19} y={6} width={14} height={6} rx={1.5} fill="none" stroke={TEAL} strokeWidth={1.2} opacity={0.55} />
+        {/* Three list rows — each has a checkmark (stroke-drawn) + body line */}
+        <polyline points="15,20 17.5,22.5 21,18.5" fill="none" stroke={TEAL} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="home-clip-check-1" />
+        <line x1={24} y1={20} x2={37} y2={20} stroke={TEAL} strokeWidth={1.4} opacity={0.6} />
+
+        <polyline points="15,28 17.5,30.5 21,26.5" fill="none" stroke={TEAL} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="home-clip-check-2" />
+        <line x1={24} y1={28} x2={37} y2={28} stroke={TEAL} strokeWidth={1.4} opacity={0.6} />
+
+        <polyline points="15,36 17.5,38.5 21,34.5" fill="none" stroke={TEAL} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="home-clip-check-3" />
+        <line x1={24} y1={36} x2={37} y2={36} stroke={TEAL} strokeWidth={1.4} opacity={0.6} />
       </svg>
     ),
   },
@@ -196,7 +198,9 @@ export default function HomePage() {
               }}
             >
               Intelligent Website Chat Systems designed to acquire and keep{' '}
-              <span style={{ color: TEAL }}>more clients.</span>
+              <span style={{ color: TEAL, whiteSpace: 'nowrap' }}>
+                more clients.
+              </span>
             </h1>
             <p
               className="mx-auto hidden md:block"
@@ -446,18 +450,15 @@ export default function HomePage() {
             </FadeIn>
 
             <FadeIn delay={160}>
-              <div className="flex flex-col items-center gap-6">
+              <div className="flex items-center justify-center">
                 <Image
                   src="/images/man-with-computer.png"
                   alt="Business owner reviewing performance data on his computer"
-                  width={600}
-                  height={600}
+                  width={720}
+                  height={720}
                   className="w-full h-auto"
-                  style={{ maxWidth: '520px', borderRadius: '8px' }}
+                  style={{ maxWidth: '624px', borderRadius: '8px' }}
                 />
-                <div className="w-full" style={{ maxWidth: '520px' }}>
-                  <AnimatedBarGraph />
-                </div>
               </div>
             </FadeIn>
           </div>
@@ -619,9 +620,17 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* OUTCOMES — 3 cards, equalized title height */}
+        {/* OUTCOMES — bar chart above 3 cards, equalized title height */}
         <section className="px-6 sm:px-10 py-32">
           <div className="max-w-6xl mx-auto">
+            <FadeIn>
+              <div
+                className="flex items-center justify-center mx-auto"
+                style={{ maxWidth: '640px', marginBottom: '64px' }}
+              >
+                <AnimatedBarGraph />
+              </div>
+            </FadeIn>
             <div className="grid md:grid-cols-3 gap-10 lg:gap-14">
               {OUTCOMES.map((card, i) => (
                 <FadeIn key={card.title} delay={120 + i * 100}>
