@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { themeInitScript } from '@/lib/insights/theme';
+import CookiesBanner from './components/CookiesBanner';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -66,6 +67,7 @@ export default function RootLayout({
       </head>
       <body className="bg-black text-white antialiased min-h-screen">
         {children}
+        <CookiesBanner />
       </body>
     </html>
   );
