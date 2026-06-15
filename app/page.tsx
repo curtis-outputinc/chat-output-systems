@@ -5,7 +5,6 @@ import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import StickyBookButton from './components/StickyBookButton';
 import FadeIn from './components/FadeIn';
-import AnimatedBarGraph from './components/AnimatedBarGraph';
 import AnimatedDashboard from './components/AnimatedDashboard';
 import IntegrationsMarquee from './components/IntegrationsMarquee';
 import AnimatedStatCounter from './components/AnimatedStatCounter';
@@ -155,24 +154,6 @@ const PROCESS_STEPS = [
     title: 'Monthly System Management',
     body:
       'Every month we review conversation logs, update your knowledge base, apply security and compliance updates, monitor uptime, and send you a performance report. Your system keeps improving and you never have to manage any of it yourself.',
-  },
-];
-
-const OUTCOMES = [
-  {
-    title: 'Increased Profit',
-    body:
-      'More leads captured around the clock. Faster follow-up. Fewer opportunities slipping through the cracks. Every system is designed to recover revenue that is quietly walking away after hours.',
-  },
-  {
-    title: 'Decreased Expenses',
-    body:
-      'Less time spent on repetitive customer questions, manual intake, and after-hours coverage. Less spend on staff to handle work the system handles by default.',
-  },
-  {
-    title: 'Higher Efficiency',
-    body:
-      'Your team gets time back. Work that requires human judgment gets human attention. Routine customer conversations run on their own, around the clock.',
   },
 ];
 
@@ -448,9 +429,14 @@ export default function HomePage() {
                   color: '#ffffff',
                 }}
               >
-                Increase
-                <br />
-                <span style={{ color: TEAL }}>Your Profits.</span>
+                <TypingHeading
+                  totalMs={1800}
+                  triggerOnScroll
+                  segments={[
+                    { text: 'Increase', br: true },
+                    { text: 'Your Profits.', color: TEAL },
+                  ]}
+                />
               </h2>
               <p style={{ fontSize: '19px', color: '#ffffff', lineHeight: 1.85 }}>
                 Customers are converting when their needs are met quickly.
@@ -484,7 +470,7 @@ export default function HomePage() {
           }}
         >
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <FadeIn>
+            <FadeIn className="md:order-1 order-2">
               <div className="flex items-center justify-center">
                 <Image
                   src="/images/meeting.png"
@@ -497,25 +483,32 @@ export default function HomePage() {
               </div>
             </FadeIn>
 
-            <FadeIn delay={160}>
-              <h2
-                className="font-extrabold tracking-tight leading-[1.05] mb-5"
-                style={{
-                  fontSize: 'clamp(32px, 4.5vw, 58px)',
-                  letterSpacing: '-2px',
-                  color: '#ffffff',
-                }}
-              >
-                Decrease
-                <br />
-                <span style={{ color: TEAL }}>Your Costs.</span>
-              </h2>
-              <p style={{ fontSize: '19px', color: '#ffffff', lineHeight: 1.85 }}>
-                No training needed, no turnover, 24/7 support. Your intelligent
-                chat system supports your clients without the overhead. Being a
-                better service team is the ultimate decrease in admin costs and
-                wasted effort.
-              </p>
+            <FadeIn delay={160} className="md:order-2 order-1">
+              <div>
+                <h2
+                  className="font-extrabold tracking-tight leading-[1.05] mb-5"
+                  style={{
+                    fontSize: 'clamp(32px, 4.5vw, 58px)',
+                    letterSpacing: '-2px',
+                    color: '#ffffff',
+                  }}
+                >
+                  <TypingHeading
+                    totalMs={1800}
+                    triggerOnScroll
+                    segments={[
+                      { text: 'Decrease', br: true },
+                      { text: 'Your Expenses.', color: TEAL },
+                    ]}
+                  />
+                </h2>
+                <p style={{ fontSize: '19px', color: '#ffffff', lineHeight: 1.85 }}>
+                  No training needed, no turnover, 24/7 support. Your intelligent
+                  chat system supports your clients without the overhead. Being
+                  a better service team is the ultimate decrease in admin costs
+                  and wasted effort.
+                </p>
+              </div>
             </FadeIn>
           </div>
         </section>
@@ -630,73 +623,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* OUTCOMES — bar chart above 3 cards, equalized title height */}
-        <section className="px-6 sm:px-10 py-32">
-          <div className="max-w-6xl mx-auto">
-            <FadeIn>
-              <div
-                className="flex items-center justify-center mx-auto"
-                style={{ maxWidth: '640px', marginBottom: '64px' }}
-              >
-                <AnimatedBarGraph />
-              </div>
-            </FadeIn>
-            <div className="grid md:grid-cols-3 gap-10 lg:gap-14">
-              {OUTCOMES.map((card, i) => (
-                <FadeIn key={card.title} delay={120 + i * 100}>
-                  <div
-                    className="h-full text-center flex flex-col items-center"
-                    style={{
-                      background: '#000',
-                      border: '1px solid rgba(7,228,198,0.22)',
-                      borderRadius: '6px',
-                      position: 'relative',
-                      overflow: 'hidden',
-                      paddingLeft: '28px',
-                      paddingRight: '28px',
-                      paddingTop: '64px',
-                      paddingBottom: '64px',
-                    }}
-                  >
-                    <span
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: '3px',
-                        background: TEAL,
-                      }}
-                    />
-                    <h3
-                      className="font-extrabold tracking-tight leading-[1.05] mb-8"
-                      style={{
-                        fontSize: 'clamp(32px, 3.6vw, 46px)',
-                        letterSpacing: '-1.4px',
-                        color: '#ffffff',
-                        minHeight: '110px',
-                        display: 'flex',
-                        alignItems: 'center',
-                      }}
-                    >
-                      {card.title}
-                    </h3>
-                    <p
-                      style={{
-                        fontSize: '19px',
-                        lineHeight: 1.75,
-                        color: '#ffffff',
-                      }}
-                    >
-                      {card.body}
-                    </p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* STAT — 74% */}
         <section
           className="px-6 sm:px-10 py-28"
@@ -769,10 +695,23 @@ export default function HomePage() {
           }}
         >
           <FadeIn>
-            <SectionHeading>
-              Ready to see what&apos;s possible for{' '}
-              <span style={{ color: TEAL }}>your business?</span>
-            </SectionHeading>
+            <h2
+              className="font-extrabold tracking-tight leading-[1.08] mb-10 mx-auto"
+              style={{
+                fontSize: 'clamp(36px, 5vw, 64px)',
+                letterSpacing: '-1.8px',
+                maxWidth: '900px',
+              }}
+            >
+              <TypingHeading
+                totalMs={2400}
+                triggerOnScroll
+                segments={[
+                  { text: 'Ready to see what’s possible for ' },
+                  { text: 'your business?', color: TEAL },
+                ]}
+              />
+            </h2>
           </FadeIn>
         </section>
       </main>

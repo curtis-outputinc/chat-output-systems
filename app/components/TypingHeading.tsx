@@ -1,23 +1,26 @@
 'use client';
 
-import { Fragment, type CSSProperties } from 'react';
+import {
+  Fragment,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from 'react';
 
 /**
- * Typewriter heading that fades each character in via a CSS animation-delay
- * pipeline, native to the browser's compositor — no React state ticking each
- * frame. Words are wrapped in inline-block containers so the line-break
- * engine still sees real word boundaries (a per-character span structure
- * collapses break opportunities and breaks word wrapping).
+ * Typewriter heading that fades each character in via CSS animation-delay.
+ * Pure browser-compositor timing — no per-frame React state updates.
  *
- * Segments shape:
- *   { text: string, color?: string, br?: boolean, nowrap?: boolean }
+ * Words are wrapped in inline-block containers so the line-break engine
+ * sees real word boundaries; per-character spans alone collapse those
+ * opportunities. Non-breaking spaces (U+00A0) stay inside their word box.
  *
- * Notes
- * - Regular spaces (U+0020) inside a segment ARE word separators — they get
- *   rendered as plain text nodes between word boxes so the line breaks.
- * - Non-breaking spaces (U+00A0) stay inside the surrounding word box so
- *   they never break.
- * - No caret. Curtis didn't want the flashing cursor.
+ * Props:
+ *   segments        Array of { text, color?, br?, nowrap? }
+ *   totalMs         Total typing duration in ms (default 3000)
+ *   triggerOnScroll If true, defer the animation until the heading scrolls
+ *                   into view. Useful for headings below the fold.
  */
 
 export interface TypingSegment {
@@ -30,6 +33,7 @@ export interface TypingSegment {
 interface Props {
   segments: TypingSegment[];
   totalMs?: number;
+  triggerOnScroll?: boolean;
   className?: string;
   style?: CSSProperties;
 }
@@ -39,8 +43,8 @@ const TYPING_STYLES = `
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-.typing-char {
-  opacity: 0;
+.typing-char { opacity: 0; }
+.typing-active .typing-char {
   animation-name: typing-char-fade-in;
   animation-duration: 160ms;
   animation-timing-function: ease-out;
@@ -51,11 +55,34 @@ const TYPING_STYLES = `
 export default function TypingHeading({
   segments,
   totalMs = 3000,
+  triggerOnScroll = false,
   className,
   style,
 }: Props) {
+  const containerRef = useRef<HTMLSpanElement | null>(null);
+  const [active, setActive] = useState(!triggerOnScroll);
   const totalChars = segments.reduce((sum, s) => sum + s.text.length, 0);
   const msPerChar = totalChars > 0 ? totalMs / totalChars : 0;
+
+  useEffect(() => {
+    if (!triggerOnScroll || active) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(true);
+            io.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.25 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [triggerOnScroll, active]);
 
   let charIndex = 0;
 
@@ -81,25 +108,22 @@ export default function TypingHeading({
   }
 
   return (
-    <span className={className} style={style}>
+    <span
+      ref={containerRef}
+      className={`${className ?? ''} ${active ? 'typing-active' : ''}`.trim()}
+      style={style}
+    >
       <style>{TYPING_STYLES}</style>
       {segments.map((seg, segI) => {
         const innerStyle: CSSProperties = {};
         if (seg.color) innerStyle.color = seg.color;
         if (seg.nowrap) innerStyle.whiteSpace = 'nowrap';
 
-        // Split by regular space only — nbsp (U+00A0) stays inside its word.
-        // The split keeps space tokens so we can render real space text nodes
-        // between word boxes (real break opportunities for the layout engine).
         const tokens = seg.text.split(/( )/);
 
-        // Bump the char index for the spaces we DON'T render as animated chars,
-        // so timing still hits totalMs at the very last character.
         const segNodes = tokens.map((tok, i) => {
           if (tok === '') return null;
           if (tok === ' ') {
-            // Real space text node — wrap opportunity for the browser. Still
-            // counts toward typing duration so spacing reads correctly.
             charIndex += 1;
             return <Fragment key={`s-${i}`}>{' '}</Fragment>;
           }
