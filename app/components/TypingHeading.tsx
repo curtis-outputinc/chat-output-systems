@@ -3,24 +3,22 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 
 /**
- * Typewriter heading that types its content out over `totalMs` (default 3000ms),
- * preserving colored spans by accepting an array of segments instead of inline
- * JSX. A blinking caret follows the cursor until the heading is complete.
+ * Typewriter heading that renders all characters at once with `opacity: 0`,
+ * then fades each one in via a per-character CSS animation-delay. Because
+ * the timing runs in the browser's native compositor, the reveal is much
+ * smoother than driving char-by-char re-renders from React state.
+ *
+ * A blinking caret sits at the end of the revealed text and disappears
+ * once typing is complete.
  *
  * Segments shape:
- *   { text: string, color?: string, br?: boolean }
- *
- *   - `color` paints that segment a different color while typing.
- *   - `br` inserts a line break after the segment, but only once that segment
- *     has been fully typed (otherwise the line breaks while it's still typing).
+ *   { text: string, color?: string, br?: boolean, nowrap?: boolean }
  */
 
 export interface TypingSegment {
   text: string;
   color?: string;
   br?: boolean;
-  /** Wrap this segment in `white-space: nowrap` so its content stays on a
-   *  single line even mid-type (useful for phrases like "more clients"). */
   nowrap?: boolean;
 }
 
@@ -31,10 +29,21 @@ interface Props {
   style?: CSSProperties;
 }
 
-const CARET_KEYFRAMES = `
+const TYPING_STYLES = `
+@keyframes typing-char-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 @keyframes typing-caret-blink {
   0%, 49%   { opacity: 1; }
   50%, 100% { opacity: 0; }
+}
+.typing-char {
+  opacity: 0;
+  animation-name: typing-char-fade-in;
+  animation-duration: 140ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 `;
 
@@ -45,56 +54,58 @@ export default function TypingHeading({
   style,
 }: Props) {
   const totalChars = segments.reduce((sum, s) => sum + s.text.length, 0);
-  const [charCount, setCharCount] = useState(0);
+  const msPerChar = totalChars > 0 ? totalMs / totalChars : 0;
+  const [caretVisible, setCaretVisible] = useState(true);
 
   useEffect(() => {
     if (totalChars === 0) return;
-    const start = performance.now();
-    let raf = 0;
-    const tick = (now: number) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / totalMs, 1);
-      // Reveal characters slightly ahead of strict linear so the last character
-      // doesn't lag — easeOutQuad on the back half feels natural.
-      const eased = progress < 1 ? progress : 1;
-      const next = Math.floor(totalChars * eased);
-      setCharCount(next);
-      if (progress < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    // Hide the caret slightly after the last character finishes its fade-in.
+    const hideAt = totalMs + 200;
+    const t = window.setTimeout(() => setCaretVisible(false), hideAt);
+    return () => window.clearTimeout(t);
   }, [totalChars, totalMs]);
 
-  let remaining = charCount;
-  const isDone = charCount >= totalChars;
+  let charIndex = 0;
 
   return (
     <span className={className} style={style}>
-      <style>{CARET_KEYFRAMES}</style>
-      {segments.map((seg, i) => {
-        const segLen = seg.text.length;
-        const shown = Math.min(segLen, Math.max(0, remaining));
-        remaining -= segLen;
-        const fullyShown = shown >= segLen;
+      <style>{TYPING_STYLES}</style>
+      {segments.map((seg, segI) => {
         const innerStyle: CSSProperties = {};
         if (seg.color) innerStyle.color = seg.color;
         if (seg.nowrap) innerStyle.whiteSpace = 'nowrap';
-        return (
-          <span key={i} style={seg.nowrap ? { whiteSpace: 'nowrap' } : undefined}>
-            <span style={Object.keys(innerStyle).length > 0 ? innerStyle : undefined}>
-              {seg.text.slice(0, shown)}
+        // Each character is rendered as its own span with an animation-delay
+        // so the browser fades them in sequentially.
+        const segContent = Array.from(seg.text).map((ch, i) => {
+          const delayMs = charIndex * msPerChar;
+          charIndex += 1;
+          return (
+            <span
+              key={i}
+              className="typing-char"
+              style={{ animationDelay: `${delayMs.toFixed(1)}ms` }}
+            >
+              {ch === ' ' ? ' ' : ch}
             </span>
-            {seg.br && fullyShown && <br />}
+          );
+        });
+        return (
+          <span
+            key={segI}
+            style={Object.keys(innerStyle).length > 0 ? innerStyle : undefined}
+          >
+            {segContent}
+            {seg.br && <br />}
           </span>
         );
       })}
-      {!isDone && (
+      {caretVisible && (
         <span
           aria-hidden="true"
           style={{
             display: 'inline-block',
-            width: '0.55ch',
-            marginLeft: '0.08em',
+            width: '0.5ch',
+            marginLeft: '0.06em',
             height: '0.95em',
             verticalAlign: 'baseline',
             backgroundColor: 'currentColor',

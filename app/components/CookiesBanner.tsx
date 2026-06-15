@@ -11,12 +11,20 @@ export default function CookiesBanner() {
   const [agreed, setAgreed] = useState(false);
 
   useEffect(() => {
+    // Don't show anything if the visitor has already dismissed.
     try {
-      const v = localStorage.getItem(STORAGE_KEY);
-      if (v !== '1') setShow(true);
+      if (localStorage.getItem(STORAGE_KEY) === '1') return;
     } catch {
-      setShow(true);
+      /* localStorage unavailable — still gate on scroll */
     }
+    // Wait for the first scroll so the hero headline is readable before
+    // the banner appears.
+    const onScroll = () => {
+      setShow(true);
+      window.removeEventListener('scroll', onScroll);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   function dismiss() {
