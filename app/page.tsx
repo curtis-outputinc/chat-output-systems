@@ -701,7 +701,15 @@ export default function HomePage() {
               target={74}
               suffix="%"
               durationMs={1800}
-              headline="of consumers expect customer service to be available 24/7."
+              headline={
+                <>
+                  of consumers expect{' '}
+                  <span style={{ color: TEAL }}>customer service</span>
+                  <br />
+                  to be available{' '}
+                  <span style={{ color: TEAL }}>24/7.</span>
+                </>
+              }
               citation="(Zendesk CX Trends, 2026)"
             />
           </FadeIn>

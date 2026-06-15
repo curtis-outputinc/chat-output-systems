@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
 
 const TEAL = '#07e4c6';
 
@@ -23,8 +24,8 @@ interface Props {
   durationMs?: number;
   /** Optional text that appears ABOVE the big counter — used when the stat
    *  reads as one sentence flowing top → counter → bottom. */
-  preHeadline?: string;
-  headline?: string;
+  preHeadline?: ReactNode;
+  headline?: ReactNode;
   citation?: string;
 }
 
