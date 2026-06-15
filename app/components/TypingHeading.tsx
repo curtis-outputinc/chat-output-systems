@@ -19,6 +19,9 @@ export interface TypingSegment {
   text: string;
   color?: string;
   br?: boolean;
+  /** Wrap this segment in `white-space: nowrap` so its content stays on a
+   *  single line even mid-type (useful for phrases like "more clients"). */
+  nowrap?: boolean;
 }
 
 interface Props {
@@ -73,9 +76,12 @@ export default function TypingHeading({
         const shown = Math.min(segLen, Math.max(0, remaining));
         remaining -= segLen;
         const fullyShown = shown >= segLen;
+        const innerStyle: CSSProperties = {};
+        if (seg.color) innerStyle.color = seg.color;
+        if (seg.nowrap) innerStyle.whiteSpace = 'nowrap';
         return (
-          <span key={i}>
-            <span style={seg.color ? { color: seg.color } : undefined}>
+          <span key={i} style={seg.nowrap ? { whiteSpace: 'nowrap' } : undefined}>
+            <span style={Object.keys(innerStyle).length > 0 ? innerStyle : undefined}>
               {seg.text.slice(0, shown)}
             </span>
             {seg.br && fullyShown && <br />}

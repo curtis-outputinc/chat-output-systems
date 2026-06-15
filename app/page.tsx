@@ -11,6 +11,7 @@ import IntegrationsMarquee from './components/IntegrationsMarquee';
 import AnimatedStatCounter from './components/AnimatedStatCounter';
 import AnimatedNodesBackground from './components/AnimatedNodesBackground';
 import HomeChecklist from './components/HomeChecklist';
+import TypingHeading from './components/TypingHeading';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -197,10 +198,17 @@ export default function HomePage() {
                 maxWidth: '1100px',
               }}
             >
-              Intelligent Website Chat Systems designed to acquire and keep{' '}
-              <span style={{ color: TEAL, whiteSpace: 'nowrap' }}>
-                more clients.
-              </span>
+              <TypingHeading
+                totalMs={4000}
+                segments={[
+                  {
+                    text:
+                      'Intelligent Website Chat Systems designed to acquire and keep ',
+                  },
+                  { text: 'more clients', color: TEAL },
+                  { text: '.' },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto hidden md:block"
