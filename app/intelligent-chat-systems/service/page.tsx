@@ -133,8 +133,13 @@ export default function ServicePage() {
                 color: '#ffffff',
               }}
             >
-              Your customers get answers. Your team gets{' '}
-              <span style={{ color: TEAL }}>qualified leads.</span>
+              <TypingHeading
+                totalMs={5500}
+                segments={[
+                  { text: 'Your customers get answers. Your team gets ' },
+                  { text: 'qualified leads.', color: TEAL },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto mb-4"

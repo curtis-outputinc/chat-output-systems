@@ -9,6 +9,7 @@ import FadeIn from '../../components/FadeIn';
 import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import SpinningGears from '../../components/SpinningGears';
 import ChatSystemIcon, { type IconVariant } from '../../components/ChatSystemIcons';
+import TypingHeading from '../../components/TypingHeading';
 
 export const metadata: Metadata = {
   title: 'Custom Chat System — chat.output.systems',
@@ -133,10 +134,13 @@ export default function CustomPage() {
                 color: '#ffffff',
               }}
             >
-              Your business was custom built.{' '}
-              <span style={{ color: TEAL }}>
-                Your chat system should be too.
-              </span>
+              <TypingHeading
+                totalMs={6000}
+                segments={[
+                  { text: 'Your business was custom built. ' },
+                  { text: 'Your chat system should be too.', color: TEAL },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto mb-4"

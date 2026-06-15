@@ -13,7 +13,7 @@ const TEAL = '#07e4c6';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'We do not build generic chat systems. We build Output Systems. Two outputs, one system, 100% done for you.',
+    'Output Systems builds intelligent chat systems that increase profit and decrease expenses. Customer-facing answers and booking with an intelligence layer underneath.',
 };
 
 const OUTPUT_ONE_BULLETS = [
@@ -199,8 +199,11 @@ export default function AboutPage() {
               <TypingHeading
                 totalMs={6500}
                 segments={[
-                  { text: 'We do not build intelligent chat systems. ' },
-                  { text: 'We build Output Systems.', color: TEAL },
+                  { text: 'We build intelligent chat systems that ' },
+                  {
+                    text: 'increase profit and decrease expenses.',
+                    color: TEAL,
+                  },
                 ]}
               />
             </h1>
@@ -214,11 +217,11 @@ export default function AboutPage() {
                 textWrap: 'balance',
               }}
             >
-              Most businesses are focused on one side of the equation. They want
-              a tool that helps their customers get answers faster. What they
-              are not thinking about is what those conversations reveal about
-              their business. Output Systems is built to deliver both at the
-              same time.
+              Our systems handle customer support — answering questions,
+              booking appointments, and putting clients in touch with the
+              right staff — while an intelligence layer underneath shows your
+              business exactly how customers are interacting with your website
+              and what they are asking for.
             </p>
           </FadeIn>
         </section>

@@ -8,6 +8,7 @@ import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
 import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import ChatSystemIcon, { type IconVariant } from '../../components/ChatSystemIcons';
+import TypingHeading from '../../components/TypingHeading';
 
 export const metadata: Metadata = {
   title: 'Internal Chat System for Teams — chat.output.systems',
@@ -132,8 +133,13 @@ export default function InternalPage() {
                 color: '#ffffff',
               }}
             >
-              Your team gets the right answer{' '}
-              <span style={{ color: TEAL }}>in seconds, not minutes.</span>
+              <TypingHeading
+                totalMs={5200}
+                segments={[
+                  { text: 'Your team gets the right answer ' },
+                  { text: 'in seconds, not minutes.', color: TEAL },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto mb-4"

@@ -8,6 +8,7 @@ import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
 import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import ChatSystemIcon, { type IconVariant } from '../../components/ChatSystemIcons';
+import TypingHeading from '../../components/TypingHeading';
 
 export const metadata: Metadata = {
   title: 'Customer Chat System for Retail and E-Commerce — chat.output.systems',
@@ -132,8 +133,13 @@ export default function RetailPage() {
                 color: '#ffffff',
               }}
             >
-              Help customers find what they need and{' '}
-              <span style={{ color: TEAL }}>complete their purchase.</span>
+              <TypingHeading
+                totalMs={5800}
+                segments={[
+                  { text: 'Help customers find what they need and ' },
+                  { text: 'complete their purchase.', color: TEAL },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto mb-4"
