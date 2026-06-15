@@ -7,6 +7,7 @@ import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
 import FadeIn from '../components/FadeIn';
 import ChatSystemIcon from '../components/ChatSystemIcons';
+import TypingHeading from '../components/TypingHeading';
 
 const TEAL = '#07e4c6';
 
@@ -190,8 +191,13 @@ export default function CompliancePage() {
                 color: '#ffffff',
               }}
             >
-              Privacy, data, and compliance —{' '}
-              <span style={{ color: TEAL }}>built in from day one.</span>
+              <TypingHeading
+                totalMs={5000}
+                segments={[
+                  { text: 'Privacy, data, and compliance — ' },
+                  { text: 'built in from day one.', color: TEAL },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto"

@@ -6,6 +6,7 @@ import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
 import FadeIn from '../components/FadeIn';
 import ChatSystemIcon, { type IconVariant } from '../components/ChatSystemIcons';
+import TypingHeading from '../components/TypingHeading';
 
 const TEAL = '#07e4c6';
 
@@ -195,8 +196,13 @@ export default function AboutPage() {
                 color: '#ffffff',
               }}
             >
-              We do not build intelligent chat systems.{' '}
-              <span style={{ color: TEAL }}>We build Output Systems.</span>
+              <TypingHeading
+                totalMs={6500}
+                segments={[
+                  { text: 'We do not build intelligent chat systems. ' },
+                  { text: 'We build Output Systems.', color: TEAL },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto"

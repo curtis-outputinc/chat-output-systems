@@ -4,6 +4,7 @@ import SiteNav from '../components/SiteNav';
 import AnimatedNodesBackground from '../components/AnimatedNodesBackground';
 import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
+import TypingHeading from '../components/TypingHeading';
 
 const TEAL = '#07e4c6';
 
@@ -46,7 +47,13 @@ export default function PrivacyPolicyPage() {
       <div className="os-hero">
         <div className="os-hero-tag">Legal</div>
         <h1>
-          Privacy <em>Policy</em>
+          <TypingHeading
+            totalMs={2800}
+            segments={[
+              { text: 'Privacy ' },
+              { text: 'Policy', color: TEAL },
+            ]}
+          />
         </h1>
         <p className="os-hero-intro">
           Effective Date: November 3, 2025 &nbsp;|&nbsp; Last Updated: April 1, 2026

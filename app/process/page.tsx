@@ -6,6 +6,7 @@ import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
 import FadeIn from '../components/FadeIn';
 import ChatSystemIcon, { type IconVariant } from '../components/ChatSystemIcons';
+import TypingHeading from '../components/TypingHeading';
 
 const TEAL = '#07e4c6';
 
@@ -213,10 +214,13 @@ export default function ProcessPage() {
                 color: '#ffffff',
               }}
             >
-              Here is how we build you a{' '}
-              <span style={{ color: TEAL, whiteSpace: 'nowrap' }}>
-                fully running system.
-              </span>
+              <TypingHeading
+                totalMs={4500}
+                segments={[
+                  { text: 'Here is how we build you a ' },
+                  { text: 'fully running system.', color: TEAL, nowrap: true },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto"

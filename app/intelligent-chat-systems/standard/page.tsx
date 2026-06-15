@@ -8,6 +8,7 @@ import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
 import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import ChatSystemIcon, { type IconVariant } from '../../components/ChatSystemIcons';
+import TypingHeading from '../../components/TypingHeading';
 
 export const metadata: Metadata = {
   title: 'Standard Intelligent Website Chat System — chat.output.systems',
@@ -132,8 +133,13 @@ export default function StandardPage() {
                 color: '#ffffff',
               }}
             >
-              Your website,{' '}
-              <span style={{ color: TEAL }}>always answering.</span>
+              <TypingHeading
+                totalMs={3000}
+                segments={[
+                  { text: 'Your website, ' },
+                  { text: 'always answering.', color: TEAL },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto mb-4"

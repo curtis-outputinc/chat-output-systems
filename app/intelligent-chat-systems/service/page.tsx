@@ -8,6 +8,7 @@ import StickyBookButton from '../../components/StickyBookButton';
 import FadeIn from '../../components/FadeIn';
 import AnimatedNodesBackground from '../../components/AnimatedNodesBackground';
 import ChatSystemIcon, { type IconVariant } from '../../components/ChatSystemIcons';
+import TypingHeading from '../../components/TypingHeading';
 
 export const metadata: Metadata = {
   title: 'Customer Chat System for Service Businesses — chat.output.systems',

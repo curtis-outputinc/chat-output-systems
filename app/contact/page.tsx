@@ -6,6 +6,7 @@ import SiteFooter from '../components/SiteFooter';
 import StickyBookButton from '../components/StickyBookButton';
 import FadeIn from '../components/FadeIn';
 import ContactForm from './ContactForm';
+import TypingHeading from '../components/TypingHeading';
 
 const TEAL = '#07e4c6';
 
@@ -36,8 +37,13 @@ export default function ContactPage() {
                 maxWidth: '1100px',
               }}
             >
-              Get in touch with us. We&apos;ll help you build exactly{' '}
-              <span style={{ color: TEAL }}>what your business needs.</span>
+              <TypingHeading
+                totalMs={6500}
+                segments={[
+                  { text: "Get in touch with us. We'll help you build exactly " },
+                  { text: 'what your business needs.', color: TEAL },
+                ]}
+              />
             </h1>
             <p
               className="mx-auto"

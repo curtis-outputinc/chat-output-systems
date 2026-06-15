@@ -184,7 +184,7 @@ export default function HomePage() {
                 segments={[
                   {
                     text:
-                      'Intelligent Website Chat Systems designed to acquire and keep ',
+                      'Intelligent Website Chat Systems designed to acquire and retain ',
                   },
                   { text: 'more clients', color: TEAL },
                   { text: '.' },
