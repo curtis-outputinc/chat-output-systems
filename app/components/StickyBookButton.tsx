@@ -13,7 +13,7 @@ import Link from 'next/link';
  * `href` for the Cal.com URL when it is).
  */
 export default function StickyBookButton({
-  href = '/contact',
+  href = 'https://cal.com/output-systems',
   label = 'BOOK A FREE DISCOVERY CALL',
 }: {
   href?: string;

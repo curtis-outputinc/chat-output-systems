@@ -44,6 +44,7 @@ export default function CookiesBanner() {
       role="dialog"
       aria-label="Cookies notice"
       aria-live="polite"
+      className="cookies-banner"
       style={{
         position: 'fixed',
         left: '20px',
@@ -64,6 +65,17 @@ export default function CookiesBanner() {
         gap: '18px',
       }}
     >
+      <style>{`
+        @media (max-width: 640px) {
+          .cookies-banner {
+            bottom: calc(5vh + 90px) !important;
+            left: 12px !important;
+            right: 12px !important;
+            width: calc(100% - 24px) !important;
+            max-width: 360px !important;
+          }
+        }
+      `}</style>
       <button
         type="button"
         onClick={dismiss}

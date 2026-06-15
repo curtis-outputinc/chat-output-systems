@@ -167,8 +167,13 @@ export default function HomePage() {
       <main className="text-white pb-40" style={{ position: 'relative', zIndex: 1 }}>
         {/* HERO */}
         <section
-          className="px-6 sm:px-10 text-center flex flex-col items-center justify-center"
-          style={{ minHeight: '100vh', paddingTop: '96px', paddingBottom: '40px' }}
+          className="px-6 sm:px-10 text-center flex flex-col items-center"
+          style={{
+            minHeight: '100vh',
+            paddingTop: 'clamp(120px, 26vh, 32vh)',
+            paddingBottom: '40px',
+            justifyContent: 'flex-start',
+          }}
         >
           <FadeIn>
             <h1

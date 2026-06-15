@@ -25,12 +25,12 @@ interface Framework {
 
 const FRAMEWORKS: Framework[] = [
   {
-    label: 'Canada — Federal',
+    label: 'Canada (Federal)',
     title: 'PIPEDA',
     body: "Canada's federal private-sector privacy law. For Canadian businesses, Output Systems designs tools that support responsible collection, use, and handling of personal information.",
   },
   {
-    label: 'Canada — Anti-Spam',
+    label: 'Canada (Anti-Spam)',
     title: 'CASL',
     body: "Canada's anti-spam law. Output Systems helps businesses separate normal service messages from marketing messages and support unsubscribe or communication preference handling where appropriate.",
   },
@@ -194,8 +194,10 @@ export default function CompliancePage() {
               <TypingHeading
                 totalMs={5000}
                 segments={[
-                  { text: 'Privacy, data, and compliance — ' },
-                  { text: 'built in from day one.', color: TEAL },
+                  { text: 'Privacy, data, and ' },
+                  { text: 'compliance', color: TEAL },
+                  { text: '... Built in from ' },
+                  { text: 'day one.', color: TEAL },
                 ]}
               />
             </h1>
@@ -436,11 +438,11 @@ export default function CompliancePage() {
                     marginBottom: '16px',
                   }}
                 >
-                  PII means personally identifiable information — information
-                  that can identify a person either on its own or when combined
-                  with other details. Names, email addresses, phone numbers,
-                  home addresses, account details, booking information, and
-                  customer messages.
+                  PII means personally identifiable information. That covers
+                  any detail that can identify a person on its own or when
+                  combined with other details. Names, email addresses, phone
+                  numbers, home addresses, account details, booking
+                  information, and customer messages.
                 </p>
                 <p
                   style={{
@@ -581,8 +583,8 @@ export default function CompliancePage() {
                 color: '#ffffff',
               }}
             >
-              Useful systems.{' '}
-              <span style={{ color: TEAL }}>Protected people.</span>
+              Protecting your business{' '}
+              <span style={{ color: TEAL }}>and your customers.</span>
             </h2>
             <p
               className="mx-auto"

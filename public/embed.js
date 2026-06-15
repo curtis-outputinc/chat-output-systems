@@ -98,6 +98,35 @@
     '}';
   document.head.appendChild(mobileStyles);
 
+  // ---------- Bubble heartbeat pulse — runs every 3 seconds ----------
+  var pulseStyles = document.createElement('style');
+  pulseStyles.textContent =
+    '@keyframes output-bubble-pulse {' +
+      '0%, 70%, 100% {' +
+        'transform: scale(1);' +
+        'background-color: #1ae0cb;' +
+        'box-shadow: 0 4px 12px rgba(0,0,0,0.35);' +
+      '}' +
+      '82% {' +
+        'transform: scale(1.14);' +
+        'background-color: #07e4c6;' +
+        'box-shadow: 0 4px 22px rgba(7,228,198,0.55), 0 4px 12px rgba(0,0,0,0.35);' +
+      '}' +
+      '92% {' +
+        'transform: scale(0.98);' +
+        'background-color: #1ae0cb;' +
+        'box-shadow: 0 4px 12px rgba(0,0,0,0.35);' +
+      '}' +
+    '}' +
+    '#output-chatbot-bubble {' +
+      'animation: output-bubble-pulse 3s ease-in-out infinite;' +
+    '}' +
+    /* Pause the heartbeat while the user is hovering or has the panel open. */
+    '#output-chatbot-bubble-container:hover #output-chatbot-bubble {' +
+      'animation-play-state: paused;' +
+    '}';
+  document.head.appendChild(pulseStyles);
+
   // ---------- Bubble container (desktop: label on top in 2 rows, icon below 50% larger) ----------
   var bubbleContainer = document.createElement('div');
   bubbleContainer.id = 'output-chatbot-bubble-container';
