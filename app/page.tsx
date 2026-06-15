@@ -423,7 +423,7 @@ export default function HomePage() {
                 <br />
                 <span style={{ color: TEAL }}>Your Profits.</span>
               </h2>
-              <p style={{ fontSize: '18px', color: '#ffffff', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '19px', color: '#ffffff', lineHeight: 1.85 }}>
                 Customers are converting when their needs are met quickly.
                 Understanding exactly what your website visitors are asking and
                 acting on that is the ultimate data for increasing profits.
@@ -431,15 +431,7 @@ export default function HomePage() {
             </FadeIn>
 
             <FadeIn delay={160}>
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  background: '#0a0f0d',
-                  border: '1px solid rgba(7,228,198,0.18)',
-                  borderRadius: '8px',
-                  padding: '24px',
-                }}
-              >
+              <div className="flex items-center justify-center">
                 <AnimatedBarGraph />
               </div>
             </FadeIn>
@@ -457,34 +449,59 @@ export default function HomePage() {
         >
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn>
-              <div
-                className="relative overflow-hidden flex items-center justify-center"
-                style={{
-                  background: '#0a0f0d',
-                  border: '1px solid rgba(7,228,198,0.14)',
-                  borderRadius: '6px',
-                  padding: '56px',
-                  aspectRatio: '1 / 1',
-                }}
-              >
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: '2px',
-                    background: TEAL,
-                  }}
-                />
-                <svg width={220} height={220} viewBox="0 0 180 180" aria-hidden="true">
-                  <circle cx={90} cy={90} r={80} fill="none" stroke={TEAL} strokeWidth={1.2} className="home-target-ring-1" />
-                  <circle cx={90} cy={90} r={58} fill="none" stroke={TEAL} strokeWidth={1.2} className="home-target-ring-2" />
-                  <circle cx={90} cy={90} r={36} fill="rgba(7,228,198,0.06)" stroke={TEAL} strokeWidth={1.5} className="home-target-ring-3" />
-                  <circle cx={90} cy={90} r={14} fill={TEAL} className="home-target-dot" />
+              <div className="flex items-center justify-center">
+                <svg
+                  width={260}
+                  height={260}
+                  viewBox="0 0 200 200"
+                  aria-hidden="true"
+                  style={{ overflow: 'visible' }}
+                >
+                  {/* Bullseye rings, drawn from outside in */}
+                  <circle cx={100} cy={100} r={88} fill="none" stroke={TEAL} strokeWidth={1.4} className="home-target-ring-1" />
+                  <circle cx={100} cy={100} r={66} fill="none" stroke={TEAL} strokeWidth={1.4} className="home-target-ring-2" />
+                  <circle cx={100} cy={100} r={42} fill="rgba(7,228,198,0.08)" stroke={TEAL} strokeWidth={1.6} className="home-target-ring-3" />
+                  <circle cx={100} cy={100} r={16} fill={TEAL} className="home-target-dot" />
+
+                  {/* Arrow — flies from upper-right and lands at center.
+                      Composed of shaft, solid arrowhead, and two fletchings. */}
                   <g className="home-arrow-hit">
-                    <line x1={140} y1={40} x2={96} y2={84} stroke="#ffffff" strokeWidth={2.5} strokeLinecap="round" />
-                    <polyline points="134,36 140,40 144,46" fill="none" stroke="#ffffff" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                    {/* Shaft */}
+                    <line
+                      x1={158}
+                      y1={42}
+                      x2={104}
+                      y2={96}
+                      stroke="#ffffff"
+                      strokeWidth={2.2}
+                      strokeLinecap="round"
+                    />
+                    {/* Arrowhead — solid white triangle pointing into the bullseye */}
+                    <polygon
+                      points="100,100 113,93 107,87"
+                      fill="#ffffff"
+                    />
+                    {/* Nock notch at back end */}
+                    <line
+                      x1={155}
+                      y1={45}
+                      x2={161}
+                      y2={39}
+                      stroke="#ffffff"
+                      strokeWidth={2.2}
+                      strokeLinecap="round"
+                    />
+                    {/* Fletching — two teal vanes at the back, angled out from the shaft */}
+                    <polygon
+                      points="152,46 161,37 170,40 162,46"
+                      fill={TEAL}
+                      opacity={0.95}
+                    />
+                    <polygon
+                      points="153,52 160,45 168,52 161,56"
+                      fill={TEAL}
+                      opacity={0.75}
+                    />
                   </g>
                 </svg>
               </div>
@@ -503,7 +520,7 @@ export default function HomePage() {
                 <br />
                 <span style={{ color: TEAL }}>Your Costs.</span>
               </h2>
-              <p style={{ fontSize: '18px', color: '#ffffff', lineHeight: 1.85 }}>
+              <p style={{ fontSize: '19px', color: '#ffffff', lineHeight: 1.85 }}>
                 No training needed, no turnover, 24/7 support. Your intelligent
                 chat system supports your clients without the overhead. Being a
                 better service team is the ultimate decrease in admin costs and
