@@ -11,6 +11,7 @@ import IntegrationsMarquee from './components/IntegrationsMarquee';
 import AnimatedStatCounter from './components/AnimatedStatCounter';
 import AnimatedNodesBackground from './components/AnimatedNodesBackground';
 import HomeChecklist from './components/HomeChecklist';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Intelligent Website Chat Systems — Output Systems',
@@ -247,25 +248,40 @@ export default function HomePage() {
           }}
         />
 
-        {/* STAT — 280% */}
+        {/* STAT — 280% + woman-with-phone image */}
         <section
-          className="px-6 sm:px-10 py-32"
+          className="px-6 sm:px-10 py-28"
           style={{
             background: '#0d1f1a',
             borderTop: '1px solid rgba(7,228,198,0.1)',
             borderBottom: '1px solid rgba(7,228,198,0.1)',
           }}
         >
-          <FadeIn>
-            <AnimatedStatCounter
-              target={280}
-              suffix="%"
-              durationMs={1800}
-              preHeadline="Consumers are"
-              headline="more likely to convert with a business that has a responsive chat system on their website."
-              citation="(2026 Marketing Mag)"
-            />
-          </FadeIn>
+          <div className="max-w-7xl mx-auto grid md:grid-cols-[1.1fr_1fr] gap-12 md:gap-16 items-center">
+            <FadeIn>
+              <AnimatedStatCounter
+                target={280}
+                suffix="%"
+                durationMs={1800}
+                preHeadline="Consumers are"
+                headline="more likely to convert with a business that has a responsive chat system on their website."
+                citation="(2026 Marketing Mag)"
+              />
+            </FadeIn>
+            <FadeIn delay={160}>
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/images/woman-with-phone.png"
+                  alt="Customer using a website chat on her phone"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto"
+                  style={{ maxWidth: '520px', borderRadius: '8px' }}
+                  priority={false}
+                />
+              </div>
+            </FadeIn>
+          </div>
         </section>
 
         {/* TWO-COL PROOF */}
@@ -408,7 +424,7 @@ export default function HomePage() {
 
         {/* INCREASE PROFITS — bar chart */}
         <section className="px-6 sm:px-10 py-32">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn>
               <h2
                 className="font-extrabold tracking-tight leading-[1.05] mb-5"
@@ -430,14 +446,24 @@ export default function HomePage() {
             </FadeIn>
 
             <FadeIn delay={160}>
-              <div className="flex items-center justify-center">
-                <AnimatedBarGraph />
+              <div className="flex flex-col items-center gap-6">
+                <Image
+                  src="/images/man-with-computer.png"
+                  alt="Business owner reviewing performance data on his computer"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto"
+                  style={{ maxWidth: '520px', borderRadius: '8px' }}
+                />
+                <div className="w-full" style={{ maxWidth: '520px' }}>
+                  <AnimatedBarGraph />
+                </div>
               </div>
             </FadeIn>
           </div>
         </section>
 
-        {/* DECREASE COSTS — bullseye */}
+        {/* DECREASE COSTS — meeting image */}
         <section
           className="px-6 sm:px-10 py-32"
           style={{
@@ -446,63 +472,17 @@ export default function HomePage() {
             borderBottom: '1px solid rgba(7,228,198,0.1)',
           }}
         >
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeIn>
               <div className="flex items-center justify-center">
-                <svg
-                  width={260}
-                  height={260}
-                  viewBox="0 0 200 200"
-                  aria-hidden="true"
-                  style={{ overflow: 'visible' }}
-                >
-                  {/* Bullseye rings, drawn from outside in */}
-                  <circle cx={100} cy={100} r={88} fill="none" stroke={TEAL} strokeWidth={1.4} className="home-target-ring-1" />
-                  <circle cx={100} cy={100} r={66} fill="none" stroke={TEAL} strokeWidth={1.4} className="home-target-ring-2" />
-                  <circle cx={100} cy={100} r={42} fill="rgba(7,228,198,0.08)" stroke={TEAL} strokeWidth={1.6} className="home-target-ring-3" />
-                  <circle cx={100} cy={100} r={16} fill={TEAL} className="home-target-dot" />
-
-                  {/* Arrow — flies from upper-right and lands at center.
-                      Composed of shaft, solid arrowhead, and two fletchings. */}
-                  <g className="home-arrow-hit">
-                    {/* Shaft */}
-                    <line
-                      x1={158}
-                      y1={42}
-                      x2={104}
-                      y2={96}
-                      stroke="#ffffff"
-                      strokeWidth={2.2}
-                      strokeLinecap="round"
-                    />
-                    {/* Arrowhead — solid white triangle pointing into the bullseye */}
-                    <polygon
-                      points="100,100 113,93 107,87"
-                      fill="#ffffff"
-                    />
-                    {/* Nock notch at back end */}
-                    <line
-                      x1={155}
-                      y1={45}
-                      x2={161}
-                      y2={39}
-                      stroke="#ffffff"
-                      strokeWidth={2.2}
-                      strokeLinecap="round"
-                    />
-                    {/* Fletching — two teal vanes at the back, angled out from the shaft */}
-                    <polygon
-                      points="152,46 161,37 170,40 162,46"
-                      fill={TEAL}
-                      opacity={0.95}
-                    />
-                    <polygon
-                      points="153,52 160,45 168,52 161,56"
-                      fill={TEAL}
-                      opacity={0.75}
-                    />
-                  </g>
-                </svg>
+                <Image
+                  src="/images/meeting.png"
+                  alt="Team meeting reviewing operations"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto"
+                  style={{ maxWidth: '520px', borderRadius: '8px' }}
+                />
               </div>
             </FadeIn>
 
