@@ -189,7 +189,7 @@ export default function HomePage() {
               <span style={{ color: TEAL, whiteSpace: 'nowrap' }}>
                 more clients
               </span>
-              .
+              !
             </h1>
           </FadeIn>
           <FadeIn delay={2000} durationMs={3000}>
