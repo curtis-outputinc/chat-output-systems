@@ -71,7 +71,7 @@ export default function RootLayout({
         {children}
         <CookiesBanner />
         <ClarityAnalytics />
-        <Analytics />
+        <Analytics scriptSrc="/api/r/load.js" endpoint="/api/r/c" />
       </body>
     </html>
   );
