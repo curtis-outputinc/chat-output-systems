@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import { themeInitScript } from '@/lib/insights/theme';
 import CookiesBanner from './components/CookiesBanner';
+import ClarityAnalytics from './components/ClarityAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -68,6 +70,8 @@ export default function RootLayout({
       <body className="bg-black text-white antialiased min-h-screen">
         {children}
         <CookiesBanner />
+        <ClarityAnalytics />
+        <Analytics />
       </body>
     </html>
   );
