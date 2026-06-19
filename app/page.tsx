@@ -321,7 +321,11 @@ export default function HomePage() {
                       lineHeight: 1.25,
                     }}
                   >
-                    {tile.title}
+                    <TypingHeading
+                      totalMs={1800}
+                      triggerOnScroll
+                      segments={[{ text: tile.title }]}
+                    />
                   </h3>
                   <p style={{ fontSize: '17px', color: '#ffffff', lineHeight: 1.75 }}>
                     {tile.body}
@@ -345,13 +349,19 @@ export default function HomePage() {
               <h2
                 className="font-extrabold tracking-tight"
                 style={{
-                  fontSize: 'clamp(24px, 3vw, 40px)',
+                  fontSize: 'clamp(25px, 3vw, 41px)',
                   letterSpacing: '-1px',
                   color: '#ffffff',
                 }}
               >
-                Systems designed to{' '}
-                <span style={{ color: TEAL }}>integrate with yours.</span>
+                <TypingHeading
+                  totalMs={1800}
+                  triggerOnScroll
+                  segments={[
+                    { text: 'Systems designed to ' },
+                    { text: 'integrate with yours.', color: TEAL },
+                  ]}
+                />
               </h2>
             </FadeIn>
           </div>
@@ -375,10 +385,14 @@ export default function HomePage() {
                   maxWidth: '900px',
                 }}
               >
-                Is your business adapting to{' '}
-                <span style={{ color: TEAL }}>
-                  today&apos;s customer trends?
-                </span>
+                <TypingHeading
+                  totalMs={2400}
+                  triggerOnScroll
+                  segments={[
+                    { text: 'Is your business adapting to ' },
+                    { text: 'today’s customer trends?', color: TEAL },
+                  ]}
+                />
               </h2>
             </FadeIn>
 
@@ -489,8 +503,14 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto text-center">
             <FadeIn>
               <SectionHeading>
-                Customized{' '}
-                <span style={{ color: TEAL }}>insight dashboards.</span>
+                <TypingHeading
+                  totalMs={1800}
+                  triggerOnScroll
+                  segments={[
+                    { text: 'Customized ' },
+                    { text: 'insight dashboards.', color: TEAL },
+                  ]}
+                />
               </SectionHeading>
             </FadeIn>
 
@@ -542,8 +562,14 @@ export default function HomePage() {
                     color: '#ffffff',
                   }}
                 >
-                  Efficient system design in a{' '}
-                  <span style={{ color: TEAL }}>four step process.</span>
+                  <TypingHeading
+                    totalMs={2200}
+                    triggerOnScroll
+                    segments={[
+                      { text: 'Efficient system design in a ' },
+                      { text: '4 step process.', color: TEAL },
+                    ]}
+                  />
                 </h2>
               </div>
             </FadeIn>

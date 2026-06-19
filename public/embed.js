@@ -68,13 +68,16 @@
         'width:32px !important;' +
         'height:32px !important;' +
         'border-radius:50% !important;' +
-        'background:' + TEAL + ' !important;' +
+        'background:' + WHITE + ' !important;' +
         'box-shadow:0 2px 8px rgba(0,0,0,0.4) !important;' +
         'z-index:2 !important;' +
+        'align-items:flex-start !important;' +
+        'padding-top:3px !important;' +
       '}' +
       '#output-chatbot-bubble svg{' +
-        'width:16px !important;' +
-        'height:16px !important;' +
+        'width:24px !important;' +
+        'height:24px !important;' +
+        'stroke:' + TEAL + ' !important;' +
       '}' +
       '#output-chatbot-bubble-label{' +
         'display:flex !important;' +
@@ -107,17 +110,17 @@
     '@keyframes output-bubble-pulse {' +
       '0% {' +
         'transform: scale(1);' +
-        'background-color: #1ae0cb !important;' +
+        'background-color: #ffffff !important;' +
         'box-shadow: 0 4px 12px rgba(0,0,0,0.35), 0 0 0 0 rgba(7,228,198,0.55);' +
       '}' +
       '50% {' +
         'transform: scale(1.12);' +
-        'background-color: #5beed5 !important;' +
+        'background-color: #ffffff !important;' +
         'box-shadow: 0 6px 22px rgba(0,0,0,0.4), 0 0 0 14px rgba(7,228,198,0);' +
       '}' +
       '100% {' +
         'transform: scale(1);' +
-        'background-color: #1ae0cb !important;' +
+        'background-color: #ffffff !important;' +
         'box-shadow: 0 4px 12px rgba(0,0,0,0.35), 0 0 0 0 rgba(7,228,198,0);' +
       '}' +
     '}' +
@@ -172,7 +175,9 @@
     'pointer-events:none',
   ].join(';');
 
-  // ---------- Bubble (circular icon button, 72px on desktop = 50% bigger than before) ----------
+  // ---------- Bubble (circular icon button) — body white, teal messenger icon
+  // sitting near the top edge of the circle. Mobile media query overrides
+  // size + position back down for the smaller pill format.
   var bubble = document.createElement('button');
   bubble.id = 'output-chatbot-bubble';
   bubble.setAttribute('aria-label', 'Open Output chatbot');
@@ -180,23 +185,23 @@
     'width:72px',
     'height:72px',
     'border-radius:50%',
-    'background:' + TEAL,
-    'color:' + BLACK,
+    'background:' + WHITE,
+    'color:' + TEAL,
     'border:none',
     'cursor:pointer',
     'box-shadow:0 4px 12px rgba(0,0,0,0.35)',
     'display:flex',
-    'align-items:center',
+    'align-items:flex-start',
     'justify-content:center',
     'flex-shrink:0',
-    'padding:0',
+    'padding:8px 0 0 0',
   ].join(';');
 
-  // Crosshair-ish chat icon (simple SVG, matches brand). Desktop renders at 33px,
-  // mobile media query knocks the bubble + svg back down to 48px / 22px.
+  // Messenger icon — 50px (was 33), teal stroke (was black), pinned near the
+  // top edge of the white bubble via the parent's flex-start + padding-top.
   bubble.innerHTML =
-    '<svg width="33" height="33" viewBox="0 0 24 24" fill="none" stroke="' +
-    BLACK +
+    '<svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="' +
+    TEAL +
     '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>' +
     '</svg>';
