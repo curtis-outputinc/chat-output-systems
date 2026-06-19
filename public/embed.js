@@ -63,20 +63,21 @@
       '#output-chatbot-bubble{' +
         'display:flex !important;' +
         'position:absolute !important;' +
-        'top:-38px !important;' +
+        'top:-46px !important;' +
         'right:5% !important;' +
-        'width:48px !important;' +
-        'height:48px !important;' +
+        'width:64px !important;' +
+        'height:64px !important;' +
         'border-radius:50% !important;' +
         'background:' + WHITE + ' !important;' +
         'box-shadow:0 2px 8px rgba(0,0,0,0.4) !important;' +
         'z-index:2 !important;' +
-        'align-items:flex-start !important;' +
-        'padding-top:6px !important;' +
+        'align-items:center !important;' +
+        'justify-content:center !important;' +
+        'padding:0 !important;' +
       '}' +
       '#output-chatbot-bubble svg{' +
-        'width:24px !important;' +
-        'height:24px !important;' +
+        'width:36px !important;' +
+        'height:36px !important;' +
         'stroke:' + TEAL + ' !important;' +
       '}' +
       '#output-chatbot-bubble-label{' +
@@ -182,25 +183,24 @@
   bubble.id = 'output-chatbot-bubble';
   bubble.setAttribute('aria-label', 'Open Output chatbot');
   bubble.style.cssText = [
-    'width:108px',
-    'height:108px',
+    'width:140px',
+    'height:140px',
     'border-radius:50%',
     'background:' + WHITE,
     'color:' + TEAL,
     'border:none',
     'cursor:pointer',
-    'box-shadow:0 4px 14px rgba(0,0,0,0.35)',
+    'box-shadow:0 4px 16px rgba(0,0,0,0.4)',
     'display:flex',
-    'align-items:flex-start',
+    'align-items:center',
     'justify-content:center',
     'flex-shrink:0',
-    'padding:14px 0 0 0',
+    'padding:0',
   ].join(';');
 
-  // Messenger icon — 50px (was 33), teal stroke (was black), pinned near the
-  // top edge of the white bubble via the parent's flex-start + padding-top.
+  // Messenger icon — teal stroke, centered inside the white bubble.
   bubble.innerHTML =
-    '<svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="' +
+    '<svg width="76" height="76" viewBox="0 0 24 24" fill="none" stroke="' +
     TEAL +
     '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>' +
