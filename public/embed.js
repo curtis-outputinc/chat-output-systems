@@ -63,7 +63,7 @@
       '#output-chatbot-bubble{' +
         'display:flex !important;' +
         'position:absolute !important;' +
-        'top:-46px !important;' +
+        'top:-68px !important;' +
         'right:5% !important;' +
         'width:64px !important;' +
         'height:64px !important;' +
