@@ -63,16 +63,16 @@
       '#output-chatbot-bubble{' +
         'display:flex !important;' +
         'position:absolute !important;' +
-        'top:-22px !important;' +
+        'top:-38px !important;' +
         'right:5% !important;' +
-        'width:32px !important;' +
-        'height:32px !important;' +
+        'width:48px !important;' +
+        'height:48px !important;' +
         'border-radius:50% !important;' +
         'background:' + WHITE + ' !important;' +
         'box-shadow:0 2px 8px rgba(0,0,0,0.4) !important;' +
         'z-index:2 !important;' +
         'align-items:flex-start !important;' +
-        'padding-top:3px !important;' +
+        'padding-top:6px !important;' +
       '}' +
       '#output-chatbot-bubble svg{' +
         'width:24px !important;' +
@@ -182,19 +182,19 @@
   bubble.id = 'output-chatbot-bubble';
   bubble.setAttribute('aria-label', 'Open Output chatbot');
   bubble.style.cssText = [
-    'width:72px',
-    'height:72px',
+    'width:108px',
+    'height:108px',
     'border-radius:50%',
     'background:' + WHITE,
     'color:' + TEAL,
     'border:none',
     'cursor:pointer',
-    'box-shadow:0 4px 12px rgba(0,0,0,0.35)',
+    'box-shadow:0 4px 14px rgba(0,0,0,0.35)',
     'display:flex',
     'align-items:flex-start',
     'justify-content:center',
     'flex-shrink:0',
-    'padding:8px 0 0 0',
+    'padding:14px 0 0 0',
   ].join(';');
 
   // Messenger icon — 50px (was 33), teal stroke (was black), pinned near the
