@@ -183,8 +183,8 @@
   bubble.id = 'output-chatbot-bubble';
   bubble.setAttribute('aria-label', 'Open Output chatbot');
   bubble.style.cssText = [
-    'width:140px',
-    'height:140px',
+    'width:70px',
+    'height:70px',
     'border-radius:50%',
     'background:' + WHITE,
     'color:' + TEAL,
@@ -200,7 +200,7 @@
 
   // Messenger icon — teal stroke, centered inside the white bubble.
   bubble.innerHTML =
-    '<svg width="76" height="76" viewBox="0 0 24 24" fill="none" stroke="' +
+    '<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="' +
     TEAL +
     '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>' +

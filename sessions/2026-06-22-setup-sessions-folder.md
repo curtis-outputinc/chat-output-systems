@@ -44,3 +44,24 @@ User wanted the chat agent to start offering the Free Discovery Call earlier in 
 ## Notes
 - `lib/lead-email.ts` and the SUBMIT_LEAD marker pipeline already exist and were not touched. Resend wiring is intact, recipient is `connect@output.systems` (overridable via `HANDOFF_RECIPIENT` env var). The pre-qual change is purely about *when* the offer lands; the lead-capture infra is unchanged.
 - Deployment: pushed to `main` on the GitHub remote, which triggers Vercel auto-deploy. Did not run `vercel --prod` manually.
+
+---
+
+# 2026-06-23 — Desktop chat bubble icon reduced 50%
+
+## Goal
+User asked to reduce the floating chat bubble icon on desktop by 50%. Confirmed the previous session's chat changes "all work" before this request.
+
+## Changes
+- `public/embed.js`: desktop bubble dropped 140px → 70px, SVG icon dropped 76px → 38px (exactly half). Mobile `@media (max-width:640px)` overrides at lines 68 (64px) and 79 (36px) untouched — phones stay the same size.
+
+## Decisions
+- Edited only the inline desktop default styles, not the mobile `@media` block. The two are independently sized for a reason (the mobile bubble sits inside a pill label).
+- Did not touch any in-page chat input UI — the bubble lives only in the embed widget that other sites load via `<script src=".../embed.js">`.
+
+## Follow-ups
+- None open.
+
+## Notes
+- Verified locally with `curl http://localhost:3002/embed.js` after the dev server reported ready. Confirmed `width:70px` on the desktop bubble and `width="38" height="38"` on the desktop SVG appear in the served output. Mobile `width:64px !important` still present in the `@media` block.
+- User got frustrated last session because I shipped without testing. From now on, no "go look at it" hand-offs — `feedback_test_before_reporting.md` in `~/.claude/projects/.../memory/` captures this rule.
