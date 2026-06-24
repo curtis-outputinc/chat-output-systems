@@ -5,7 +5,12 @@ import { buildSystemPrompt } from '@/lib/system-prompt';
 import { getSupabaseService, OUTPUT_TENANT_SLUG } from '@/lib/supabase';
 import { preFlightCheck } from '@/lib/filters';
 import { postFlightClean } from '@/lib/filters';
-import { checkRateLimit, extractIp } from '@/lib/rate-limit';
+import {
+  checkRateLimit,
+  checkDailyLimit,
+  checkConversationLimit,
+  extractIp,
+} from '@/lib/rate-limit';
 import { getGreeting } from '@/lib/greetings';
 import { sendChatLeadEmail, type ChatLeadPayload } from '@/lib/lead-email';
 
@@ -64,8 +69,31 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const daily = await checkDailyLimit(ip);
+    if (!daily.allowed) {
+      return NextResponse.json(
+        {
+          error: 'daily_limit_reached',
+          message: `You've reached the daily message limit. Try again tomorrow, or book a call directly: ${CALCOM_URL}`,
+          resetSeconds: daily.resetSeconds,
+        },
+        { status: 429 },
+      );
+    }
+
     const body = (await req.json()) as ChatRequest;
     const { messages, conversationId: existingConvId, visitorId, pageContext, refParam } = body;
+
+    const convLimit = await checkConversationLimit(existingConvId);
+    if (!convLimit.allowed) {
+      return NextResponse.json(
+        {
+          error: 'conversation_limit_reached',
+          message: `This conversation has reached its ${convLimit.limit}-message limit. Start a new conversation or book a call directly: ${CALCOM_URL}`,
+        },
+        { status: 429 },
+      );
+    }
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json({ error: 'messages required' }, { status: 400 });

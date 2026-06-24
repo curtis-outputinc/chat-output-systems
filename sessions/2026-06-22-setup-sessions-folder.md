@@ -65,3 +65,38 @@ User asked to reduce the floating chat bubble icon on desktop by 50%. Confirmed 
 ## Notes
 - Verified locally with `curl http://localhost:3002/embed.js` after the dev server reported ready. Confirmed `width:70px` on the desktop bubble and `width="38" height="38"` on the desktop SVG appear in the served output. Mobile `width:64px !important` still present in the `@media` block.
 - User got frustrated last session because I shipped without testing. From now on, no "go look at it" hand-offs — `feedback_test_before_reporting.md` in `~/.claude/projects/.../memory/` captures this rule.
+
+---
+
+# 2026-06-23 (cont.) — Abuse caps: 20 messages/conversation, 300 messages/IP/day
+
+## Goal
+Protect the chat endpoint against someone running up tokens. User asked for two hard caps: max 20 user messages per conversation, max 300 user messages per IP per day. Both implemented and enforced server-side.
+
+## Changes
+- `lib/rate-limit.ts`:
+  - Added `MAX_REQUESTS_PER_DAY = 300` and `MAX_MESSAGES_PER_CONVERSATION = 20` constants.
+  - Added `checkDailyLimit(ip)` — counts rows in the existing `rate_limits` table over a 24h window. Mirrors the hourly check, no insert (the hourly check already records the hit).
+  - Added `checkConversationLimit(conversationId)` — counts `messages` rows with `role='user'` for the conversation. Uses the existing `messages(conversation_id, created_at)` index. Returns `{ allowed, count, limit }`.
+  - Existing 30/IP/hour cap left untouched.
+- `app/api/chat/route.ts`:
+  - Imported the two new functions.
+  - Order of checks now: hourly → daily → (parse body) → per-conversation → preFlight → model call.
+  - Two new 429 responses with distinct error codes (`daily_limit_reached`, `conversation_limit_reached`) so the UI can surface the right message.
+
+## Decisions
+- Kept the abuse caps in `lib/rate-limit.ts` rather than a new module — they share the same `rate_limits` table and conceptually belong together.
+- Per-conversation cap counts `messages` directly rather than tracking a counter on the `conversations` row. One less write path to maintain consistency on; the count query is indexed and cheap.
+- Daily check does not insert — it leans on the hourly check's existing insert, which fires every successful request.
+- Fail-open on DB errors (matches existing hourly behaviour). A DB blip should not deny legitimate visitors.
+
+## Follow-ups
+- None open. Caps now active in production.
+
+## Notes
+- Verified end-to-end against the local dev server before committing:
+  1. First chat request (no convId) → HTTP 200, conversation created.
+  2. Temporarily lowered `MAX_MESSAGES_PER_CONVERSATION = 1`. Second request with that convId → HTTP 429 `conversation_limit_reached`. Reverted to 20.
+  3. Temporarily lowered `MAX_REQUESTS_PER_DAY = 1`. Fresh request from same IP → HTTP 429 `daily_limit_reached` with `resetSeconds: 86349`. Reverted to 300.
+- Final typecheck clean, constants confirmed back at 300 / 20 before commit.
+- Both caps use the same DB-backed pattern as the existing hourly limiter — same fail-open behaviour, same Supabase tables, no new schema needed.
